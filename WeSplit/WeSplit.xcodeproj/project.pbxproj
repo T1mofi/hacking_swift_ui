@@ -14,6 +14,7 @@
 		2295EBF32B166A7600CE8F1A /* WeSplitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295EBF22B166A7600CE8F1A /* WeSplitTests.swift */; };
 		2295EBFD2B166A7600CE8F1A /* WeSplitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295EBFC2B166A7600CE8F1A /* WeSplitUITests.swift */; };
 		2295EBFF2B166A7600CE8F1A /* WeSplitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295EBFE2B166A7600CE8F1A /* WeSplitUITestsLaunchTests.swift */; };
+		2295EC732B178DCA00CE8F1A /* CheckSplitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295EC722B178DCA00CE8F1A /* CheckSplitContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		2295EBF82B166A7600CE8F1A /* WeSplitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeSplitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2295EBFC2B166A7600CE8F1A /* WeSplitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeSplitUITests.swift; sourceTree = "<group>"; };
 		2295EBFE2B166A7600CE8F1A /* WeSplitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeSplitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2295EC722B178DCA00CE8F1A /* CheckSplitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSplitContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				2295EBE12B166A7500CE8F1A /* WeSplitApp.swift */,
 				2295EBE32B166A7500CE8F1A /* ContentView.swift */,
+				2295EC722B178DCA00CE8F1A /* CheckSplitContentView.swift */,
 				2295EBE52B166A7600CE8F1A /* Assets.xcassets */,
 				2295EBE72B166A7600CE8F1A /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2295EC732B178DCA00CE8F1A /* CheckSplitContentView.swift in Sources */,
 				2295EBE42B166A7500CE8F1A /* ContentView.swift in Sources */,
 				2295EBE22B166A7500CE8F1A /* WeSplitApp.swift in Sources */,
 			);

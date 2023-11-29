@@ -55,10 +55,7 @@ struct ContentView: View {
             }
             .navigationTitle("SwiftUI")
             .navigationBarTitleDisplayMode(.inline)
-
-
         }
-
     }
 }
 
