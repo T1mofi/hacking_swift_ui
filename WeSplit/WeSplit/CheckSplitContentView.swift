@@ -65,7 +65,3 @@ struct CheckSplitContentView: View {
         }
     }
 }
-
-#Preview {
-    CheckSplitContentView()
-}
