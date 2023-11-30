@@ -12,6 +12,8 @@ struct CheckSplitContentView: View {
     @State private var numberOfPeople = 0
     @State private var tipPercentage = 20
 
+    @FocusState private var amoutFieldIsFocused: Bool
+
     var totalPerPerson: Double {
         let peopleCount = Double(numberOfPeople + 2)
         let tipSelection = Double(tipPercentage)
@@ -31,6 +33,7 @@ struct CheckSplitContentView: View {
                 Section(header: Text("Input")) {
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
+                        .focused($amoutFieldIsFocused)
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2..<5) {
                             Text("\($0) people")
@@ -51,6 +54,14 @@ struct CheckSplitContentView: View {
                 }
             }
             .navigationTitle("Check split")
+            .toolbar {
+                Button("done") {
+                    amoutFieldIsFocused = false
+                }
+            }
+            .onTapGesture {
+                amoutFieldIsFocused = false
+            }
         }
     }
 }
