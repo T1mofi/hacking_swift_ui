@@ -14,12 +14,16 @@ struct CheckSplitContentView: View {
 
     @FocusState private var amoutFieldIsFocused: Bool
 
-    var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople + 2)
+    var grandTotal: Double {
         let tipSelection = Double(tipPercentage)
-
         let tipValue = checkAmount / 100 * tipSelection
         let grandTotal = checkAmount + tipValue
+
+        return grandTotal
+    }
+
+    var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
         let amountPerPerson = grandTotal / peopleCount
 
         return amountPerPerson
@@ -49,7 +53,11 @@ struct CheckSplitContentView: View {
                 }
                 .padding()
 
-                Section(header: Text("Result")) {
+                Section(header: Text("Total amount")) {
+                    Text(grandTotal, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                }
+                
+                Section(header: Text("Amount per person")) {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
             }
