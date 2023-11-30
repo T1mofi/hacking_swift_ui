@@ -43,7 +43,6 @@ struct CheckSplitContentView: View {
                             Text("\($0) people")
                         }
                     }
-                    .pickerStyle(.navigationLink)
                     Picker("Tip percentage", selection: $tipPercentage) {
                         ForEach(tipPercentages, id: \.self) {
                             Text($0, format: .percent)
@@ -56,7 +55,7 @@ struct CheckSplitContentView: View {
                 Section(header: Text("Total amount")) {
                     Text(grandTotal, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
-                
+
                 Section(header: Text("Amount per person")) {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
