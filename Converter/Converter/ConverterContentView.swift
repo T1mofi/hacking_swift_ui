@@ -11,6 +11,8 @@ struct ConverterContentView: View {
     struct Constants {
         static let initialAmount = 1.0
         static let plnToEurConversionRate = 0.23
+        static let plnToUSDConversionRate = 0.25
+        static let EurToUSDConversionRate = plnToUSDConversionRate / plnToEurConversionRate
     }
 
     @FocusState private var textFieldFocused: Bool
@@ -22,6 +24,26 @@ struct ConverterContentView: View {
     @State private var secondCurrency = "EUR"
 
     private var currenciesList = ["PLN", "EUR", "USD"]
+
+    private var conversionRate: Double {
+        switch (firstCurrency, secondCurrency) {
+        case ("PLN", "EUR"):
+            return Constants.plnToEurConversionRate
+        case ("EUR", "PLN"):
+            return 1 / Constants.plnToEurConversionRate
+        case ("PLN", "USD"):
+            return Constants.plnToUSDConversionRate
+        case ("USD", "PLN"):
+            return 1 / Constants.plnToUSDConversionRate
+        case ("EUR", "USD"):
+            return Constants.EurToUSDConversionRate
+        case ("USD", "EUR"):
+            return 1 / Constants.EurToUSDConversionRate
+        default:
+            return -1
+        }
+
+    }
 
     var body: some View {
         NavigationStack {
@@ -43,7 +65,7 @@ struct ConverterContentView: View {
                         .keyboardType(.numberPad)
                         .focused($textFieldFocused)
                         .onChange(of: firstCurrencyAmount) {
-                            secondCurrencyAmount = firstCurrencyAmount * Constants.plnToEurConversionRate
+                            secondCurrencyAmount = firstCurrencyAmount * conversionRate
                             print("firstCurrencyAmount change callback")
                         }
                 }
@@ -65,7 +87,7 @@ struct ConverterContentView: View {
                         .keyboardType(.numberPad)
                         .focused($secondTextFieldFocused)
                         .onChange(of: secondCurrencyAmount) {
-                            firstCurrencyAmount = secondCurrencyAmount / Constants.plnToEurConversionRate
+                            firstCurrencyAmount = secondCurrencyAmount / conversionRate
                             print("secondCurrencyAmount change callback")
                         }
                 }
