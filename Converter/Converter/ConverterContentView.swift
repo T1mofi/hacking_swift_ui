@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ConverterContentView: View {
-    @State private var firstCurrency = 1.0
-    @State private var secondCurrency = 1.0
+    struct Constants {
+        static var plnToEurConversionRate = 0.23
+    }
+
+    @FocusState private var textFieldFocused: Bool
+
+    @State private var firstCurrencyAmount = 1.0
+    @State private var secondCurrencyAmount: Double = 1.0 * Constants.plnToEurConversionRate
 
     private var fistCurrencyCode = "PLN"
     private var secondCurrencyCode = "EUR"
@@ -18,13 +24,20 @@ struct ConverterContentView: View {
         NavigationStack {
             Form {
                 Section("From") {
-                    TextField("Amount", value: $firstCurrency, format: .currency(code: fistCurrencyCode))
+                    TextField("Amount", value: $firstCurrencyAmount, format: .number)
                         .keyboardType(.numberPad)
+                        .focused($textFieldFocused)
+                        .onChange(of: firstCurrencyAmount) {
+                            secondCurrencyAmount = firstCurrencyAmount * Constants.plnToEurConversionRate
+                        }
                 }
 
                 Section("To") {
-                    TextField("Amount", value: $secondCurrency, format: .currency(code: secondCurrencyCode))
+                    Text(secondCurrencyAmount, format: .currency(code: secondCurrencyCode))
                 }
+            }
+            .onTapGesture {
+                textFieldFocused = false
             }
         }
     }

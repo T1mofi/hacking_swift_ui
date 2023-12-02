@@ -66,9 +66,6 @@ struct CheckSplitContentView: View {
                     amoutFieldIsFocused = false
                 }
             }
-            .onTapGesture {
-                amoutFieldIsFocused = false
-            }
         }
     }
 }
