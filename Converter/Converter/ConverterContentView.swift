@@ -9,13 +9,15 @@ import SwiftUI
 
 struct ConverterContentView: View {
     struct Constants {
-        static var plnToEurConversionRate = 0.23
+        static let initialAmount = 1.0
+        static let plnToEurConversionRate = 0.23
     }
 
     @FocusState private var textFieldFocused: Bool
+    @FocusState private var secondTextFieldFocused: Bool
 
-    @State private var firstCurrencyAmount = 1.0
-    @State private var secondCurrencyAmount: Double = 1.0 * Constants.plnToEurConversionRate
+    @State private var firstCurrencyAmount = Constants.initialAmount
+    @State private var secondCurrencyAmount: Double = Constants.initialAmount * Constants.plnToEurConversionRate
 
     private var fistCurrencyCode = "PLN"
     private var secondCurrencyCode = "EUR"
@@ -23,21 +25,29 @@ struct ConverterContentView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("From") {
-                    TextField("Amount", value: $firstCurrencyAmount, format: .number)
+                Section((fistCurrencyCode)) {
+                    TextField("Amount", value: $firstCurrencyAmount, format: .number.precision(.fractionLength(2)))
                         .keyboardType(.numberPad)
                         .focused($textFieldFocused)
                         .onChange(of: firstCurrencyAmount) {
                             secondCurrencyAmount = firstCurrencyAmount * Constants.plnToEurConversionRate
+                            print("firstCurrencyAmount change callback")
                         }
                 }
 
-                Section("To") {
-                    Text(secondCurrencyAmount, format: .currency(code: secondCurrencyCode))
+                Section(secondCurrencyCode) {
+                    TextField("Amount", value: $secondCurrencyAmount, format: .number.precision(.fractionLength(2)))
+                        .keyboardType(.numberPad)
+                        .focused($secondTextFieldFocused)
+                        .onChange(of: secondCurrencyAmount) {
+                            firstCurrencyAmount = secondCurrencyAmount / Constants.plnToEurConversionRate
+                            print("secondCurrencyAmount change callback")
+                        }
                 }
             }
             .onTapGesture {
                 textFieldFocused = false
+                secondTextFieldFocused = false
             }
         }
     }
