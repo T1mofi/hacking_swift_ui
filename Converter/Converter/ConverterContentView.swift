@@ -18,14 +18,27 @@ struct ConverterContentView: View {
 
     @State private var firstCurrencyAmount = Constants.initialAmount
     @State private var secondCurrencyAmount: Double = Constants.initialAmount * Constants.plnToEurConversionRate
+    @State private var firstCurrency = "PLN"
+    @State private var secondCurrency = "EUR"
 
-    private var fistCurrencyCode = "PLN"
-    private var secondCurrencyCode = "EUR"
+    private var currenciesList = ["PLN", "EUR", "USD"]
 
     var body: some View {
         NavigationStack {
             Form {
-                Section((fistCurrencyCode)) {
+                Section("From") {
+                    Picker("First Currency", selection: $firstCurrency) {
+                        ForEach(currenciesList, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .onChange(of: firstCurrency) { oldValue, newValue in
+                        if newValue == secondCurrency {
+                            secondCurrency = currenciesList.first(where: {$0 != newValue}) ?? "Error"
+                        }
+                    }
+
                     TextField("Amount", value: $firstCurrencyAmount, format: .number.precision(.fractionLength(2)))
                         .keyboardType(.numberPad)
                         .focused($textFieldFocused)
@@ -35,7 +48,19 @@ struct ConverterContentView: View {
                         }
                 }
 
-                Section(secondCurrencyCode) {
+                Section("To") {
+                    Picker("First Currency", selection: $secondCurrency) {
+                        ForEach(currenciesList, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .onChange(of: secondCurrency) { oldValue, newValue in
+                        if newValue == firstCurrency {
+                            firstCurrency = currenciesList.first(where: {$0 != newValue}) ?? "Error"
+                        }
+                    }
+
                     TextField("Amount", value: $secondCurrencyAmount, format: .number.precision(.fractionLength(2)))
                         .keyboardType(.numberPad)
                         .focused($secondTextFieldFocused)
