@@ -10,17 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            VStack(spacing: 0) {
-                Color.cyan
-                Color.indigo
-            }
-            Text("Your content")
-                .foregroundStyle(.secondary)
-                .padding(20)
-                .background(.ultraThinMaterial)
-                .cornerRadius(5)
+            RadialGradient(colors: [.cyan, .blue, .indigo, .purple, .pink], center: .center, startRadius: 100, endRadius: 350)
+                .ignoresSafeArea()
+            RadialGradient(colors: [.pink, .purple, .indigo , .cyan], center: .center, startRadius: 0, endRadius: 100)
+
+                .ignoresSafeArea()
+                .frame(width: 200, height: 200)
+                .cornerRadius(100)
         }
-        .ignoresSafeArea()
     }
 }
 
