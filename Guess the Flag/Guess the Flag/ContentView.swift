@@ -8,16 +8,59 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
+    @State var correctAnswer = Int.random(in: 0...2)
+
+    @State private var showingScore = false
+    @State private var scoreTitle = ""
+
     var body: some View {
         ZStack {
-            RadialGradient(colors: [.cyan, .blue, .indigo, .purple, .pink], center: .center, startRadius: 100, endRadius: 350)
+            LinearGradient(colors: [.teal, .cyan, .indigo], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-            RadialGradient(colors: [.pink, .purple, .indigo , .cyan], center: .center, startRadius: 0, endRadius: 100)
 
-                .ignoresSafeArea()
-                .frame(width: 200, height: 200)
-                .cornerRadius(100)
+            VStack(spacing: 30) {
+                VStack {
+                    Text("Tap the flag of")
+                        .foregroundStyle(.white)
+                        .font(.subheadline.weight(.heavy))
+
+                    Text(countries[correctAnswer])
+                        .foregroundStyle(.white)
+                        .font(.largeTitle.weight(.semibold))
+                }
+
+                ForEach(0..<3) { number in
+                    Button {
+                        flagTapped(number)
+                    } label: {
+                        Image(countries[number])
+                            .clipShape(.rect(cornerRadius: 8))
+                            .shadow(radius: 4)
+                    }
+                }
+            }
         }
+        .alert(scoreTitle, isPresented: $showingScore) {
+            Button("Continue", action: askQuestion)
+        } message: {
+            Text("Your score is ???")
+        }
+    }
+
+    func flagTapped(_ number: Int) {
+        if number == correctAnswer {
+            scoreTitle = "Correct"
+        } else {
+            scoreTitle = "Wrong"
+        }
+
+        showingScore = true
+    }
+
+    func askQuestion() {
+        countries.shuffle()
+        correctAnswer = Int.random(in: 0...2)
     }
 }
 
