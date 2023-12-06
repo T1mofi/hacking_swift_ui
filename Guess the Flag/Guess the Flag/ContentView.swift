@@ -11,8 +11,13 @@ struct ContentView: View {
     @State var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     @State var correctAnswer = Int.random(in: 0...2)
 
-    @State private var showingScore = false
+    @State private var scoreAlertIsPresented = false
+    @State private var endOfTheGameAlertIsPresented = false
+
     @State private var scoreTitle = ""
+    @State private var scoreMessage = ""
+    @State private var score = 0
+    @State private var attemptsNumber = 8
 
     var body: some View {
         ZStack {
@@ -49,6 +54,7 @@ struct ContentView: View {
                             Image(countries[number])
                                 .clipShape(.rect(cornerRadius: 8))
                                 .shadow(radius: 4)
+
                         }
                     }
                 }
@@ -60,34 +66,69 @@ struct ContentView: View {
                 Spacer()
                 Spacer()
 
-                Text("Score: ???")
-                    .foregroundStyle(.white)
+                Text("Score: \(score)")
+                    .foregroundStyle(.thickMaterial)
                     .font(.title.bold())
 
                 Spacer()
             }
             .padding()
         }
-        .alert(scoreTitle, isPresented: $showingScore) {
+
+        // Attempt results alert
+        .alert(scoreTitle, isPresented: $scoreAlertIsPresented) {
             Button("Continue", action: askQuestion)
         } message: {
-            Text("Your score is ???")
+            Text(scoreMessage)
+        }
+
+        // End of the game alert
+        .alert("Congrats!", isPresented: $endOfTheGameAlertIsPresented) {
+            Button("Restart", action: restartGame)
+        } message: {
+            Text("Your score final score is \(score)")
         }
     }
 
     func flagTapped(_ number: Int) {
+        attemptsNumber -= 1
+
         if number == correctAnswer {
-            scoreTitle = "Correct"
-        } else {
-            scoreTitle = "Wrong"
+            score += 1
         }
 
-        showingScore = true
+        if attemptsNumber <= 0 {
+            showEndOfTheGameAlert()
+        } else {
+            showAttemptResults(selectedNumber: number)
+        }
+    }
+
+    func showAttemptResults(selectedNumber: Int) {
+        scoreMessage = "You have \(attemptsNumber) attempts left"
+        if selectedNumber == correctAnswer {
+            scoreTitle = "Exactly!"
+        } else {
+            scoreTitle = "Not quite right :("
+            scoreMessage += "\nYou selected the flag of \(countries[selectedNumber])"
+        }
+
+        scoreAlertIsPresented = true
+    }
+
+    func showEndOfTheGameAlert() {
+        endOfTheGameAlertIsPresented = true
     }
 
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+    }
+
+    func restartGame() {
+        attemptsNumber = 8
+        score = 0
+        askQuestion()
     }
 }
 
