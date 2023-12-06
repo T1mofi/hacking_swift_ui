@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    struct Constants {
+        static let defaultAttemptsNumber = 8
+    }
+
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
 
@@ -17,7 +21,7 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var scoreMessage = ""
     @State private var score = 0
-    @State private var attemptsNumber = 8
+    @State private var attemptsNumber = Constants.defaultAttemptsNumber
 
     var body: some View {
         ZStack {
@@ -95,8 +99,10 @@ struct ContentView: View {
             Text("Your score final score is \(score)")
         }
     }
+}
 
-    // MARK: - Actions
+// MARK: - Actions
+extension ContentView {
     private func flagTapped(_ number: Int) {
         attemptsNumber -= 1
 
@@ -112,13 +118,14 @@ struct ContentView: View {
     }
 
     private func restartGame() {
-        attemptsNumber = 8
+        attemptsNumber = Constants.defaultAttemptsNumber
         score = 0
         askQuestion()
     }
+}
 
-    // MARK: - Actions
-
+// MARK: - Other methods
+extension ContentView {
     private func showAttemptResults(selectedNumber: Int) {
         scoreMessage = "You have \(attemptsNumber) attempts left"
         if selectedNumber == correctAnswer {
