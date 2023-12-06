@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
-    @State var correctAnswer = Int.random(in: 0...2)
+    @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
+    @State private var correctAnswer = Int.random(in: 0...2)
 
     @State private var scoreAlertIsPresented = false
     @State private var endOfTheGameAlertIsPresented = false
@@ -21,6 +21,7 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
+            // MARK: - Background
             RadialGradient(stops: [
                     .init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
                     .init(color: .pink, location: 0.3)
@@ -32,11 +33,14 @@ struct ContentView: View {
 
             VStack {
                 Spacer()
+
+                // MARK: - Game Title
                 Text("Guess the Flag")
                     .font(.largeTitle.weight(.bold))
                     .foregroundStyle(.white)
 
                 VStack(spacing: 15) {
+                    // MARK: - Game Instruction
                     VStack {
                         Text("Tap the flag of")
                             .foregroundStyle(.secondary)
@@ -47,6 +51,7 @@ struct ContentView: View {
                             .font(.largeTitle.weight(.semibold))
                     }
 
+                    // MARK: - Flag Buttons
                     ForEach(0..<3) { number in
                         Button {
                             flagTapped(number)
@@ -66,6 +71,7 @@ struct ContentView: View {
                 Spacer()
                 Spacer()
 
+                // MARK: - Score
                 Text("Score: \(score)")
                     .foregroundStyle(.thickMaterial)
                     .font(.title.bold())
@@ -75,14 +81,14 @@ struct ContentView: View {
             .padding()
         }
 
-        // Attempt results alert
+        // MARK: -  Attempt results alert
         .alert(scoreTitle, isPresented: $scoreAlertIsPresented) {
             Button("Continue", action: askQuestion)
         } message: {
             Text(scoreMessage)
         }
 
-        // End of the game alert
+        // MARK: -  End of the game alert
         .alert("Congrats!", isPresented: $endOfTheGameAlertIsPresented) {
             Button("Restart", action: restartGame)
         } message: {
@@ -90,7 +96,8 @@ struct ContentView: View {
         }
     }
 
-    func flagTapped(_ number: Int) {
+    // MARK: - Actions
+    private func flagTapped(_ number: Int) {
         attemptsNumber -= 1
 
         if number == correctAnswer {
@@ -104,7 +111,15 @@ struct ContentView: View {
         }
     }
 
-    func showAttemptResults(selectedNumber: Int) {
+    private func restartGame() {
+        attemptsNumber = 8
+        score = 0
+        askQuestion()
+    }
+
+    // MARK: - Actions
+
+    private func showAttemptResults(selectedNumber: Int) {
         scoreMessage = "You have \(attemptsNumber) attempts left"
         if selectedNumber == correctAnswer {
             scoreTitle = "Exactly!"
@@ -116,19 +131,13 @@ struct ContentView: View {
         scoreAlertIsPresented = true
     }
 
-    func showEndOfTheGameAlert() {
+    private func showEndOfTheGameAlert() {
         endOfTheGameAlertIsPresented = true
     }
 
-    func askQuestion() {
+    private func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
-    }
-
-    func restartGame() {
-        attemptsNumber = 8
-        score = 0
-        askQuestion()
     }
 }
 
