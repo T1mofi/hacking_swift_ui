@@ -14,23 +14,37 @@ struct ContentView: View {
         ZStack {
             LinearGradient(colors: [.blue, .cyan], startPoint: .top, endPoint: .bottom)
 
-            VStack(spacing: 50) {
-                // Understand the type
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
-                    .frame(maxWidth: 200, maxHeight: 200)
-                    .background(.cyan)
+            VStack {
+                VStack(spacing: 50) {
+                    // Understand the type
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                    Text("Hello, world!")
+                        .frame(maxWidth: 200, maxHeight: 200)
+                        .background(.cyan)
 
-                Button("check info") {
-                    print(type(of: self.body))
+                    Button("check info") {
+                        print(type(of: self.body))
+                    }
+
+                    // Condition Modifier
+                    Button("Change my text color") {
+                        shouldUsePinkColor.toggle()
+                    }
+                    .foregroundStyle(shouldUsePinkColor ? .pink : .blue)
                 }
 
-                Button("Change my text color") {
-                    shouldUsePinkColor.toggle()
+
+                // Environment Modifiers
+                VStack {
+                    ForEach(0..<5) { _ in
+                        Text("test example")
+                    }
                 }
-                .foregroundStyle(shouldUsePinkColor ? .pink : .blue)
+                .font(.title)
+                .foregroundColor(.white)
+                .blur(radius: 1)
             }
         }
     }
