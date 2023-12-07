@@ -13,40 +13,50 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             LinearGradient(colors: [.blue, .cyan], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
 
             VStack {
                 VStack(spacing: 50) {
-                    // Understand the type
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundStyle(.tint)
-                    Text("Hello, world!")
-                        .frame(maxWidth: 200, maxHeight: 200)
-                        .background(.cyan)
-
-                    Button("check info") {
-                        print(type(of: self.body))
-                    }
-
-                    // Condition Modifier
-                    Button("Change my text color") {
-                        shouldUsePinkColor.toggle()
-                    }
-                    .foregroundStyle(shouldUsePinkColor ? .pink : .blue)
+                    understandingTypeView
+                    conditionModifierView
                 }
 
+                Spacer()
 
-                // Environment Modifiers
-                VStack {
-                    ForEach(0..<5) { _ in
-                        Text("test example")
-                    }
-                }
-                .font(.title)
-                .foregroundColor(.white)
-                .blur(radius: 1)
+                environmentModifiersView
             }
         }
+    }
+
+    @ViewBuilder private var understandingTypeView: some View {
+        Image(systemName: "globe")
+            .imageScale(.large)
+            .foregroundStyle(.tint)
+        Text("Hello, world!")
+            .frame(maxWidth: 200, maxHeight: 200)
+            .background(.cyan)
+
+        Button("check info") {
+            print(type(of: self.body))
+        }
+    }
+
+    @ViewBuilder private var conditionModifierView: some View {
+        Button("Change my text color") {
+            shouldUsePinkColor.toggle()
+        }
+        .foregroundStyle(shouldUsePinkColor ? .pink : .blue)
+    }
+
+    private var environmentModifiersView: some View {
+        VStack {
+            ForEach(0..<5) { _ in
+                Text("test example")
+            }
+        }
+        .font(.title)
+        .foregroundColor(.white)
+        .blur(radius: 1)
     }
 }
 
