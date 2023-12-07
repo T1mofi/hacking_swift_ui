@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct BlurryText: View {
+    var text: String
+
+    var body: some View {
+        Text(text)
+            .font(.title)
+            .foregroundColor(.white)
+            .blur(radius: 1)
+    }
+}
+
 struct ContentView: View {
     @State private var shouldUsePinkColor = false
 
@@ -51,12 +62,9 @@ struct ContentView: View {
     private var environmentModifiersView: some View {
         VStack {
             ForEach(0..<5) { _ in
-                Text("test example")
+                BlurryText(text: "test example")
             }
         }
-        .font(.title)
-        .foregroundColor(.white)
-        .blur(radius: 1)
     }
 }
 
