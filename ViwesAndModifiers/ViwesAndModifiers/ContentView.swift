@@ -8,21 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            // Understand the type
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-                .frame(maxWidth: 200, maxHeight: 200)
-                .background(.cyan)
-            Button("check info") {
-                print(type(of: self.body))
-            }
+    @State private var shouldUsePinkColor = false
 
+    var body: some View {
+        ZStack {
+            LinearGradient(colors: [.blue, .cyan], startPoint: .top, endPoint: .bottom)
+
+            VStack(spacing: 50) {
+                // Understand the type
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+                    .frame(maxWidth: 200, maxHeight: 200)
+                    .background(.cyan)
+
+                Button("check info") {
+                    print(type(of: self.body))
+                }
+
+                Button("Change my text color") {
+                    shouldUsePinkColor.toggle()
+                }
+                .foregroundStyle(shouldUsePinkColor ? .pink : .blue)
+            }
         }
-        .padding()
     }
 }
 
