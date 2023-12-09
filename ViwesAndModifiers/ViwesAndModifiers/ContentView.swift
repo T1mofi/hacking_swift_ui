@@ -17,6 +17,17 @@ struct BlurryText: View {
     }
 }
 
+struct FancyFormatted: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.title)
+            .foregroundStyle(LinearGradient(colors: [.indigo, .blue], startPoint: .leading, endPoint: .trailing))
+            .padding()
+            .background(.ultraThinMaterial)
+            .clipShape(.rect(cornerRadius: 6))
+    }
+}
+
 struct ContentView: View {
     @State private var shouldUsePinkColor = false
 
@@ -49,6 +60,7 @@ struct ContentView: View {
         Button("check info") {
             print(type(of: self.body))
         }
+        .modifier(FancyFormatted())
     }
 
     @ViewBuilder private var conditionModifierView: some View {
@@ -63,7 +75,7 @@ struct ContentView: View {
             ForEach(0..<5) { _ in
                 BlurryText(text: "test example")
             }
-            .foregroundColor(.yellow)
+            .foregroundColor(.indigo)
         }
     }
 }
