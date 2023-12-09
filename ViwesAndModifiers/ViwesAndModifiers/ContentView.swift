@@ -13,7 +13,6 @@ struct BlurryText: View {
     var body: some View {
         Text(text)
             .font(.title)
-            .foregroundColor(.white)
             .blur(radius: 1)
     }
 }
@@ -64,6 +63,7 @@ struct ContentView: View {
             ForEach(0..<5) { _ in
                 BlurryText(text: "test example")
             }
+            .foregroundColor(.yellow)
         }
     }
 }
