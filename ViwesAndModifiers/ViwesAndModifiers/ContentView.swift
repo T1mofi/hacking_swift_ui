@@ -62,7 +62,9 @@ extension View {
 
 struct ContentView: View {
     @State private var shouldChangeColors = false
-
+    private var textGradientColors: [Color] {
+        [.indigo, shouldChangeColors ? .purple : .blue ]
+    }
     var body: some View {
         ZStack {
             LinearGradient(colors: [shouldChangeColors ? .pink : .indigo, .cyan], startPoint: .top, endPoint: .bottom)
@@ -89,20 +91,17 @@ struct ContentView: View {
     }
 
     @ViewBuilder private var understandingTypeView: some View {
-        Button("check info") {
+        Button("Print type description") {
             print(type(of: self.body))
         }
-        .modifier(FancyFormat())
+        .modifier(FancyFormat(gradientColors: textGradientColors))
     }
 
     @ViewBuilder private var conditionModifierView: some View {
-        Button("Change my text color") {
+        Button("Change color scheme") {
             shouldChangeColors.toggle()
         }
-        .modifier(FancyFormat(gradientColors: [
-            .indigo,
-            shouldChangeColors ? .purple : .blue
-        ]))
+        .modifier(FancyFormat(gradientColors: textGradientColors))
     }
 
     private var environmentModifiersView: some View {
