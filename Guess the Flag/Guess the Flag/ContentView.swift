@@ -7,9 +7,25 @@
 
 import SwiftUI
 
+struct FlagButton: View {
+    var imageName: String
+    var action: () -> Void
+
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            Image(imageName)
+                .clipShape(.rect(cornerRadius: 8))
+                .shadow(radius: 4)
+
+        }
+    }
+}
+
 struct ContentView: View {
     struct Constants {
-        static let defaultAttemptsNumber = 8
+        static let defaultAttemptsNumber = 3
     }
 
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
@@ -57,13 +73,8 @@ struct ContentView: View {
 
                     // MARK: - Flag Buttons
                     ForEach(0..<3) { number in
-                        Button {
+                        FlagButton(imageName: countries[number]) {
                             flagTapped(number)
-                        } label: {
-                            Image(countries[number])
-                                .clipShape(.rect(cornerRadius: 8))
-                                .shadow(radius: 4)
-
                         }
                     }
                 }

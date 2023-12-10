@@ -49,6 +49,10 @@ struct CheckSplitContentView: View {
                         }
                     }
                     .pickerStyle(.segmented)
+                    if (tipPercentage <= 0) {
+                        Text("Consider leaving some tips")
+                            .foregroundColor(.red)
+                    }
                 }
                 .padding()
 
@@ -65,6 +69,7 @@ struct CheckSplitContentView: View {
                 Button("done") {
                     amoutFieldIsFocused = false
                 }
+
             }
         }
     }
