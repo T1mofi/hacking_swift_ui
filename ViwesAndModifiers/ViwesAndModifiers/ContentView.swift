@@ -17,11 +17,22 @@ struct BlurryText: View {
     }
 }
 
+struct FancyGradient: ViewModifier {
+    var gradientColors: [Color] = [.indigo, .blue]
+
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(LinearGradient(colors: gradientColors, startPoint: .leading, endPoint: .trailing))
+    }
+}
+
 struct FancyFormat: ViewModifier {
+    var gradientColors: [Color] = [.indigo, .blue]
+
     func body(content: Content) -> some View {
         content
             .font(.title)
-            .foregroundStyle(LinearGradient(colors: [.indigo, .blue], startPoint: .leading, endPoint: .trailing))
+            .modifier(FancyGradient(gradientColors: gradientColors))
             .padding()
             .background(.ultraThinMaterial)
             .clipShape(.rect(cornerRadius: 6))
@@ -37,6 +48,7 @@ struct Watermark: ViewModifier {
             Text(text)
                 .padding()
                 .foregroundStyle(.secondary)
+                .foregroundStyle(.blendMode(.overlay))
                 .font(.caption2)
         }
     }
@@ -49,19 +61,19 @@ extension View {
 }
 
 struct ContentView: View {
-    @State private var shouldUsePinkColor = false
+    @State private var shouldChangeColors = false
 
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.blue, .cyan], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [shouldChangeColors ? .pink : .indigo, .cyan], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
             VStack(spacing: 30) {
                 Image(systemName: "globe")
-                    .frame(width: 150, height: 150)
-                    .imageScale(.large)
-                    .modifier(FancyFormat())
-                    .watermarked(with: "Apple's image")
+                    .frame(width: 200, height: 150)
+                    .font(.system(size: 75))
+                    .modifier(FancyFormat(gradientColors: [.red, .orange, .yellow, .green, .blue, .purple]))
+                    .watermarked(with: "Apple's image watermark")
 
                 VStack(spacing: 50) {
                     understandingTypeView
@@ -85,9 +97,12 @@ struct ContentView: View {
 
     @ViewBuilder private var conditionModifierView: some View {
         Button("Change my text color") {
-            shouldUsePinkColor.toggle()
+            shouldChangeColors.toggle()
         }
-        .foregroundStyle(shouldUsePinkColor ? .pink : .blue)
+        .modifier(FancyFormat(gradientColors: [
+            .indigo,
+            shouldChangeColors ? .purple : .blue
+        ]))
     }
 
     private var environmentModifiersView: some View {
