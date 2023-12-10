@@ -17,7 +17,7 @@ struct BlurryText: View {
     }
 }
 
-struct FancyFormatted: ViewModifier {
+struct FancyFormat: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.title)
@@ -25,6 +25,26 @@ struct FancyFormatted: ViewModifier {
             .padding()
             .background(.ultraThinMaterial)
             .clipShape(.rect(cornerRadius: 6))
+    }
+}
+
+struct Watermark: ViewModifier {
+    var text: String
+
+    func body(content: Content) -> some View {
+        ZStack(alignment: .bottomTrailing) {
+            content
+            Text(text)
+                .padding()
+                .foregroundStyle(.secondary)
+                .font(.caption2)
+        }
+    }
+}
+
+extension View {
+    func watermarked(with text: String) -> some View {
+        return modifier(Watermark(text: text))
     }
 }
 
@@ -36,7 +56,13 @@ struct ContentView: View {
             LinearGradient(colors: [.blue, .cyan], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
-            VStack {
+            VStack(spacing: 30) {
+                Image(systemName: "globe")
+                    .frame(width: 150, height: 150)
+                    .imageScale(.large)
+                    .modifier(FancyFormat())
+                    .watermarked(with: "Apple's image")
+
                 VStack(spacing: 50) {
                     understandingTypeView
                     conditionModifierView
@@ -46,21 +72,15 @@ struct ContentView: View {
 
                 environmentModifiersView
             }
+            .padding(60)
         }
     }
 
     @ViewBuilder private var understandingTypeView: some View {
-        Image(systemName: "globe")
-            .imageScale(.large)
-            .foregroundStyle(.tint)
-        Text("Hello, world!")
-            .frame(maxWidth: 200, maxHeight: 200)
-            .background(.cyan)
-
         Button("check info") {
             print(type(of: self.body))
         }
-        .modifier(FancyFormatted())
+        .modifier(FancyFormat())
     }
 
     @ViewBuilder private var conditionModifierView: some View {
@@ -71,12 +91,14 @@ struct ContentView: View {
     }
 
     private var environmentModifiersView: some View {
-        VStack {
-            ForEach(0..<5) { _ in
-                BlurryText(text: "test example")
-            }
-            .foregroundColor(.indigo)
+        VStack(alignment: .leading) {
+            BlurryText(text: "Environmen Modifier")
+            BlurryText(text: "can be applied")
+            BlurryText(text: "to many views")
+            // Applies to many views
+
         }
+        .foregroundColor(.indigo)
     }
 }
 
