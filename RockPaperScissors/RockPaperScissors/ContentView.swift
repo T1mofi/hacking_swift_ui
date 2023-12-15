@@ -8,25 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var agreedToTerms = false
-    @State private var agreedToPrivacyPolicy = false
-    @State private var agreedToEmails = false
+    var choices = ["Rock", "Paper", "Scissors"]
+    var appsChoice: String {
+        choices.randomElement() ?? ""
+    }
+    var score: Int = 0
+    var round: Int = 0
 
     var body: some View {
-        let agreedToAll = Binding(get: {
-            agreedToTerms && agreedToPrivacyPolicy && agreedToEmails
-        }, set: {
-            agreedToTerms = $0
-            agreedToPrivacyPolicy = $0
-            agreedToEmails = $0
-        })
+        VStack {
+            Text("Computer's chice")
+                .font(.title)
+            Image("rock")
+            Image(systemName: "question-mark")
 
-        return VStack {
-            Toggle("Agree to terms", isOn: $agreedToTerms)
-            Toggle("Agree to privacy policy", isOn: $agreedToPrivacyPolicy)
-            Toggle("Agree to receive shipping emails", isOn: $agreedToEmails)
-            Toggle("Agree to all", isOn: agreedToAll)
-        }.padding()
+            Spacer()
+            Spacer()
+
+            Text("You chice")
+                .font(.title)
+            HStack(spacing: 30) {
+                ForEach(choices, id: \.self) { choice in
+                    Button {
+
+                    } label: {
+                        Image(choice.lowercased())
+                    }
+                }
+            }
+
+            Spacer()
+
+            Text("Score: \(score)")
+            Text("Round: \(round)")
+        }
+        .padding()
     }
 }
 
