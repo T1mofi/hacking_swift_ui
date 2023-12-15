@@ -16,33 +16,39 @@ struct ContentView: View {
     var round: Int = 0
 
     var body: some View {
-        VStack {
-            Text("Computer's chice")
-                .font(.title)
-            Image("rock")
-            Image(systemName: "question-mark")
+        ZStack {
+            LinearGradient(colors: [.pink, .purple], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            VStack(spacing: 20) {
+                Text("Computer's chice")
+                    .font(.title)
+                    .foregroundStyle(.white)
+                Image("rock")
+                Image(systemName: "question-mark")
 
-            Spacer()
-            Spacer()
+                Spacer()
+                Spacer()
 
-            Text("You chice")
-                .font(.title)
-            HStack(spacing: 30) {
-                ForEach(choices, id: \.self) { choice in
-                    Button {
+                Text("You chice")
+                    .font(.title)
+                    .foregroundStyle(.white)
+                HStack(spacing: 50) {
+                    ForEach(choices, id: \.self) { choice in
+                        Button {
 
-                    } label: {
-                        Image(choice.lowercased())
+                        } label: {
+                            Image(choice.lowercased())
+                        }
                     }
                 }
+
+                Spacer()
+
+                Text("Score: \(score)")
+                Text("Round: \(round)")
             }
-
-            Spacer()
-
-            Text("Score: \(score)")
-            Text("Round: \(round)")
+            .padding()
         }
-        .padding()
     }
 }
 
