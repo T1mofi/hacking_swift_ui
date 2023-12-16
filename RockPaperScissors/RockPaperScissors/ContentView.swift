@@ -10,10 +10,6 @@ import SwiftUI
 
 
 struct ContentView: View {
-    struct Constants {
-        static let computerThinkingImage = "question-mark"
-    }
-
     enum RoundResult {
         case computerWon
         case playerWon
@@ -31,8 +27,28 @@ struct ContentView: View {
         }
     }
 
-    private var choices = ["rock", "paper", "scissors"]
-    @State private var appsChoice: String = Constants.computerThinkingImage
+    enum Choice {
+        case rock
+        case paper
+        case scissors
+        case undefinded
+
+        var imageName: String {
+            switch self {
+            case .rock:
+                "rock"
+            case .paper:
+                "paper"
+            case .scissors:
+                "scissors"
+            case .undefinded:
+                "question-mark"
+            }
+        }
+    }
+
+    private var choices: [Choice] = [.rock, .paper, .scissors]
+    @State private var appsChoice: Choice = .undefinded
     private var score: Int = 0
     private var round: Int = 0
 
@@ -51,7 +67,7 @@ struct ContentView: View {
 
                 Spacer()
 
-                Image(appsChoice.lowercased())
+                Image(appsChoice.imageName)
 
                 Spacer()
                 Spacer()
@@ -64,7 +80,7 @@ struct ContentView: View {
                         Button {
                             playRound(choice)
                         } label: {
-                            Image(choice.lowercased())
+                            Image(choice.imageName)
                         }
                     }
                 }
@@ -81,31 +97,31 @@ struct ContentView: View {
 
             .alert(roundResult.description, isPresented: $isRoundResultAlertShown, actions: {
                 Button("Continue") {
-                    appsChoice = Constants.computerThinkingImage
+                    appsChoice = .undefinded
                 }
             })
         }
     }
 
-    func playRound(_ choice: String) {
+    func playRound(_ playersChoice: Choice) {
         guard let computersChoice = choices.randomElement() else { return }
         appsChoice = computersChoice
-        roundResult = checkRoundResult(playersChoice: choice, computersChoice: appsChoice)
+        roundResult = checkRoundResult(playersChoice: playersChoice, computersChoice: appsChoice)
         isRoundResultAlertShown = true
     }
 
-    func checkRoundResult(playersChoice: String, computersChoice: String) -> RoundResult {
+    func checkRoundResult(playersChoice: Choice, computersChoice: Choice) -> RoundResult {
         if playersChoice == computersChoice {
             return .parity
         }
 
         switch playersChoice {
-        case "rock":
-            return computersChoice == "paper" ? .computerWon : .playerWon
-        case "paper":
-            return computersChoice == "scissors" ? .computerWon : .playerWon
-        case "scissors":
-            return computersChoice == "rock" ? .computerWon : .playerWon
+        case .rock:
+            return computersChoice == .paper ? .computerWon : .playerWon
+        case .paper:
+            return computersChoice == .scissors ? .computerWon : .playerWon
+        case .scissors:
+            return computersChoice == .rock ? .computerWon : .playerWon
         default:
             fatalError("unknown player choice")
         }
