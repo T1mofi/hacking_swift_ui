@@ -7,27 +7,50 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
     struct Constants {
         static let computerThinkingImage = "question-mark"
     }
 
-    private var choices = ["Rock", "Paper", "Scissors"]
+    enum RoundResult {
+        case computerWon
+        case playerWon
+        case parity
+
+        var description: String {
+            switch self {
+            case .computerWon:
+                "Computer Won"
+            case .playerWon:
+                "You won"
+            case .parity:
+                "Parity"
+            }
+        }
+    }
+
+    private var choices = ["rock", "paper", "scissors"]
     @State private var appsChoice: String = Constants.computerThinkingImage
     private var score: Int = 0
     private var round: Int = 0
 
-    @State private var shouldShowWinAlert: Bool = false
-    @State private var shouldShowLoseAlert: Bool = false
+    @State private var isRoundResultAlertShown: Bool = false
+    @State private var roundResult: RoundResult = .parity
 
     var body: some View {
         ZStack {
             LinearGradient(colors: [.pink, .purple], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
+
             VStack(spacing: 20) {
                 Text("Computer's choice")
                     .font(.title)
                     .foregroundStyle(.white)
+
+                Spacer()
+
                 Image(appsChoice.lowercased())
 
                 Spacer()
@@ -55,12 +78,8 @@ struct ContentView: View {
             }
             .padding()
 
-            .alert("Congrats!", isPresented: $shouldShowWinAlert, actions: {
-                Button("Continue") {
-                    appsChoice = Constants.computerThinkingImage
-                }
-            })
-            .alert("Oops!", isPresented: $shouldShowLoseAlert, actions: {
+
+            .alert(roundResult.description, isPresented: $isRoundResultAlertShown, actions: {
                 Button("Continue") {
                     appsChoice = Constants.computerThinkingImage
                 }
@@ -71,10 +90,24 @@ struct ContentView: View {
     func playRound(_ choice: String) {
         guard let computersChoice = choices.randomElement() else { return }
         appsChoice = computersChoice
-        if (appsChoice.lowercased() == choice.lowercased()) {
-            shouldShowWinAlert = true
-        } else {
-            shouldShowLoseAlert = true
+        roundResult = checkRoundResult(playersChoice: choice, computersChoice: appsChoice)
+        isRoundResultAlertShown = true
+    }
+
+    func checkRoundResult(playersChoice: String, computersChoice: String) -> RoundResult {
+        if playersChoice == computersChoice {
+            return .parity
+        }
+
+        switch playersChoice {
+        case "rock":
+            return computersChoice == "paper" ? .computerWon : .playerWon
+        case "paper":
+            return computersChoice == "scissors" ? .computerWon : .playerWon
+        case "scissors":
+            return computersChoice == "rock" ? .computerWon : .playerWon
+        default:
+            fatalError("unknown player choice")
         }
     }
 }
