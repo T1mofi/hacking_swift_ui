@@ -20,7 +20,7 @@ struct ContentView: View {
             case .computerWon:
                 "Computer Won"
             case .playerWon:
-                "You won"
+                "You've won!"
             case .parity:
                 "Parity"
             }
@@ -49,8 +49,8 @@ struct ContentView: View {
 
     private var choices: [Choice] = [.rock, .paper, .scissors]
     @State private var appsChoice: Choice = .undefinded
-    private var score: Int = 0
-    private var round: Int = 0
+    @State private var score: Int = 0
+    @State private var round: Int = 1
 
     @State private var isRoundResultAlertShown: Bool = false
     @State private var roundResult: RoundResult = .parity
@@ -97,16 +97,24 @@ struct ContentView: View {
 
             .alert(roundResult.description, isPresented: $isRoundResultAlertShown, actions: {
                 Button("Continue") {
-                    appsChoice = .undefinded
+                    startNextRound()
                 }
             })
         }
+    }
+
+    func startNextRound() {
+        appsChoice = .undefinded
+        round += 1
     }
 
     func playRound(_ playersChoice: Choice) {
         guard let computersChoice = choices.randomElement() else { return }
         appsChoice = computersChoice
         roundResult = checkRoundResult(playersChoice: playersChoice, computersChoice: appsChoice)
+        if roundResult == .playerWon {
+            score += 1
+        }
         isRoundResultAlertShown = true
     }
 
