@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  GameContentView.swift
 //  RockPaperScissors
 //
 //  Created by Tima Sikorski on 12/12/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GameContentView: View {
     enum RoundResult {
         case computerWon
         case playerWon
@@ -70,6 +70,7 @@ struct ContentView: View {
                 Spacer()
 
                 Image(appsChoice.imageName)
+                    .shadow(radius: 5)
 
                 Spacer()
                 Spacer()
@@ -79,10 +80,8 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                 HStack(spacing: 50) {
                     ForEach(choices, id: \.self) { choice in
-                        Button {
+                        ChoiceButton(imageName: choice.imageName) {
                             playRound(choice)
-                        } label: {
-                            Image(choice.imageName)
                         }
                     }
                 }
@@ -91,7 +90,9 @@ struct ContentView: View {
 
                 VStack {
                     Text("Score: \(score)")
+                        .foregroundStyle(.secondary)
                     Text("Round: \(round)")
+                        .foregroundStyle(.secondary)
                 }
             }
             .padding()
@@ -111,7 +112,9 @@ struct ContentView: View {
             }
         }
     }
+}
 
+private extension GameContentView {
     func startNextRound() {
         appsChoice = .undefinded
         round += 1
@@ -141,7 +144,7 @@ struct ContentView: View {
             break
         }
 
-        showRoundOrgameResults(appsScore: newAppsScore, score: score)
+        showRoundOrGameResults(appsScore: newAppsScore, score: score)
     }
 
     func checkRoundResult(playersChoice: Choice, computersChoice: Choice) -> RoundResult {
@@ -161,7 +164,7 @@ struct ContentView: View {
         }
     }
 
-    func showRoundOrgameResults(appsScore: Int, score: Int)  {
+    func showRoundOrGameResults(appsScore: Int, score: Int)  {
         if score >= 2 {
             gameOverMessage = "You won the game"
             isEndOfGameAlertShown = true
@@ -175,5 +178,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    GameContentView()
 }
