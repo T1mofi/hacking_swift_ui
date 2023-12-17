@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct ContentView: View {
     enum RoundResult {
         case computerWon
@@ -105,8 +103,8 @@ struct ContentView: View {
                 }
             })
             .alert("Game over", isPresented: $isEndOfGameAlertShown, actions: {
-                Button("Continue") {
-                    startNextRound()
+                Button("Start over") {
+                    restartGame()
                 }
             }) {
                 Text(gameOverMessage)
@@ -119,10 +117,16 @@ struct ContentView: View {
         round += 1
     }
 
+    func restartGame() {
+        appsChoice = .undefinded
+        appsScore = 0
+        score = 0
+        round = 1
+    }
+
     func playRound(_ playersChoice: Choice) {
-//        guard let computersChoice = choices.randomElement() else { return }
-//        appsChoice = computersChoice
-        appsChoice = .paper
+        guard let computersChoice = choices.randomElement() else { return }
+        appsChoice = computersChoice
         roundResult = checkRoundResult(playersChoice: playersChoice, computersChoice: appsChoice)
 
         let newAppsScore = appsScore + 1
@@ -137,8 +141,7 @@ struct ContentView: View {
             break
         }
 
-        isRoundResultAlertShown = true
-        endGameIfneeded(appsScore: newAppsScore, score: score)
+        showRoundOrgameResults(appsScore: newAppsScore, score: score)
     }
 
     func checkRoundResult(playersChoice: Choice, computersChoice: Choice) -> RoundResult {
@@ -158,15 +161,15 @@ struct ContentView: View {
         }
     }
 
-    func endGameIfneeded(appsScore: Int, score: Int)  {
+    func showRoundOrgameResults(appsScore: Int, score: Int)  {
         if score >= 2 {
             gameOverMessage = "You won the game"
             isEndOfGameAlertShown = true
-        }
-
-        if appsScore >= 2 {
+        } else if appsScore >= 2 {
             gameOverMessage = "Computer won the game"
             isEndOfGameAlertShown = true
+        } else {
+            isRoundResultAlertShown = true
         }
     }
 }
