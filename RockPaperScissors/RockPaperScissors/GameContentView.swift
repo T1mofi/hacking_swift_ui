@@ -57,46 +57,63 @@ struct GameContentView: View {
     @State private var isEndOfGameAlertShown: Bool = false
     @State private var gameOverMessage = ""
 
+    @ViewBuilder var userControlsView: some View {
+        VStack {
+            Text("Your choice")
+                .font(.title)
+                .foregroundStyle(.white)
+            HStack(spacing: 50) {
+                ForEach(choices, id: \.self) { choice in
+                    ChoiceButton(imageName: choice.imageName) {
+                        playRound(choice)
+                    }
+                }
+            }
+        }
+        .padding(30)
+        .background(Material.ultraThinMaterial.opacity(0.3))
+        .clipShape(.rect(cornerRadius: 12))
+    }
+
+    @ViewBuilder var computersChoiceView: some View {
+        Text("Computer's choice")
+            .font(.title)
+            .foregroundStyle(.white)
+        Spacer()
+        Image(appsChoice.imageName)
+            .shadow(radius: 5)
+    }
+
+    @ViewBuilder var gameStatsInfoView: some View {
+        VStack {
+            Text("Score: \(score)")
+                .foregroundStyle(.secondary)
+            Text("Round: \(round)")
+                .foregroundStyle(.secondary)
+        }
+        .padding(8)
+        .background(Material.ultraThinMaterial.opacity(0.1))
+        .clipShape(.rect(cornerRadius: 4))
+    }
+
     var body: some View {
         ZStack {
             LinearGradient(colors: [.pink, .purple], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
             VStack(spacing: 20) {
-                Text("Computer's choice")
-                    .font(.title)
-                    .foregroundStyle(.white)
-
-                Spacer()
-
-                Image(appsChoice.imageName)
-                    .shadow(radius: 5)
+                computersChoiceView
 
                 Spacer()
                 Spacer()
 
-                Text("Your choice")
-                    .font(.title)
-                    .foregroundStyle(.white)
-                HStack(spacing: 50) {
-                    ForEach(choices, id: \.self) { choice in
-                        ChoiceButton(imageName: choice.imageName) {
-                            playRound(choice)
-                        }
-                    }
-                }
+                userControlsView
 
                 Spacer()
 
-                VStack {
-                    Text("Score: \(score)")
-                        .foregroundStyle(.secondary)
-                    Text("Round: \(round)")
-                        .foregroundStyle(.secondary)
-                }
+                gameStatsInfoView
             }
             .padding()
-
 
             .alert(roundResult.description, isPresented: $isRoundResultAlertShown, actions: {
                 Button("Continue") {
@@ -113,6 +130,8 @@ struct GameContentView: View {
         }
     }
 }
+
+// MARK: - Private functions
 
 private extension GameContentView {
     func startNextRound() {
