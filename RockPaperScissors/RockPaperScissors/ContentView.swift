@@ -50,10 +50,14 @@ struct ContentView: View {
     private var choices: [Choice] = [.rock, .paper, .scissors]
     @State private var appsChoice: Choice = .undefinded
     @State private var score: Int = 0
+    @State private var appsScore: Int = 0
     @State private var round: Int = 1
 
     @State private var isRoundResultAlertShown: Bool = false
     @State private var roundResult: RoundResult = .parity
+
+    @State private var isEndOfGameAlertShown: Bool = false
+    @State private var gameOverMessage = ""
 
     var body: some View {
         ZStack {
@@ -100,6 +104,13 @@ struct ContentView: View {
                     startNextRound()
                 }
             })
+            .alert("Game over", isPresented: $isEndOfGameAlertShown, actions: {
+                Button("Continue") {
+                    startNextRound()
+                }
+            }) {
+                Text(gameOverMessage)
+            }
         }
     }
 
@@ -109,13 +120,25 @@ struct ContentView: View {
     }
 
     func playRound(_ playersChoice: Choice) {
-        guard let computersChoice = choices.randomElement() else { return }
-        appsChoice = computersChoice
+//        guard let computersChoice = choices.randomElement() else { return }
+//        appsChoice = computersChoice
+        appsChoice = .paper
         roundResult = checkRoundResult(playersChoice: playersChoice, computersChoice: appsChoice)
-        if roundResult == .playerWon {
-            score += 1
+
+        let newAppsScore = appsScore + 1
+        let newScore = score + 1
+
+        switch roundResult {
+        case .computerWon:
+            appsScore = newAppsScore
+        case .playerWon:
+            score = newScore
+        case .parity:
+            break
         }
+
         isRoundResultAlertShown = true
+        endGameIfneeded(appsScore: newAppsScore, score: score)
     }
 
     func checkRoundResult(playersChoice: Choice, computersChoice: Choice) -> RoundResult {
@@ -132,6 +155,18 @@ struct ContentView: View {
             return computersChoice == .rock ? .computerWon : .playerWon
         default:
             fatalError("unknown player choice")
+        }
+    }
+
+    func endGameIfneeded(appsScore: Int, score: Int)  {
+        if score >= 2 {
+            gameOverMessage = "You won the game"
+            isEndOfGameAlertShown = true
+        }
+
+        if appsScore >= 2 {
+            gameOverMessage = "Computer won the game"
+            isEndOfGameAlertShown = true
         }
     }
 }
