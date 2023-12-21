@@ -9,7 +9,16 @@ import CoreML
 import SwiftUI
 
 struct ContentView: View {
-    @State private var wakeUp = Date.now
+    struct Constants {
+        static let defaultWakeTime: Date = {
+            var components = DateComponents()
+            components.hour = 7
+            components.minute = 0
+            return Calendar.current.date(from: components) ?? .now
+        }()
+    }
+
+    @State private var wakeUp = Constants.defaultWakeTime
     @State private var sleepAmount = 8.0
     @State private var coffeeAmount = 1
 
