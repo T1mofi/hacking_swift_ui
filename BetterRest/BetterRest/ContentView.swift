@@ -16,15 +16,20 @@ struct ContentView: View {
             components.minute = 0
             return Calendar.current.date(from: components) ?? .now
         }()
+        static let defaultBedTime: Date = {
+            var components = DateComponents()
+            components.hour = 23
+            components.minute = 0
+            return Calendar.current.date(from: components) ?? .now
+        }()
     }
 
     @State private var wakeUp = Constants.defaultWakeTime
     @State private var sleepAmount = 8.0
     @State private var coffeeAmount = 1
 
-    @State private var alertTitle = ""
-    @State private var alertMessage = ""
-    @State private var isPerfectBedTimeAlertShown = false
+    @State private var bedTime: Date = Constants.defaultBedTime
+    @State private var recomendedBedTimeMessage: String = ""
 
     var body: some View {
         NavigationStack {
@@ -48,16 +53,23 @@ struct ContentView: View {
                         .font(.headline)
                     Stepper("^[\(coffeeAmount) cup](inflect:true)", value: $coffeeAmount, in: 1...20)
                 }
+
+                Section {
+                    Text(recomendedBedTimeMessage)
+                }
+            }
+            .scrollContentBackground(.hidden)
+            .background(LinearGradient(colors: [.blue, .indigo], startPoint: .topLeading, endPoint: .bottomTrailing))
+            .onChange(of: wakeUp, initial: true) {
+                calculateBedtime()
+            }
+            .onChange(of: sleepAmount, initial: true) {
+                calculateBedtime()
+            }
+            .onChange(of: coffeeAmount, initial: true) {
+                calculateBedtime()
             }
             .navigationTitle("BetterRest")
-            .toolbar {
-                Button("Calculate", action: calculateBedtime)
-            }
-            .alert(alertTitle, isPresented: $isPerfectBedTimeAlertShown) {
-                Button("OK") {}
-            } message: {
-                Text(alertMessage)
-            }
         }
     }
 
@@ -71,15 +83,11 @@ struct ContentView: View {
             let minute = (components.minute ?? 0) * 60
 
             let prediction = try model.prediction(wake: Int64(hour + minute), estimatedSleep: sleepAmount, coffee: Int64(coffeeAmount))
-            let sleepTime = wakeUp - prediction.actualSleep
-
-            alertTitle = "Your ideal bedtime is…"
-            alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
+            bedTime = wakeUp - prediction.actualSleep
+            recomendedBedTimeMessage = "Your ideal bedtime is \(bedTime.formatted(date: .omitted, time: .shortened))"
         } catch {
-            alertTitle = "Error"
-            alertMessage = "Sorry, there was a problem calculating your bedtime."
+            recomendedBedTimeMessage = "Error occured, can't calculate bed time..."
         }
-        isPerfectBedTimeAlertShown = true
     }
 }
 
