@@ -9,13 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List {
+            Text("static cell")
+            ForEach(0..<6) {
+                Text("\($0)")
+            }
+
+            Section("secondSection") {
+                Text("lol")
+                Text("kek")
+            }
         }
-        .padding()
+        .listStyle(.grouped)
     }
 }
 
