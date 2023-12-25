@@ -37,6 +37,13 @@ struct ContentView: View {
             .alert(errorTitle, isPresented: $showingError) {} message: {
                 Text(errorMessage)
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Restart") {
+                        startGame()
+                    }
+                }
+            }
         }
     }
 
