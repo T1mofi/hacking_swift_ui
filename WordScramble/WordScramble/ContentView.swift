@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var bmwBodyCodes = ["E30", "E36", "E46", "E39", "E53"]
     @State var shouldShowAlert = false
+    @State var alertMessage = ""
     var body: some View {
         List {
             Section("BMW body codes") {
@@ -26,15 +27,20 @@ struct ContentView: View {
             }
         }
         .listStyle(.grouped)
-        .alert("URL created", isPresented: $shouldShowAlert) {
+        .alert("URL creation result", isPresented: $shouldShowAlert, actions: {
             Button("OK") {}
-        }
+        }, message: {
+            Text(alertMessage)
+        })
     }
 
     func createURL() {
-        guard let url = Bundle.main.url(forResource: "sample", withExtension: "txt") else {
-            fatalError("file not found")
+        guard let url = Bundle.main.url(forResource: "sample", withExtension: "txt"),
+            let fileContentsString = try? String(contentsOf: url) else {
+            alertMessage = "failed to read the file"
+            return
         }
+        alertMessage = "\(fileContentsString)"
         shouldShowAlert = true
     }
 }
