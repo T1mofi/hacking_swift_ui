@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
 
+    @State private var score = 0
+
     var body: some View {
         NavigationStack {
             List {
@@ -40,10 +42,11 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Restart") {
-                        startGame()
+                        restartGame()
                     }
                 }
             }
+            Text("Score: \(score)")
         }
     }
 
@@ -83,6 +86,8 @@ struct ContentView: View {
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
+        score += 1
+
         newWord = ""
     }
 
@@ -104,6 +109,13 @@ struct ContentView: View {
 
         // If were are *here* then there was a problem – trigger a crash and report the error
         fatalError("Could not load start.txt from bundle.")
+    }
+
+    func restartGame() {
+        score = 0
+        newWord = ""
+        usedWords = []
+        startGame()
     }
 
     func isDifferentFromRoot(word: String) -> Bool {
