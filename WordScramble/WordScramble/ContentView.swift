@@ -8,53 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var bmwBodyCodes = ["E30", "E36", "E46", "E39", "E53"]
-    @State var shouldShowAlert = false
-    @State var alertMessage = ""
+    @State private var usedWords = [String]()
+    @State private var rootWord = ""
+    @State private var newWord = ""
+
     var body: some View {
-        List {
-            Section("BMW body codes") {
-                ForEach(bmwBodyCodes, id: \.self) {
-                    Text($0)
+        NavigationStack {
+            List {
+                Section {
+                    TextField("Enter your word", text: $newWord)
+                        .textInputAutocapitalization(.never)
+                        .onSubmit(addNewWord)
+                }
+
+                Section {
+                    ForEach(usedWords, id: \.self) { word in
+                        Image(systemName: "\(word.count).circle")
+                        Text(word)
+                    }
                 }
             }
-            Button("Delete one code") {
-                guard !bmwBodyCodes.isEmpty else { return }
-                bmwBodyCodes.removeLast()
-            }
-            Button("open url") {
-                createURL()
-            }
+            .navigationTitle(rootWord)
         }
-        .listStyle(.grouped)
-        .alert("URL creation result", isPresented: $shouldShowAlert, actions: {
-            Button("OK") {}
-        }, message: {
-            Text(alertMessage)
-        })
     }
 
-    func createURL() {
-        guard let url = Bundle.main.url(forResource: "sample", withExtension: "txt"),
-            let fileContentsString = try? String(contentsOf: url) else {
-            alertMessage = "failed to read the file"
-            shouldShowAlert = true
-            return
-        }
+    func addNewWord() {
+        // lowercase and trim the word, to make sure we don't add duplicate words with case differences
+        let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
 
-        let multilineString = """
-        str
-        trs
-        rst
-        """
+        // exit if the remaining string is empty
+        guard answer.count > 0 else { return }
 
-        var components = multilineString.components(separatedBy: "\n")
-        alertMessage = ""
-        for (index, element) in components.enumerated() {
-            alertMessage += "\(element) \(index + 1)\n"
+        // extra validation to come
+
+        withAnimation {
+            usedWords.insert(answer, at: 0)
         }
-        
-        shouldShowAlert = true
+        newWord = ""
     }
 }
 
