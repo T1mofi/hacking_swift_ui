@@ -11,6 +11,7 @@
 		225E330D2B3854AF00AF9096 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E330C2B3854AF00AF9096 /* ContentView.swift */; };
 		225E330F2B3854B000AF9096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225E330E2B3854B000AF9096 /* Assets.xcassets */; };
 		225E33122B3854B000AF9096 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225E33112B3854B000AF9096 /* Preview Assets.xcassets */; };
+		225E33192B39C4F300AF9096 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 225E33182B39C4CE00AF9096 /* sample.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		225E330C2B3854AF00AF9096 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		225E330E2B3854B000AF9096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		225E33112B3854B000AF9096 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		225E33182B39C4CE00AF9096 /* sample.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 				225E330A2B3854AF00AF9096 /* WordScrambleApp.swift */,
 				225E330C2B3854AF00AF9096 /* ContentView.swift */,
 				225E330E2B3854B000AF9096 /* Assets.xcassets */,
+				225E331A2B39C51000AF9096 /* resources */,
 				225E33102B3854B000AF9096 /* Preview Content */,
 			);
 			path = WordScramble;
@@ -65,6 +68,14 @@
 				225E33112B3854B000AF9096 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		225E331A2B39C51000AF9096 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				225E33182B39C4CE00AF9096 /* sample.txt */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225E33122B3854B000AF9096 /* Preview Assets.xcassets in Resources */,
+				225E33192B39C4F300AF9096 /* sample.txt in Resources */,
 				225E330F2B3854B000AF9096 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

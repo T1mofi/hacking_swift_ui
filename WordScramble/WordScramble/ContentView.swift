@@ -8,19 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var bmwBodyCodes = ["E30", "E36", "E46", "E39", "E53"]
+    @State var shouldShowAlert = false
     var body: some View {
         List {
-            Text("static cell")
-            ForEach(0..<6) {
-                Text("\($0)")
+            Section("BMW body codes") {
+                ForEach(bmwBodyCodes, id: \.self) {
+                    Text($0)
+                }
             }
-
-            Section("secondSection") {
-                Text("lol")
-                Text("kek")
+            Button("Delete one code") {
+                guard !bmwBodyCodes.isEmpty else { return }
+                bmwBodyCodes.removeLast()
+            }
+            Button("open url") {
+                createURL()
             }
         }
         .listStyle(.grouped)
+        .alert("URL created", isPresented: $shouldShowAlert) {
+            Button("OK") {}
+        }
+    }
+
+    func createURL() {
+        guard let url = Bundle.main.url(forResource: "sample", withExtension: "txt") else {
+            fatalError("file not found")
+        }
+        shouldShowAlert = true
     }
 }
 
