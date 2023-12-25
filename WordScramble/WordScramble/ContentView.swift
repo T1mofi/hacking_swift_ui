@@ -48,6 +48,16 @@ struct ContentView: View {
         guard answer.count > 0 else { return }
 
         // extra validation
+        guard isDifferentFromRoot(word: answer) else {
+            wordError(title: "Word id the same as root", message: "Be more original")
+            return
+        }
+
+        guard isLongEnough(word: answer) else {
+            wordError(title: "Word is too short", message: "Try to think of smth else")
+            return
+        }
+
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Be more original")
             return
@@ -87,6 +97,14 @@ struct ContentView: View {
 
         // If were are *here* then there was a problem – trigger a crash and report the error
         fatalError("Could not load start.txt from bundle.")
+    }
+
+    func isDifferentFromRoot(word: String) -> Bool {
+        word != rootWord
+    }
+
+    func isLongEnough(word: String) -> Bool {
+        word.count >= 3
     }
 
     func isOriginal(word: String) -> Bool {
