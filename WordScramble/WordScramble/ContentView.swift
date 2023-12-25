@@ -38,9 +38,22 @@ struct ContentView: View {
         guard let url = Bundle.main.url(forResource: "sample", withExtension: "txt"),
             let fileContentsString = try? String(contentsOf: url) else {
             alertMessage = "failed to read the file"
+            shouldShowAlert = true
             return
         }
-        alertMessage = "\(fileContentsString)"
+
+        let multilineString = """
+        str
+        trs
+        rst
+        """
+
+        var components = multilineString.components(separatedBy: "\n")
+        alertMessage = ""
+        for (index, element) in components.enumerated() {
+            alertMessage += "\(element) \(index + 1)\n"
+        }
+        
         shouldShowAlert = true
     }
 }
