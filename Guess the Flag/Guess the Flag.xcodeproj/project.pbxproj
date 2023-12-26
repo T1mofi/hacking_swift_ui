@@ -54,8 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				221C49F42B1E311C00B5545F /* Guess_the_FlagApp.swift */,
-				221C49F62B1E311C00B5545F /* ContentView.swift */,
 				225E33372B3B4E6800AF9096 /* FlagButton.swift */,
+				221C49F62B1E311C00B5545F /* ContentView.swift */,
 				221C49F82B1E311D00B5545F /* Assets.xcassets */,
 				221C49FA2B1E311D00B5545F /* Preview Content */,
 			);

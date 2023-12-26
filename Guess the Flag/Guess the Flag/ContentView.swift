@@ -24,8 +24,6 @@ struct ContentView: View {
     @State private var score = 0
     @State private var attemptsNumber = Constants.defaultAttemptsNumber
 
-    @State private var scaleDownFactor = 1.0
-
     var body: some View {
         ZStack {
             // MARK: - Background
@@ -67,7 +65,6 @@ struct ContentView: View {
                         })
                         .unselected(selectedAnswer != nil && selectedAnswer != number)
                     }
-//                    .modifier(UnselectedModifier())
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
