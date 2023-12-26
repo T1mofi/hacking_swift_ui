@@ -7,45 +7,6 @@
 
 import SwiftUI
 
-struct FlagButton: View {
-    var imageName: String
-    var action: () -> Void
-    var animationCompletion: () -> Void
-
-    @State private var animationRotationAngle = 0.0
-
-    var body: some View {
-        Button {
-            action()
-            withAnimation(.default, {
-                animationRotationAngle += Double.pi * 2
-            }, completion: animationCompletion)
-        } label: {
-            Image(imageName)
-                .clipShape(.rect(cornerRadius: 8))
-                .shadow(radius: 4)
-                .rotation3DEffect(Angle.radians(animationRotationAngle), axis: (x: 0, y: 1, z: 0))
-        }
-    }
-}
-
-struct UnselectedModifier: ViewModifier {
-    var unselected = false
-
-    func body(content: Content) -> some View {
-        content
-            .opacity(unselected ? 0.3 : 1.0)
-            .scaleEffect(unselected ? 0.8 : 1.0)
-            .animation(.default, value: unselected)
-    }
-}
-
-extension View {
-    func unselected(_ unselected: Bool) -> some View {
-        return modifier(UnselectedModifier(unselected: unselected))
-    }
-}
-
 struct ContentView: View {
     struct Constants {
         static let defaultAttemptsNumber = 3
@@ -106,6 +67,7 @@ struct ContentView: View {
                         })
                         .unselected(selectedAnswer != nil && selectedAnswer != number)
                     }
+//                    .modifier(UnselectedModifier())
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
