@@ -8,21 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var enabled = false
+    @State private var position = CGPoint.zero
+    @State private var positionBeforeDrag = CGPoint.zero
 
     var body: some View {
-        return VStack {
-            Button("Tap Me") {
-                enabled.toggle()
-            }
-            .frame(width: 200, height: 200)
-            .background(enabled ? .blue : .red)
-            .animation(nil, value: enabled)
-            .foregroundStyle(.white)
-            .clipShape(.rect(cornerRadius: enabled ? 60 : 0))
-            .animation(.spring(duration: 1, bounce: 0.9), value: enabled)
-        }
-        .padding()
+        LinearGradient(colors: [.yellow, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
+            .frame(width: 300, height: 200)
+            .clipShape(.rect(cornerRadius: 10))
+            .position(position)
+            .gesture(
+                DragGesture()
+                    .onChanged {
+                        position.x = positionBeforeDrag.x + $0.translation.width
+                        position.y = positionBeforeDrag.y + $0.translation.height
+                    }
+                    .onEnded { _ in positionBeforeDrag = position}
+            )
+            .gesture(
+                TapGesture(count: 2)
+                    .onEnded {
+                        withAnimation(.bouncy) {
+                            position = CGPoint(x: 200, y: 200)
+                        }
+                    }
+            )
     }
 }
 
