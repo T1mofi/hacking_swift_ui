@@ -10,15 +10,21 @@ import SwiftUI
 struct FlagButton: View {
     var imageName: String
     var action: () -> Void
+    var animationCompletion: () -> Void
+
+    @State private var animationRotationAngle = 0.0
 
     var body: some View {
         Button {
             action()
+            withAnimation(.default, {
+                animationRotationAngle += Double.pi * 2
+            }, completion: animationCompletion)
         } label: {
             Image(imageName)
                 .clipShape(.rect(cornerRadius: 8))
                 .shadow(radius: 4)
-
+                .rotation3DEffect(Angle.radians(animationRotationAngle), axis: (x: 0, y: 1, z: 0))
         }
     }
 }
@@ -73,9 +79,9 @@ struct ContentView: View {
 
                     // MARK: - Flag Buttons
                     ForEach(0..<3) { number in
-                        FlagButton(imageName: countries[number]) {
+                        FlagButton(imageName: countries[number], action: {}, animationCompletion: {
                             flagTapped(number)
-                        }
+                        })
                     }
                 }
                 .frame(maxWidth: .infinity)
