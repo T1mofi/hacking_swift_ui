@@ -13,19 +13,22 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("Tap Me") {
-                if animationAmount >= 3.0 {
-                    animationAmount = 1.0
-                } else {
-                    animationAmount += 1.0
-                }
             }
             .padding(50)
             .background(.red)
             .foregroundStyle(.white)
             .clipShape(.circle)
-            .scaleEffect(animationAmount)
-            .animation(.bouncy(duration: 0.2, extraBounce: 0.4), value: animationAmount)
-            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            .overlay(
+                Circle()
+                    .stroke(.red)
+                    .scaleEffect(animationAmount)
+                    .opacity(2 - animationAmount)
+                    .animation(.easeInOut(duration: 1.0).repeatForever(autoreverses: false), value: animationAmount)
+
+            )
+            .onAppear {
+                animationAmount = 2.0
+            }
         }
         .padding()
     }
