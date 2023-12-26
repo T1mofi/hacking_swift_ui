@@ -29,6 +29,23 @@ struct FlagButton: View {
     }
 }
 
+struct UnselectedModifier: ViewModifier {
+    var unselected = false
+
+    func body(content: Content) -> some View {
+        content
+            .opacity(unselected ? 0.3 : 1.0)
+            .scaleEffect(unselected ? 0.8 : 1.0)
+            .animation(.default, value: unselected)
+    }
+}
+
+extension View {
+    func unselected(_ unselected: Bool) -> some View {
+        return modifier(UnselectedModifier(unselected: unselected))
+    }
+}
+
 struct ContentView: View {
     struct Constants {
         static let defaultAttemptsNumber = 3
@@ -36,7 +53,7 @@ struct ContentView: View {
 
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
-    @State private var selectedAnswer = 0
+    @State private var selectedAnswer: Int?
 
     @State private var scoreAlertIsPresented = false
     @State private var endOfTheGameAlertIsPresented = false
@@ -46,7 +63,6 @@ struct ContentView: View {
     @State private var score = 0
     @State private var attemptsNumber = Constants.defaultAttemptsNumber
 
-    @State private var unselectedButtonsOpacity = 1.0
     @State private var scaleDownFactor = 1.0
 
     var body: some View {
@@ -85,15 +101,10 @@ struct ContentView: View {
                     ForEach(0..<3) { number in
                         FlagButton(imageName: countries[number], action: {
                             selectedAnswer = number
-                            withAnimation {
-                                unselectedButtonsOpacity = 0.25
-                                scaleDownFactor = 0.8
-                            }
                         }, animationCompletion: {
                             flagTapped(number)
                         })
-                        .opacity(number != selectedAnswer ? unselectedButtonsOpacity : 1.0)
-                        .scaleEffect(number != selectedAnswer ? scaleDownFactor : 1.0)
+                        .unselected(selectedAnswer != nil && selectedAnswer != number)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -172,9 +183,7 @@ extension ContentView {
     }
 
     private func askQuestion() {
-        selectedAnswer = 0
-        unselectedButtonsOpacity = 1.0
-        scaleDownFactor = 1.0
+        selectedAnswer = nil
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
