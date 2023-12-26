@@ -8,30 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var position = CGPoint.zero
-    @State private var positionBeforeDrag = CGPoint.zero
+    let letters = Array("Hello SwiftUI")
+    @State private var enabled = false
+    @State private var dragAmount = CGSize.zero
 
     var body: some View {
-        LinearGradient(colors: [.yellow, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
-            .frame(width: 300, height: 200)
-            .clipShape(.rect(cornerRadius: 10))
-            .position(position)
-            .gesture(
-                DragGesture()
-                    .onChanged {
-                        position.x = positionBeforeDrag.x + $0.translation.width
-                        position.y = positionBeforeDrag.y + $0.translation.height
-                    }
-                    .onEnded { _ in positionBeforeDrag = position}
-            )
-            .gesture(
-                TapGesture(count: 2)
-                    .onEnded {
-                        withAnimation(.bouncy) {
-                            position = CGPoint(x: 200, y: 200)
-                        }
-                    }
-            )
+        HStack(spacing: 0) {
+            ForEach(0..<letters.count, id: \.self) { num in
+                Text(String(letters[num]))
+                    .padding(5)
+                    .font(.title)
+                    .background(enabled ? .indigo : .purple)
+                    .offset(dragAmount)
+                    .animation(.linear.delay(Double(num) / 20), value: dragAmount)
+            }
+        }
+        .gesture(
+            DragGesture()
+                .onChanged { dragAmount = $0.translation }
+                .onEnded { _ in
+                    dragAmount = .zero
+                    enabled.toggle()
+                }
+        )
     }
 }
 
