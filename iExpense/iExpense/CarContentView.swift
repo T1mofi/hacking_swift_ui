@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CarContentView: View {
+    @Environment(\.dismiss) var dismiss
     var car: Car
     
     var body: some View {
@@ -15,18 +16,16 @@ struct CarContentView: View {
             LinearGradient(colors: [.indigo, .green], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack {
-                Text("Make of your car is \(car.make)")
-                Text("Model of your car is \(car.model)")
-                Image(ImageResource(name: "bmw_e39", bundle: .main))
-                    .frame(width: 200, height: 200)
-//                    .clipped()
-
-
-
+                VStack {
+                    Text("Make of your car is \(car.make)")
+                    Text("Model of your car is \(car.model)")
+                }            
+                .font(.title)
+                .foregroundStyle(.white)
+                Button("dismiss") {
+                    dismiss()
+                }
             }
-            .font(.title)
-            .foregroundStyle(.white)
         }
-        .padding()
     }
 }
