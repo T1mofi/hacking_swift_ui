@@ -8,8 +8,7 @@
 import SwiftUI
 import Observation
 
-@Observable
-class Car {
+struct Car: Hashable {
     var make: String = ""
     var model: String = ""
 }
@@ -45,7 +44,7 @@ struct ContentView: View {
             .padding()
 
             .sheet(isPresented: $isCarViewPresented) {
-                CarContentView(car: car)
+                CarContentView(cars: [Car(make: "BMW", model: "M3"), Car(make: "BMW", model: "M4")])
             }
         }
     }

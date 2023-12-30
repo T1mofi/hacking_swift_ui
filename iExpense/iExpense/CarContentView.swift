@@ -9,17 +9,19 @@ import SwiftUI
 
 struct CarContentView: View {
     @Environment(\.dismiss) var dismiss
-    var car: Car
-    
+    @State var cars: [Car]
+
     var body: some View {
         ZStack {
             LinearGradient(colors: [.indigo, .green], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack {
-                VStack {
-                    Text("Make of your car is \(car.make)")
-                    Text("Model of your car is \(car.model)")
-                }            
+                List {
+                    ForEach($cars, id: \.self) { car in
+                        Text("Make of your car is \(car.wrappedValue.make)")
+                        Text("Model of your car is ")
+                    }
+                }
                 .font(.title)
                 .foregroundStyle(.white)
                 Button("dismiss") {
