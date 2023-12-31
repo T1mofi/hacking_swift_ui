@@ -19,11 +19,12 @@ struct CarContentView: View {
                 List {
                     ForEach($cars, id: \.self) { car in
                         Text("Make of your car is \(car.wrappedValue.make)")
-                        Text("Model of your car is ")
+                        Text("Model of your car is \(car.wrappedValue.model)")
                     }
+                    .onDelete(perform: { indexSet in
+                        cars.remove(atOffsets: indexSet)
+                    })
                 }
-                .font(.title)
-                .foregroundStyle(.white)
                 Button("dismiss") {
                     dismiss()
                 }
