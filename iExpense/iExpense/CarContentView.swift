@@ -25,6 +25,7 @@ struct CarContentView: View {
                         cars.remove(atOffsets: indexSet)
                     })
                 }
+                .listStyle(.plain)
                 Button("dismiss") {
                     dismiss()
                 }

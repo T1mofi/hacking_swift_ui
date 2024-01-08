@@ -16,6 +16,7 @@ struct Car: Hashable {
 struct ContentView: View {
     @State private var car: Car = Car()
     @State private var isCarViewPresented = false
+    @AppStorage("tapCount") private var tapCount = 0
 
     var body: some View {
         ZStack {
@@ -35,11 +36,14 @@ struct ContentView: View {
                 .clipShape(.rect(cornerRadius: 8))
                 Button("Done") {
                     isCarViewPresented = true
+                    tapCount += 1
+                    UserDefaults.standard.set(tapCount, forKey: "Tap")
                 }
                 .padding(8)
                 .background(.blue)
                 .foregroundColor(.white)
                 .clipShape(.rect(cornerRadius: 8))
+                Text("tapCount: \(tapCount)")
             }
             .padding()
 
