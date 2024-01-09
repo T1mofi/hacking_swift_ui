@@ -8,7 +8,8 @@
 import SwiftUI
 import Observation
 
-struct Car: Hashable {
+struct Car: Hashable, Codable {
+    var id: Int = 0
     var make: String = ""
     var model: String = ""
 }
@@ -37,7 +38,11 @@ struct ContentView: View {
                 Button("Done") {
                     isCarViewPresented = true
                     tapCount += 1
+                    car.id = tapCount
                     UserDefaults.standard.set(tapCount, forKey: "Tap")
+                    if let data = try? JSONEncoder().encode(car) {
+                        UserDefaults.standard.set(data, forKey: "\(car.id)")
+                    }
                 }
                 .padding(8)
                 .background(.blue)
@@ -48,9 +53,20 @@ struct ContentView: View {
             .padding()
 
             .sheet(isPresented: $isCarViewPresented) {
-                CarContentView(cars: [Car(make: "BMW", model: "M3"), Car(make: "BMW", model: "M4")])
+                CarContentView(cars: fetchCars())
             }
         }
+    }
+
+    func fetchCars() -> [Car] {
+        var cars:[Car] = []
+        for id in 0...tapCount {
+            if let data = UserDefaults.standard.data(forKey: "\(id)"),
+               let car = try? JSONDecoder().decode(Car.self, from: data) {
+                cars.append(car)
+            }
+        }
+        return cars
     }
 }
 
