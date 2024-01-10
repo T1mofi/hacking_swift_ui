@@ -17,7 +17,7 @@ struct Car: Hashable, Codable {
 struct ContentView: View {
     @State private var car: Car = Car()
     @State private var isCarViewPresented = false
-    @AppStorage("tapCount") private var tapCount = 0
+    @AppStorage("tapCount") private var numberOfCars = 0
 
     var body: some View {
         ZStack {
@@ -35,20 +35,20 @@ struct ContentView: View {
                 .padding(8)
                 .background()
                 .clipShape(.rect(cornerRadius: 8))
-                Button("Done") {
-                    isCarViewPresented = true
-                    tapCount += 1
-                    car.id = tapCount
-                    UserDefaults.standard.set(tapCount, forKey: "Tap")
+                Button("Add") {
+                    numberOfCars += 1
+                    car.id = numberOfCars
+                    UserDefaults.standard.set(numberOfCars, forKey: "Tap")
                     if let data = try? JSONEncoder().encode(car) {
                         UserDefaults.standard.set(data, forKey: "\(car.id)")
                     }
+                    isCarViewPresented = true
                 }
                 .padding(8)
                 .background(.blue)
                 .foregroundColor(.white)
                 .clipShape(.rect(cornerRadius: 8))
-                Text("tapCount: \(tapCount)")
+                Text("tapCount: \(numberOfCars)")
             }
             .padding()
 
@@ -60,7 +60,7 @@ struct ContentView: View {
 
     func fetchCars() -> [Car] {
         var cars:[Car] = []
-        for id in 0...tapCount {
+        for id in 0...numberOfCars {
             if let data = UserDefaults.standard.data(forKey: "\(id)"),
                let car = try? JSONDecoder().decode(Car.self, from: data) {
                 cars.append(car)
