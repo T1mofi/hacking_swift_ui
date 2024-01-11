@@ -17,9 +17,10 @@ struct CarContentView: View {
                 .ignoresSafeArea()
             VStack {
                 List {
-                    ForEach($cars, id: \.self) { car in
-                        Text("Make of your car is \(car.wrappedValue.make)")
-                        Text("Model of your car is \(car.wrappedValue.model)")
+                    ForEach($cars) { car in
+                        let carValue = car.wrappedValue
+                        Text("Make of your car is \(carValue.make)")
+                        Text("Model of your car is \(carValue.model)")
                     }
                     .onDelete(perform: { indexSet in
                         cars.remove(atOffsets: indexSet)

@@ -8,8 +8,8 @@
 import SwiftUI
 import Observation
 
-struct Car: Hashable, Codable {
-    var id: Int = 0
+struct Car: Codable, Identifiable {
+    var id = UUID()
     var make: String = ""
     var model: String = ""
 }
@@ -17,6 +17,7 @@ struct Car: Hashable, Codable {
 struct ContentView: View {
     @State private var car: Car = Car()
     @State private var isCarViewPresented = false
+    @State private var ids: [UUID] = []
     @AppStorage("tapCount") private var numberOfCars = 0
 
     var body: some View {
@@ -37,10 +38,13 @@ struct ContentView: View {
                 .clipShape(.rect(cornerRadius: 8))
                 Button("Add") {
                     numberOfCars += 1
-                    car.id = numberOfCars
                     UserDefaults.standard.set(numberOfCars, forKey: "Tap")
-                    if let data = try? JSONEncoder().encode(car) {
-                        UserDefaults.standard.set(data, forKey: "\(car.id)")
+
+                    ids.append(car.id)
+                    UserDefaults.standard.set(ids, forKey: "ids")
+
+                    if let carData = try? JSONEncoder().encode(car) {
+                        UserDefaults.standard.set(carData, forKey: "\(car.id)")
                     }
                     isCarViewPresented = true
                 }
@@ -60,7 +64,8 @@ struct ContentView: View {
 
     func fetchCars() -> [Car] {
         var cars:[Car] = []
-        for id in 0...numberOfCars {
+        guard let ids = UserDefaults.standard.array(forKey: "ids") else { return [] }
+        for id in ids {
             if let data = UserDefaults.standard.data(forKey: "\(id)"),
                let car = try? JSONDecoder().decode(Car.self, from: data) {
                 cars.append(car)
