@@ -8,70 +8,42 @@
 import SwiftUI
 import Observation
 
-struct Car: Codable, Identifiable {
-    var id = UUID()
-    var make: String = ""
-    var model: String = ""
+struct ExpenseItem: Identifiable {
+    let id = UUID()
+    let name: String
+    let type: String
+    let amount: Int
+}
+
+@Observable
+class Expenses {
+    var items = [ExpenseItem]()
 }
 
 struct ContentView: View {
-    @State private var car: Car = Car()
-    @State private var isCarViewPresented = false
-    @State private var ids: [UUID] = []
-    @AppStorage("tapCount") private var numberOfCars = 0
+    @State private var expenses = Expenses()
 
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [.green, .indigo], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            VStack {
-                Text("Enter your car details")
-                    .font(.title)
-                    .foregroundStyle(.white)
-                VStack {
-                    TextField("Make", text: $car.make)
-
-                    TextField("Model", text: $car.model)
+        NavigationStack {
+            List {
+                ForEach(expenses.items, id: \.name) { item in
+                    Text(item.name)
                 }
-                .padding(8)
-                .background()
-                .clipShape(.rect(cornerRadius: 8))
-                Button("Add") {
-                    numberOfCars += 1
-                    UserDefaults.standard.set(numberOfCars, forKey: "Tap")
-
-                    ids.append(car.id)
-                    UserDefaults.standard.set(ids, forKey: "ids")
-
-                    if let carData = try? JSONEncoder().encode(car) {
-                        UserDefaults.standard.set(carData, forKey: "\(car.id)")
-                    }
-                    isCarViewPresented = true
-                }
-                .padding(8)
-                .background(.blue)
-                .foregroundColor(.white)
-                .clipShape(.rect(cornerRadius: 8))
-                Text("tapCount: \(numberOfCars)")
+                .onDelete(perform: removeItems)
             }
-            .padding()
-
-            .sheet(isPresented: $isCarViewPresented) {
-                CarContentView(cars: fetchCars())
+            .navigationTitle("iExpense")
+            
+        }
+        .toolbar {
+            Button("Add Expense", systemImage: "plus") {
+                let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
+                expenses.items.append(expense)
             }
         }
     }
 
-    func fetchCars() -> [Car] {
-        var cars:[Car] = []
-        guard let ids = UserDefaults.standard.array(forKey: "ids") else { return [] }
-        for id in ids {
-            if let data = UserDefaults.standard.data(forKey: "\(id)"),
-               let car = try? JSONDecoder().decode(Car.self, from: data) {
-                cars.append(car)
-            }
-        }
-        return cars
+    func removeItems(at offsets: IndexSet) {
+        expenses.items.remove(atOffsets: offsets)
     }
 }
 
