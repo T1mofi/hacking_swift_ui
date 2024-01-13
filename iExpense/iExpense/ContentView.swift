@@ -8,7 +8,7 @@
 import SwiftUI
 import Observation
 
-struct ExpenseItem: Identifiable, Codable {
+struct ExpenseItem: Identifiable, Codable, Equatable {
     var id = UUID()
     let name: String
     let type: String
@@ -60,7 +60,7 @@ struct ContentView: View {
                                 .foregroundStyle(colorForAmount(item.amount))
                         }
                     }
-                    .onDelete(perform: removeItems)
+                    .onDelete(perform: removeItemsPersonal)
                 }
                 Section("Business") {
                     ForEach(expenses.items.filter({ item in
@@ -78,7 +78,7 @@ struct ContentView: View {
                                 .foregroundStyle(colorForAmount(item.amount))
                         }
                     }
-                    .onDelete(perform: removeItems)
+                    .onDelete(perform: removeItemsBusiness)
                 }
             }
             .navigationTitle("iExpense")
@@ -95,8 +95,22 @@ struct ContentView: View {
         }
     }
 
-    func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
+    func removeItemsPersonal(at offsets: IndexSet) {
+        for index in offsets {
+            let item = expenses.items.filter({ item in item.type == "Personal" })[index]
+            if let sectionIndex = expenses.items.firstIndex(of: item) {
+                expenses.items.remove(at: sectionIndex)
+            }
+        }
+    }
+
+    func removeItemsBusiness(at offsets: IndexSet) {
+        for index in offsets {
+            let item = expenses.items.filter({ item in item.type == "Business" })[index]
+            if let sectionIndex = expenses.items.firstIndex(of: item) {
+                expenses.items.remove(at: sectionIndex)
+            }
+        }
     }
 
     func colorForAmount(_ amount: Int) -> Color {
