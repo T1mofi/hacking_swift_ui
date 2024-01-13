@@ -8,10 +8,24 @@
 import SwiftUI
 import Observation
 
+enum ExpenseType: Codable {
+    case personal
+    case business
+
+    var description: String {
+        switch self {
+        case .personal:
+            "Personal"
+        case .business:
+            "Business"
+        }
+    }
+}
+
 struct ExpenseItem: Identifiable, Codable, Equatable {
     var id = UUID()
     let name: String
-    let type: String
+    let type: ExpenseType
     let amount: Int
 }
 
@@ -46,13 +60,13 @@ struct ContentView: View {
             List {
                 Section("Personal") {
                     ForEach(expenses.items.filter({ item in
-                        item.type == "Personal"
+                        item.type == .personal
                     })) { item in
                         HStack {
                             VStack(alignment: .leading) {
                                 Text(item.name)
                                     .font(.headline)
-                                Text(item.type)
+                                Text(item.type.description)
                             }
 
                             Spacer()
@@ -60,17 +74,17 @@ struct ContentView: View {
                                 .foregroundStyle(colorForAmount(item.amount))
                         }
                     }
-                    .onDelete(perform: removeItemsPersonal)
+                    .onDelete(perform: removePersonalItems)
                 }
                 Section("Business") {
                     ForEach(expenses.items.filter({ item in
-                        item.type == "Business"
+                        item.type == .business
                     })) { item in
                         HStack {
                             VStack(alignment: .leading) {
                                 Text(item.name)
                                     .font(.headline)
-                                Text(item.type)
+                                Text(item.type.description)
                             }
 
                             Spacer()
@@ -78,7 +92,7 @@ struct ContentView: View {
                                 .foregroundStyle(colorForAmount(item.amount))
                         }
                     }
-                    .onDelete(perform: removeItemsBusiness)
+                    .onDelete(perform: removeBusinessItems)
                 }
             }
             .navigationTitle("iExpense")
@@ -95,18 +109,17 @@ struct ContentView: View {
         }
     }
 
-    func removeItemsPersonal(at offsets: IndexSet) {
-        for index in offsets {
-            let item = expenses.items.filter({ item in item.type == "Personal" })[index]
-            if let sectionIndex = expenses.items.firstIndex(of: item) {
-                expenses.items.remove(at: sectionIndex)
-            }
-        }
+    func removePersonalItems(at offsets: IndexSet) {
+        removeItems(at: offsets, expenseType: .personal)
     }
 
-    func removeItemsBusiness(at offsets: IndexSet) {
+    func removeBusinessItems(at offsets: IndexSet) {
+        removeItems(at: offsets, expenseType: .business)
+    }
+
+    func removeItems(at offsets: IndexSet, expenseType: ExpenseType) {
         for index in offsets {
-            let item = expenses.items.filter({ item in item.type == "Business" })[index]
+            let item = expenses.items.filter({ item in item.type == expenseType })[index]
             if let sectionIndex = expenses.items.firstIndex(of: item) {
                 expenses.items.remove(at: sectionIndex)
             }

@@ -13,10 +13,10 @@ struct AddView: View {
     var expenses: Expenses
 
     @State private var name = ""
-    @State private var type = "Personal"
+    @State private var type: ExpenseType = .personal
     @State private var amount = 0
 
-    let types = ["Business", "Personal"]
+    let types: [ExpenseType] = [.business, .personal]
 
     var body: some View {
         NavigationStack {
@@ -25,7 +25,7 @@ struct AddView: View {
 
                 Picker("Type", selection: $type) {
                     ForEach(types, id: \.self) {
-                        Text($0)
+                        Text($0.description)
                     }
                 }
 
