@@ -32,14 +32,15 @@ struct ContentView: View {
                 .onDelete(perform: removeItems)
             }
             .navigationTitle("iExpense")
-            
-        }
-        .toolbar {
-            Button("Add Expense", systemImage: "plus") {
-                let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
-                expenses.items.append(expense)
+            .toolbar {
+                Button("Add Expense", systemImage: "plus") {
+                    let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
+                    expenses.items.append(expense)
+                }
+                .background(.blue)
             }
         }
+
     }
 
     func removeItems(at offsets: IndexSet) {
