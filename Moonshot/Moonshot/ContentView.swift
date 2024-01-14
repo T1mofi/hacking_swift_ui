@@ -22,25 +22,33 @@ struct CustomText: View {
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(.lego)
-                .resizable()
-                .scaledToFill()
-                .containerRelativeFrame(.vertical) { size, axis in
-                    size * 0.4
+        NavigationStack {
+            VStack {
+                Image(.lego)
+                    .resizable()
+                    .scaledToFill()
+                    .containerRelativeFrame(.vertical) { size, axis in
+                        size * 0.4
+                    }
+                    .clipped()
+                ScrollView {
+                    LazyVStack(spacing: 10) {
+                        ForEach(0..<100) {
+                            CustomText("Item \($0)")
+                                .font(.title)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-                .clipped()
-            ScrollView {
-                LazyVStack(spacing: 10) {
-                    ForEach(0..<100) {
-                        CustomText("Item \($0)")
-                            .font(.title)
+                List(0..<100) { row in
+                    NavigationLink("Row \(row)") {
+                        Text("Detail \(row)")
                     }
                 }
-                .frame(maxWidth: .infinity)
             }
+            .padding()
+            .navigationTitle("SwiftUI")
         }
-        .padding()
     }
 }
 
