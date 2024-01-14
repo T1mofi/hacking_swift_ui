@@ -19,6 +19,7 @@
 		2200F4072B54171700BEE2C2 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 2200F4052B54171700BEE2C2 /* missions.json */; };
 		2200F40B2B5417AF00BEE2C2 /* Astronout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F40A2B5417AF00BEE2C2 /* Astronout.swift */; };
 		2200F40D2B541B0A00BEE2C2 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F40C2B541B0A00BEE2C2 /* Mission.swift */; };
+		2200F4102B54206400BEE2C2 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F40F2B54206400BEE2C2 /* Color-Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		2200F4052B54171700BEE2C2 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
 		2200F40A2B5417AF00BEE2C2 /* Astronout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronout.swift; sourceTree = "<group>"; };
 		2200F40C2B541B0A00BEE2C2 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		2200F40F2B54206400BEE2C2 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				2200F3EB2B53F08300BEE2C2 /* MoonshotApp.swift */,
 				2200F4002B54159C00BEE2C2 /* MainContentView.swift */,
 				2200F4022B5416DA00BEE2C2 /* Bundle-Decodable.swift */,
+				2200F40F2B54206400BEE2C2 /* Color-Theme.swift */,
 				2200F40E2B541B1200BEE2C2 /* Models */,
 				2200F4082B54178D00BEE2C2 /* Resources */,
 				2200F3FD2B54155700BEE2C2 /* Hints */,
@@ -195,6 +198,7 @@
 				2200F4012B54159C00BEE2C2 /* MainContentView.swift in Sources */,
 				2200F4032B5416DA00BEE2C2 /* Bundle-Decodable.swift in Sources */,
 				2200F40B2B5417AF00BEE2C2 /* Astronout.swift in Sources */,
+				2200F4102B54206400BEE2C2 /* Color-Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
