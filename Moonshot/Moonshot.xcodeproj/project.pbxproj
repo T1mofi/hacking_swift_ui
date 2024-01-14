@@ -18,6 +18,7 @@
 		2200F4062B54171700BEE2C2 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2200F4042B54171600BEE2C2 /* astronauts.json */; };
 		2200F4072B54171700BEE2C2 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 2200F4052B54171700BEE2C2 /* missions.json */; };
 		2200F40B2B5417AF00BEE2C2 /* Astronout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F40A2B5417AF00BEE2C2 /* Astronout.swift */; };
+		2200F40D2B541B0A00BEE2C2 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F40C2B541B0A00BEE2C2 /* Mission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		2200F4042B54171600BEE2C2 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
 		2200F4052B54171700BEE2C2 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
 		2200F40A2B5417AF00BEE2C2 /* Astronout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronout.swift; sourceTree = "<group>"; };
+		2200F40C2B541B0A00BEE2C2 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +69,8 @@
 			children = (
 				2200F3EB2B53F08300BEE2C2 /* MoonshotApp.swift */,
 				2200F4002B54159C00BEE2C2 /* MainContentView.swift */,
-				2200F40A2B5417AF00BEE2C2 /* Astronout.swift */,
 				2200F4022B5416DA00BEE2C2 /* Bundle-Decodable.swift */,
+				2200F40E2B541B1200BEE2C2 /* Models */,
 				2200F4082B54178D00BEE2C2 /* Resources */,
 				2200F3FD2B54155700BEE2C2 /* Hints */,
 				2200F3EF2B53F08400BEE2C2 /* Assets.xcassets */,
@@ -102,6 +104,15 @@
 				2200F4052B54171700BEE2C2 /* missions.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2200F40E2B541B1200BEE2C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2200F40A2B5417AF00BEE2C2 /* Astronout.swift */,
+				2200F40C2B541B0A00BEE2C2 /* Mission.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +189,7 @@
 			files = (
 				2200F3FA2B5412AD00BEE2C2 /* CodableDataContentView.swift in Sources */,
 				2200F3EE2B53F08300BEE2C2 /* ContentView.swift in Sources */,
+				2200F40D2B541B0A00BEE2C2 /* Mission.swift in Sources */,
 				2200F3EC2B53F08300BEE2C2 /* MoonshotApp.swift in Sources */,
 				2200F3FC2B5413EA00BEE2C2 /* GridLayoutContentView.swift in Sources */,
 				2200F4012B54159C00BEE2C2 /* MainContentView.swift in Sources */,
