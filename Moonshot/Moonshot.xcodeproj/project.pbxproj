@@ -11,6 +11,7 @@
 		2200F3EE2B53F08300BEE2C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F3ED2B53F08300BEE2C2 /* ContentView.swift */; };
 		2200F3F02B53F08400BEE2C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2200F3EF2B53F08400BEE2C2 /* Assets.xcassets */; };
 		2200F3F32B53F08400BEE2C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2200F3F22B53F08400BEE2C2 /* Preview Assets.xcassets */; };
+		2200F3FA2B5412AD00BEE2C2 /* CodableDataContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F3F92B5412AD00BEE2C2 /* CodableDataContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		2200F3ED2B53F08300BEE2C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2200F3EF2B53F08400BEE2C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2200F3F22B53F08400BEE2C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2200F3F92B5412AD00BEE2C2 /* CodableDataContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableDataContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				2200F3EB2B53F08300BEE2C2 /* MoonshotApp.swift */,
 				2200F3ED2B53F08300BEE2C2 /* ContentView.swift */,
+				2200F3F92B5412AD00BEE2C2 /* CodableDataContentView.swift */,
 				2200F3EF2B53F08400BEE2C2 /* Assets.xcassets */,
 				2200F3F12B53F08400BEE2C2 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2200F3FA2B5412AD00BEE2C2 /* CodableDataContentView.swift in Sources */,
 				2200F3EE2B53F08300BEE2C2 /* ContentView.swift in Sources */,
 				2200F3EC2B53F08300BEE2C2 /* MoonshotApp.swift in Sources */,
 			);
