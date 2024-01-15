@@ -21,6 +21,7 @@
 		2200F40D2B541B0A00BEE2C2 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F40C2B541B0A00BEE2C2 /* Mission.swift */; };
 		2200F4102B54206400BEE2C2 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F40F2B54206400BEE2C2 /* Color-Theme.swift */; };
 		2200F4122B55C9F500BEE2C2 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F4112B55C9F500BEE2C2 /* MissionView.swift */; };
+		2200F4142B55D32600BEE2C2 /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F4132B55D32600BEE2C2 /* AstronautView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		2200F40C2B541B0A00BEE2C2 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		2200F40F2B54206400BEE2C2 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
 		2200F4112B55C9F500BEE2C2 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		2200F4132B55D32600BEE2C2 /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				2200F3EB2B53F08300BEE2C2 /* MoonshotApp.swift */,
 				2200F4002B54159C00BEE2C2 /* MainContentView.swift */,
 				2200F4112B55C9F500BEE2C2 /* MissionView.swift */,
+				2200F4132B55D32600BEE2C2 /* AstronautView.swift */,
 				2200F4022B5416DA00BEE2C2 /* Bundle-Decodable.swift */,
 				2200F40F2B54206400BEE2C2 /* Color-Theme.swift */,
 				2200F40E2B541B1200BEE2C2 /* Models */,
@@ -199,6 +202,7 @@
 				2200F3EC2B53F08300BEE2C2 /* MoonshotApp.swift in Sources */,
 				2200F3FC2B5413EA00BEE2C2 /* GridLayoutContentView.swift in Sources */,
 				2200F4012B54159C00BEE2C2 /* MainContentView.swift in Sources */,
+				2200F4142B55D32600BEE2C2 /* AstronautView.swift in Sources */,
 				2200F4032B5416DA00BEE2C2 /* Bundle-Decodable.swift in Sources */,
 				2200F40B2B5417AF00BEE2C2 /* Astronout.swift in Sources */,
 				2200F4102B54206400BEE2C2 /* Color-Theme.swift in Sources */,
