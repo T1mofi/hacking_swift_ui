@@ -74,11 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				2200F3EB2B53F08300BEE2C2 /* MoonshotApp.swift */,
-				2200F4002B54159C00BEE2C2 /* MainContentView.swift */,
-				2200F4112B55C9F500BEE2C2 /* MissionView.swift */,
-				2200F4132B55D32600BEE2C2 /* AstronautView.swift */,
-				2200F4022B5416DA00BEE2C2 /* Bundle-Decodable.swift */,
-				2200F40F2B54206400BEE2C2 /* Color-Theme.swift */,
+				2200F4162B55D3DD00BEE2C2 /* Extensions */,
+				2200F4152B55D3CF00BEE2C2 /* Views */,
 				2200F40E2B541B1200BEE2C2 /* Models */,
 				2200F4082B54178D00BEE2C2 /* Resources */,
 				2200F3FD2B54155700BEE2C2 /* Hints */,
@@ -122,6 +119,25 @@
 				2200F40C2B541B0A00BEE2C2 /* Mission.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2200F4152B55D3CF00BEE2C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2200F4002B54159C00BEE2C2 /* MainContentView.swift */,
+				2200F4112B55C9F500BEE2C2 /* MissionView.swift */,
+				2200F4132B55D32600BEE2C2 /* AstronautView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2200F4162B55D3DD00BEE2C2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2200F4022B5416DA00BEE2C2 /* Bundle-Decodable.swift */,
+				2200F40F2B54206400BEE2C2 /* Color-Theme.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
