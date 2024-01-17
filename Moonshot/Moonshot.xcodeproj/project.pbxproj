@@ -23,6 +23,8 @@
 		2200F4122B55C9F500BEE2C2 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F4112B55C9F500BEE2C2 /* MissionView.swift */; };
 		2200F4142B55D32600BEE2C2 /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200F4132B55D32600BEE2C2 /* AstronautView.swift */; };
 		22CF954A2B587A4D000E58EF /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF95492B587A4D000E58EF /* SeparatorView.swift */; };
+		22CF954C2B587C78000E58EF /* CrewHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF954B2B587C78000E58EF /* CrewHorizontalScrollView.swift */; };
+		22CF954E2B587D45000E58EF /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF954D2B587D45000E58EF /* CrewMember.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		2200F4112B55C9F500BEE2C2 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		2200F4132B55D32600BEE2C2 /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
 		22CF95492B587A4D000E58EF /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		22CF954B2B587C78000E58EF /* CrewHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewHorizontalScrollView.swift; sourceTree = "<group>"; };
+		22CF954D2B587D45000E58EF /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2200F40A2B5417AF00BEE2C2 /* Astronout.swift */,
+				22CF954D2B587D45000E58EF /* CrewMember.swift */,
 				2200F40C2B541B0A00BEE2C2 /* Mission.swift */,
 			);
 			path = Models;
@@ -128,6 +133,7 @@
 			children = (
 				2200F4002B54159C00BEE2C2 /* MainContentView.swift */,
 				2200F4112B55C9F500BEE2C2 /* MissionView.swift */,
+				22CF954B2B587C78000E58EF /* CrewHorizontalScrollView.swift */,
 				22CF95492B587A4D000E58EF /* SeparatorView.swift */,
 				2200F4132B55D32600BEE2C2 /* AstronautView.swift */,
 			);
@@ -219,12 +225,14 @@
 				2200F3EE2B53F08300BEE2C2 /* ContentView.swift in Sources */,
 				2200F40D2B541B0A00BEE2C2 /* Mission.swift in Sources */,
 				2200F3EC2B53F08300BEE2C2 /* MoonshotApp.swift in Sources */,
+				22CF954E2B587D45000E58EF /* CrewMember.swift in Sources */,
 				2200F3FC2B5413EA00BEE2C2 /* GridLayoutContentView.swift in Sources */,
 				2200F4012B54159C00BEE2C2 /* MainContentView.swift in Sources */,
 				22CF954A2B587A4D000E58EF /* SeparatorView.swift in Sources */,
 				2200F4142B55D32600BEE2C2 /* AstronautView.swift in Sources */,
 				2200F4032B5416DA00BEE2C2 /* Bundle-Decodable.swift in Sources */,
 				2200F40B2B5417AF00BEE2C2 /* Astronout.swift in Sources */,
+				22CF954C2B587C78000E58EF /* CrewHorizontalScrollView.swift in Sources */,
 				2200F4102B54206400BEE2C2 /* Color-Theme.swift in Sources */,
 				2200F4122B55C9F500BEE2C2 /* MissionView.swift in Sources */,
 			);
