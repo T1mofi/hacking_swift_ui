@@ -7,60 +7,120 @@
 
 import SwiftUI
 
-struct MainContentView: View {
-    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
-    let missions: [Mission] = Bundle.main.decode("missions.json")
+struct MissionsGrid: View {
+    let astronauts: [String: Astronaut]
+    let missions: [Mission]
 
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
 
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(missions) { mission in
-                        NavigationLink {
-                            MissionView(mission: mission, astronauts: astronauts)
-                        } label: {
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                ForEach(missions) { mission in
+                    NavigationLink {
+                        MissionView(mission: mission, astronauts: astronauts)
+                    } label: {
+                        VStack {
+                            Image(mission.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .padding()
+
                             VStack {
-                                Image(mission.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .padding()
-
-                                VStack {
-                                    Text(mission.displayName)
-                                        .font(.headline)
-                                        .foregroundStyle(.white)
-                                    Text(mission.formattedLaunchDate)
-                                        .font(.caption)
-                                        .foregroundStyle(.gray)
-                                }
-                                .padding(.vertical)
-                                .frame(maxWidth: .infinity)
-                                .background(.lightBackground)
+                                Text(mission.displayName)
+                                    .font(.headline)
+                                    .foregroundStyle(.white)
+                                Text(mission.formattedLaunchDate)
+                                    .font(.caption)
+                                    .foregroundStyle(.gray)
                             }
-                            .clipShape(.rect(cornerRadius: 10))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.lightBackground)
-                            )
+                            .padding(.vertical)
+                            .frame(maxWidth: .infinity)
+                            .background(.lightBackground)
                         }
-
+                        .clipShape(.rect(cornerRadius: 10))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.lightBackground)
+                        )
                     }
                 }
-                .padding(.horizontal)
+            }
+            .padding(.horizontal)
+        }
+    }
+}
+
+struct MissionsList: View {
+    let astronauts: [String: Astronaut]
+    let missions: [Mission]
+
+    var body: some View {
+        List {
+            ForEach(missions) { mission in
+                NavigationLink {
+                    MissionView(mission: mission, astronauts: astronauts)
+                } label: {
+                    HStack(spacing: 0) {
+                        Image(mission.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 64, height: 64)
+                            .padding(10)
+
+                        VStack {
+                            Text(mission.displayName)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                            Text(mission.formattedLaunchDate)
+                                .font(.caption)
+                                .foregroundStyle(.gray)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: 84)
+                        .background(.lightBackground)
+                    }
+                    .clipShape(.rect(cornerRadius: 10))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.lightBackground)
+                    )
+                }
+            }
+            .listRowBackground(Color.darkBackground)
+            .listRowSeparator(.hidden)
+        }
+        .listStyle(.plain)
+
+    }
+}
+
+struct MainContentView: View {
+    private let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
+    private let missions: [Mission] = Bundle.main.decode("missions.json")
+
+    @State private var shouldDisplayAsGrid = true
+
+    var body: some View {
+        NavigationStack {
+            Group {
+                if shouldDisplayAsGrid {
+                    MissionsGrid(astronauts: astronauts, missions: missions)
+                } else {
+                    MissionsList(astronauts: astronauts, missions: missions)
+                }
             }
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
             .navigationBarItems(
                 trailing: Button(action: {
-                    // TODO: - Change style here
+                    shouldDisplayAsGrid.toggle()
                 }) {
-                    Image(systemName: "gear")
+                    Image(systemName: shouldDisplayAsGrid ? "list.dash" : "square.grid.2x2")
+                        .foregroundColor(.white)
                 }
             )
         }
