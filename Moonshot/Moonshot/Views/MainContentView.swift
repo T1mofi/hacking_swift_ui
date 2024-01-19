@@ -117,7 +117,9 @@ struct MainContentView: View {
             .preferredColorScheme(.dark)
             .navigationBarItems(
                 trailing: Button(action: {
-                    shouldDisplayAsGrid.toggle()
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        shouldDisplayAsGrid.toggle()
+                    }
                 }) {
                     Image(systemName: shouldDisplayAsGrid ? "list.dash" : "square.grid.2x2")
                         .foregroundColor(.white)
