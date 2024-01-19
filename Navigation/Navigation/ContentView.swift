@@ -7,15 +7,23 @@
 
 import SwiftUI
 
+struct Student: Hashable, Identifiable {
+    var id = UUID()
+    var name: String
+    var age: Int
+}
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List([Student(name: "Alex", age: 21), Student(name: "Aneta", age: 22)]) { student in
+                NavigationLink("Select \(student.name)", value: student)
+            }
+            .navigationDestination(for: Student.self) { selection in
+                Text("Name: \(selection.name)")
+                Text("Age: \(selection.age)")
+            }
         }
-        .padding()
     }
 }
 
