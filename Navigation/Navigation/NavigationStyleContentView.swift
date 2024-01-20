@@ -18,6 +18,18 @@ struct NavigationStyleContentView: View {
             .toolbarBackground(.blue, for: .navigationBar)
             .toolbarColorScheme(.dark)
             .toolbar(.automatic)
+            .toolbar {
+                ToolbarItemGroup(placement: .confirmationAction) {
+                    Button("Press me") {
+                        // do smth
+                    }
+
+                    Button("Press me") {
+                        // do smth
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden()
         }
     }
 }
