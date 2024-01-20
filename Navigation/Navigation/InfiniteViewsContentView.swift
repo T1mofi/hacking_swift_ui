@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct InfiniteViewsContentView: View {
-    @State private var path = [Int]()
+    @State private var pathStore = PathStore()
 
     var body: some View {
-        NavigationStack(path: $path) {
-            DetailView(number: 0, path: $path)
+        NavigationStack(path: $pathStore.path) {
+            DetailView(number: 0, path: $pathStore.path)
                 .navigationDestination(for: Int.self) { i in
-                    DetailView(number: i, path: $path)
+                    DetailView(number: i, path: $pathStore.path)
                 }
         }
     }
