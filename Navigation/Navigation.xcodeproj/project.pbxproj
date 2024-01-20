@@ -16,6 +16,7 @@
 		22CF95872B5BCD0F000E58EF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF95862B5BCD0F000E58EF /* DetailView.swift */; };
 		22CF95892B5BCD9A000E58EF /* InfiniteViewsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF95882B5BCD9A000E58EF /* InfiniteViewsContentView.swift */; };
 		22CF958B2B5BD024000E58EF /* PathStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF958A2B5BD024000E58EF /* PathStore.swift */; };
+		22CF958D2B5BD329000E58EF /* NavigationStyleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF958C2B5BD329000E58EF /* NavigationStyleContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		22CF95862B5BCD0F000E58EF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		22CF95882B5BCD9A000E58EF /* InfiniteViewsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteViewsContentView.swift; sourceTree = "<group>"; };
 		22CF958A2B5BD024000E58EF /* PathStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathStore.swift; sourceTree = "<group>"; };
+		22CF958C2B5BD329000E58EF /* NavigationStyleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStyleContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				22CF95882B5BCD9A000E58EF /* InfiniteViewsContentView.swift */,
 				22CF95862B5BCD0F000E58EF /* DetailView.swift */,
 				22CF958A2B5BD024000E58EF /* PathStore.swift */,
+				22CF958C2B5BD329000E58EF /* NavigationStyleContentView.swift */,
 				22CF95762B5AE931000E58EF /* Assets.xcassets */,
 				22CF95782B5AE931000E58EF /* Preview Content */,
 			);
@@ -156,6 +159,7 @@
 				22CF95812B5AEC1A000E58EF /* PathContentView.swift in Sources */,
 				22CF95732B5AE930000E58EF /* NavigationApp.swift in Sources */,
 				22CF95892B5BCD9A000E58EF /* InfiniteViewsContentView.swift in Sources */,
+				22CF958D2B5BD329000E58EF /* NavigationStyleContentView.swift in Sources */,
 				22CF958B2B5BD024000E58EF /* PathStore.swift in Sources */,
 				22CF95872B5BCD0F000E58EF /* DetailView.swift in Sources */,
 				22CF95832B5BCBAE000E58EF /* DifferentPathContentView.swift in Sources */,
