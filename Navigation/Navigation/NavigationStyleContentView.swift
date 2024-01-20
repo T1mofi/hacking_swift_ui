@@ -10,15 +10,24 @@ import SwiftUI
 struct NavigationStyleContentView: View {
     @State private var titleName = "Custom title"
 
+    init() {
+        UINavigationBar.appearance().titleTextAttributes = [
+            .foregroundColor: UIColor.red,
+        ]
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor.blue,
+        ]
+    }
+
     var body: some View {
         NavigationStack {
             List(0..<100) { i in
                 Text("Row \(i)")
             }
             .navigationTitle($titleName)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.blue, for: .navigationBar)
-            .toolbarColorScheme(.dark)
+//            .navigationBarTitleDisplayMode(.inline)
+//            .toolbarBackground(.blue, for: .navigationBar)
+//            .toolbarColorScheme(.dark)
             .toolbar(.automatic)
             .toolbar {
                 ToolbarItemGroup(placement: .confirmationAction) {
