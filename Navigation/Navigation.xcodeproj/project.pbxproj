@@ -12,6 +12,7 @@
 		22CF95772B5AE931000E58EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CF95762B5AE931000E58EF /* Assets.xcassets */; };
 		22CF957A2B5AE931000E58EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CF95792B5AE931000E58EF /* Preview Assets.xcassets */; };
 		22CF95812B5AEC1A000E58EF /* PathContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF95802B5AEC1A000E58EF /* PathContentView.swift */; };
+		22CF95832B5BCBAE000E58EF /* DifferentPathContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF95822B5BCBAE000E58EF /* DifferentPathContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		22CF95762B5AE931000E58EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22CF95792B5AE931000E58EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22CF95802B5AEC1A000E58EF /* PathContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathContentView.swift; sourceTree = "<group>"; };
+		22CF95822B5BCBAE000E58EF /* DifferentPathContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentPathContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				22CF95722B5AE930000E58EF /* NavigationApp.swift */,
 				22CF95742B5AE930000E58EF /* ContentView.swift */,
 				22CF95802B5AEC1A000E58EF /* PathContentView.swift */,
+				22CF95822B5BCBAE000E58EF /* DifferentPathContentView.swift */,
 				22CF95762B5AE931000E58EF /* Assets.xcassets */,
 				22CF95782B5AE931000E58EF /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 				22CF95752B5AE930000E58EF /* ContentView.swift in Sources */,
 				22CF95812B5AEC1A000E58EF /* PathContentView.swift in Sources */,
 				22CF95732B5AE930000E58EF /* NavigationApp.swift in Sources */,
+				22CF95832B5BCBAE000E58EF /* DifferentPathContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
