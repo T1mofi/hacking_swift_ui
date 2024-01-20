@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct NavigationStyleContentView: View {
+    @State private var titleName = "Custom title"
+
     var body: some View {
         NavigationStack {
             List(0..<100) { i in
                 Text("Row \(i)")
             }
-            .navigationTitle("Title goes here")
+            .navigationTitle($titleName)
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.blue, for: .navigationBar)
             .toolbarColorScheme(.dark)
