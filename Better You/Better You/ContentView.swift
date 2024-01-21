@@ -13,12 +13,24 @@ struct ContentView: View {
         Activity(title: "activity 2", description: "activity 2 description"),
     ])
 
+    @State private var showActivityCreator: Bool = false
+
     var body: some View {
         NavigationStack {
             List {
                 ForEach(activities.array, content: { activity in
                     Text(activity.title)
                 })
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Add Activity", systemImage: "plus") {
+                        showActivityCreator = true
+                    }
+                }
+            }
+            .sheet(isPresented: $showActivityCreator) {
+                ActivityCreationView(activities: activities)
             }
         }
     }
