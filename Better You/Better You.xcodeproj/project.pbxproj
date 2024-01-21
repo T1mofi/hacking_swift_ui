@@ -11,6 +11,7 @@
 		22CF959D2B5D210C000E58EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF959C2B5D210C000E58EF /* ContentView.swift */; };
 		22CF959F2B5D210D000E58EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CF959E2B5D210D000E58EF /* Assets.xcassets */; };
 		22CF95A22B5D210D000E58EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CF95A12B5D210D000E58EF /* Preview Assets.xcassets */; };
+		22CF95A92B5D21AF000E58EF /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF95A82B5D21AF000E58EF /* Activity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		22CF959C2B5D210C000E58EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		22CF959E2B5D210D000E58EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22CF95A12B5D210D000E58EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		22CF95A82B5D21AF000E58EF /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				22CF959A2B5D210C000E58EF /* Better_YouApp.swift */,
 				22CF959C2B5D210C000E58EF /* ContentView.swift */,
+				22CF95A82B5D21AF000E58EF /* Activity.swift */,
 				22CF959E2B5D210D000E58EF /* Assets.xcassets */,
 				22CF95A02B5D210D000E58EF /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22CF95A92B5D21AF000E58EF /* Activity.swift in Sources */,
 				22CF959D2B5D210C000E58EF /* ContentView.swift in Sources */,
 				22CF959B2B5D210C000E58EF /* Better_YouApp.swift in Sources */,
 			);
