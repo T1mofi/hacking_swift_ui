@@ -21,6 +21,9 @@ struct ContentView: View {
                 ForEach(activities.array, content: { activity in
                     Text(activity.title)
                 })
+                .onDelete(perform: { indexSet in
+                    activities.array.remove(atOffsets: indexSet)
+                })
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
