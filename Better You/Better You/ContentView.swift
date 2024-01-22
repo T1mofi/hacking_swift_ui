@@ -19,7 +19,9 @@ struct ContentView: View {
         NavigationStack {
             List {
                 ForEach(activities.array, content: { activity in
-                    Text(activity.title)
+                    NavigationLink(activity.title) {
+                        ActivityView(activity: activity)
+                    }
                 })
                 .onDelete(perform: { indexSet in
                     activities.array.remove(atOffsets: indexSet)
