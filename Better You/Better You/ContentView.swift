@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var activities = Activities(array: [
-        Activity(title: "activity 1", description: "activity 1 description"),
-        Activity(title: "activity 2", description: "activity 2 description"),
+        Activity(title: "activity 1", description: "activity 1 description", activityCompletionCount: 0),
+        Activity(title: "activity 2", description: "activity 2 description", activityCompletionCount: 0),
     ])
 
     @State private var showActivityCreator: Bool = false
@@ -20,7 +20,7 @@ struct ContentView: View {
             List {
                 ForEach(activities.array, content: { activity in
                     NavigationLink(activity.title) {
-                        ActivityView(activity: activity)
+                        ActivityView(activity: activity, activities: activities)
                     }
                 })
                 .onDelete(perform: { indexSet in

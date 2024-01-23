@@ -11,6 +11,7 @@ struct Activity: Identifiable {
     let id = UUID()
     let title: String
     let description: String
+    var activityCompletionCount: Int
 }
 
 @Observable
