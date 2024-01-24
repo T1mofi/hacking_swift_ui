@@ -21,9 +21,9 @@ struct ActivityView: View {
                 Text("Completed \(activity.activityCompletionCount) times")
                 Button("Complete") {
                     if let index = activities.array.firstIndex(where: { $0.id == activity.id }) {
+                        // TODO: - Refactor
+                        activity.activityCompletionCount += 1
                         activities.array[index].activityCompletionCount += 1
-//                        let removedActivity = activities.array.remove(at: index)
-//                        activities.array.append(removedActivity)
                     }
                 }
                 .padding()
@@ -40,6 +40,7 @@ struct ActivityView: View {
     }
 }
 
-//#Preview {
-//    ActivityView(activity: Activity(title: "Activity title", description: "Activity descritption", activityCompletionCount: 0))
-//}
+#Preview {
+    let activity = Activity(title: "Activity title", description: "Activity descritption", activityCompletionCount: 0)
+    return ActivityView(activity: activity, activities: Activities(array: [activity]))
+}
