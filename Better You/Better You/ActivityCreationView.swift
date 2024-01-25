@@ -28,7 +28,7 @@ struct ActivityCreationView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         let newActivity = Activity(title: title, description: description, activityCompletionCount: 0)
-                        activities.array.append(newActivity)
+                        activities.items.append(newActivity)
                         dismiss()
                     }
                 }

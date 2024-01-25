@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Observation
 
-struct Activity: Identifiable {
-    let id = UUID()
+struct Activity: Identifiable, Codable {
+    var id = UUID()
     let title: String
     let description: String
     var activityCompletionCount: Int
@@ -16,9 +17,25 @@ struct Activity: Identifiable {
 
 @Observable
 class Activities {
-    var array: [Activity]
+    var items: [Activity] = [Activity]() {
+        didSet {
+            if let encodedData = try? JSONEncoder().encode(items) {
+                UserDefaults.standard.set(encodedData, forKey: "activities")
+            }
+        }
+    }
+
+    init() {
+        if let encodedData = UserDefaults.standard.data(forKey: "activities"),
+           let items = try? JSONDecoder().decode([Activity].self, from: encodedData) {
+            self.items = items
+            return
+        }
+
+        self.items = []
+    }
 
     init(array: [Activity]) {
-        self.array = array
+        self.items = array
     }
 }
