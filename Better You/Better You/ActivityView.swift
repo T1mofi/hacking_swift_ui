@@ -21,9 +21,8 @@ struct ActivityView: View {
                 Text("Completed \(activity.activityCompletionCount) times")
                 Button("Complete") {
                     if let index = activities.items.firstIndex(where: { $0.id == activity.id }) {
-                        // TODO: - Refactor
                         activity.activityCompletionCount += 1
-                        activities.items[index].activityCompletionCount += 1
+                        activities.items[index] = activity
                     }
                 }
                 .padding()
