@@ -17,7 +17,6 @@ struct ActivityView: View {
                 Text("Description")
                     .font(.title3.bold())
                 Text(activity.description)
-                // TODO: - make automatic plural form
                 Text("Completed \(activity.activityCompletionCount) times")
                 Button("Complete") {
                     if let index = activities.items.firstIndex(where: { $0.id == activity.id }) {
