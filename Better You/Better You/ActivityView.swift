@@ -39,6 +39,6 @@ struct ActivityView: View {
 }
 
 #Preview {
-    let activity = Activity(title: "Activity title", description: "Activity descritption", activityCompletionCount: 0)
+    let activity = Activity(title: "Hacking with Swift", description: "Every day write absolutely any amount of Swift code for yourself. Enjoy it. Have fun. And grow. Treat it as an opportunity e.g. I’ve got to have some fun coding.", activityCompletionCount: 0)
     return ActivityView(activity: activity, activities: Activities(array: [activity]))
 }
