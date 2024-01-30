@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2260D6682B6969360086D915 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260D6672B6969360086D915 /* Color-Theme.swift */; };
+		2260D66A2B696A4C0086D915 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260D6692B696A4C0086D915 /* SeparatorView.swift */; };
 		22CF959B2B5D210C000E58EF /* Better_YouApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF959A2B5D210C000E58EF /* Better_YouApp.swift */; };
 		22CF959D2B5D210C000E58EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF959C2B5D210C000E58EF /* ContentView.swift */; };
 		22CF959F2B5D210D000E58EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CF959E2B5D210D000E58EF /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2260D6672B6969360086D915 /* Color-Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
+		2260D6692B696A4C0086D915 /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeparatorView.swift; path = ../../Moonshot/Moonshot/Views/SeparatorView.swift; sourceTree = "<group>"; };
 		22CF95972B5D210C000E58EF /* Better You.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Better You.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CF959A2B5D210C000E58EF /* Better_YouApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Better_YouApp.swift; sourceTree = "<group>"; };
 		22CF959C2B5D210C000E58EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,9 +61,11 @@
 		22CF95992B5D210C000E58EF /* Better You */ = {
 			isa = PBXGroup;
 			children = (
+				2260D6672B6969360086D915 /* Color-Theme.swift */,
 				22CF959A2B5D210C000E58EF /* Better_YouApp.swift */,
 				22CF959C2B5D210C000E58EF /* ContentView.swift */,
 				22CF95AE2B5D49D6000E58EF /* ActivityView.swift */,
+				2260D6692B696A4C0086D915 /* SeparatorView.swift */,
 				22CF95AC2B5D36E0000E58EF /* ActivityCreationView.swift */,
 				22CF95A82B5D21AF000E58EF /* Activity.swift */,
 				22CF959E2B5D210D000E58EF /* Assets.xcassets */,
@@ -147,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				22CF95A92B5D21AF000E58EF /* Activity.swift in Sources */,
+				2260D6682B6969360086D915 /* Color-Theme.swift in Sources */,
 				22CF959D2B5D210C000E58EF /* ContentView.swift in Sources */,
+				2260D66A2B696A4C0086D915 /* SeparatorView.swift in Sources */,
 				22CF95AD2B5D36E0000E58EF /* ActivityCreationView.swift in Sources */,
 				22CF95AF2B5D49D6000E58EF /* ActivityView.swift in Sources */,
 				22CF959B2B5D210C000E58EF /* Better_YouApp.swift in Sources */,

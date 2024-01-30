@@ -15,24 +15,32 @@ struct ActivityView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 Text("Description")
-                    .font(.title3.bold())
+                    .font(.title.bold())
+                    .padding(.bottom, 5)
                 Text(activity.description)
-                Text("Completed \(activity.activityCompletionCount) times")
-                Button("Complete") {
-                    if let index = activities.items.firstIndex(where: { $0.id == activity.id }) {
-                        activity.activityCompletionCount += 1
-                        activities.items[index] = activity
+
+                Separator()
+
+                VStack(spacing: 20) {
+                    Text("Completed \(activity.activityCompletionCount) times")
+
+                    Button("Complete") {
+                        if let index = activities.items.firstIndex(where: { $0.id == activity.id }) {
+                            activity.activityCompletionCount += 1
+                            activities.items[index] = activity
+                        }
                     }
+                    .padding()
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
-                .padding()
-                .background(.blue)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .frame(maxWidth: .infinity)
             }
             .padding(.horizontal)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.customb)
+        .background(.darkBackground)
         .navigationTitle(activity.title)
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -40,5 +48,5 @@ struct ActivityView: View {
 
 #Preview {
     let activity = Activity(title: "Hacking with Swift", description: "Every day write absolutely any amount of Swift code for yourself. Enjoy it. Have fun. And grow. Treat it as an opportunity e.g. I’ve got to have some fun coding.", activityCompletionCount: 0)
-    return ActivityView(activity: activity, activities: Activities(array: [activity]))
+    return ActivityView(activity: activity, activities: Activities(array: [activity])).preferredColorScheme(.dark)
 }
