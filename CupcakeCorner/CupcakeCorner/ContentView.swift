@@ -23,6 +23,9 @@ struct ContentView: View {
     var body: some View {
         List(results, id: \.trackId) { item in
             VStack(alignment: .leading) {
+                AsyncImage(url: URL(string: "https://hws.dev/img/logo.png"))
+                    .frame(maxWidth: 200, maxHeight: 200)
+                    .clipped()
                 Text(item.trackName)
                     .font(.headline)
                 Text(item.collectionName)
