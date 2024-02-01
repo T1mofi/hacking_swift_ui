@@ -17,7 +17,7 @@ struct Result: Codable {
     var collectionName: String
 }
 
-struct ContentView: View {
+struct DownloadContentView: View {
     @State private var results = [Result]()
 
     var body: some View {
@@ -63,5 +63,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    DownloadContentView()
 }
