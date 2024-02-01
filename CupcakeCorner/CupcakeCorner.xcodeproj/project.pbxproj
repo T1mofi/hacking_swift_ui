@@ -12,6 +12,7 @@
 		2260D67C2B696FAD0086D915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2260D67B2B696FAD0086D915 /* Assets.xcassets */; };
 		2260D67F2B696FAD0086D915 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2260D67E2B696FAD0086D915 /* Preview Assets.xcassets */; };
 		2260D6AC2B6C43310086D915 /* ValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260D6AB2B6C43310086D915 /* ValidationView.swift */; };
+		2260D6AE2B6C460F0086D915 /* HapticFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260D6AD2B6C460E0086D915 /* HapticFeedbackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		2260D67B2B696FAD0086D915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2260D67E2B696FAD0086D915 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2260D6AB2B6C43310086D915 /* ValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationView.swift; sourceTree = "<group>"; };
+		2260D6AD2B6C460E0086D915 /* HapticFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				2260D6772B696FAC0086D915 /* CupcakeCornerApp.swift */,
 				2260D6792B696FAC0086D915 /* DownloadContentView.swift */,
 				2260D6AB2B6C43310086D915 /* ValidationView.swift */,
+				2260D6AD2B6C460E0086D915 /* HapticFeedbackView.swift */,
 				2260D67B2B696FAD0086D915 /* Assets.xcassets */,
 				2260D67D2B696FAD0086D915 /* Preview Content */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2260D6AE2B6C460F0086D915 /* HapticFeedbackView.swift in Sources */,
 				2260D6AC2B6C43310086D915 /* ValidationView.swift in Sources */,
 				2260D67A2B696FAC0086D915 /* DownloadContentView.swift in Sources */,
 				2260D6782B696FAC0086D915 /* CupcakeCornerApp.swift in Sources */,
