@@ -45,7 +45,12 @@ class Order: Codable {
     }
 
     var hasValidAddress: Bool {
-        if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+        let isNameEmpty = name.components(separatedBy: .whitespaces).joined().isEmpty
+        let isStreetAdressEmpty = streetAddress.components(separatedBy: .whitespaces).joined().isEmpty
+        let isCityEmpty = city.components(separatedBy: .whitespaces).joined().isEmpty
+        let isZipEmpty = zip.components(separatedBy: .whitespaces).joined().isEmpty
+        
+        if isNameEmpty || isStreetAdressEmpty || isCityEmpty || isZipEmpty {
             return false
         }
 

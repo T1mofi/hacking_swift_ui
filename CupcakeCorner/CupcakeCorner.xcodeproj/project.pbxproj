@@ -64,13 +64,11 @@
 			isa = PBXGroup;
 			children = (
 				2260D6772B696FAC0086D915 /* CupcakeCornerApp.swift */,
-				2260D6792B696FAC0086D915 /* DownloadContentView.swift */,
-				2260D6AB2B6C43310086D915 /* ValidationView.swift */,
-				2260D6AD2B6C460E0086D915 /* HapticFeedbackView.swift */,
 				2260D70E2B6D3A720086D915 /* OrderDetailsView.swift */,
 				2260D7102B6D3D4D0086D915 /* AddressView.swift */,
 				2260D7D02B7420020086D915 /* CheckouView.swift */,
 				2260D7D22B74203D0086D915 /* Order.swift */,
+				22B2EC322B76C0DA0016C479 /* Examples */,
 				2260D67B2B696FAD0086D915 /* Assets.xcassets */,
 				2260D67D2B696FAD0086D915 /* Preview Content */,
 			);
@@ -83,6 +81,16 @@
 				2260D67E2B696FAD0086D915 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		22B2EC322B76C0DA0016C479 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				2260D6AD2B6C460E0086D915 /* HapticFeedbackView.swift */,
+				2260D6AB2B6C43310086D915 /* ValidationView.swift */,
+				2260D6792B696FAC0086D915 /* DownloadContentView.swift */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
