@@ -55,21 +55,22 @@ class Order: Codable {
     var extraFrosting = false
     var addSprinkles = false
 
-    var address: Address {
-        set {
-            if let encoded = try? JSONEncoder().encode(newValue) {
-                UserDefaults.standard.set(encoded, forKey: "address")
-            }
-        }
-        get {
-            if let data = UserDefaults.standard.data(forKey: "address"),
-               let decoded = try? JSONDecoder().decode(Address.self, from: data) {
-                return decoded
-            } else {
-                return Address()
-            }
-        }
-    }
+    var address: Address = Address()
+//    {
+//        set {
+//            if let encoded = try? JSONEncoder().encode(newValue) {
+//                UserDefaults.standard.set(encoded, forKey: "address")
+//            }
+//        }
+//        get {
+//            if let data = UserDefaults.standard.data(forKey: "address"),
+//               let decoded = try? JSONDecoder().decode(Address.self, from: data) {
+//                return decoded
+//            } else {
+//                return Address()
+//            }
+//        }
+//    }
 
     var specialRequestEnabled = false {
         didSet {
