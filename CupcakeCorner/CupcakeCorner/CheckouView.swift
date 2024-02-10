@@ -7,11 +7,19 @@
 
 import SwiftUI
 
+enum CheckoutError: Error {
+    case encodeeFailed
+    case failedToLoadData
+}
+
 struct CheckoutView: View {
     var order: Order
 
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
+
+    @State private var errorMessage = ""
+    @State private var showingError = false
 
     var body: some View {
         ScrollView {
@@ -29,9 +37,7 @@ struct CheckoutView: View {
                     .font(.title)
 
                 Button("Place Order", action: {
-                    Task {
-                        await placeOrder()
-                    }
+                    placeOrderAndHandleResponse()
                 })
                     .padding()
             }
@@ -40,16 +46,43 @@ struct CheckoutView: View {
             } message: {
                 Text(confirmationMessage)
             }
+            .alert("Error", isPresented: $showingError) {
+                Button("OK") {}
+                Button("Try Again") {
+                    placeOrderAndHandleResponse()
+                }
+            } message: {
+                Text(errorMessage)
+            }
         }
         .navigationTitle("Check out")
         .navigationBarTitleDisplayMode(.inline)
         .scrollBounceBehavior(.basedOnSize)
     }
 
-    func placeOrder() async {
+    func placeOrderAndHandleResponse() {
+        Task {
+            do {
+                try await placeOrder()
+            } catch {
+                switch error {
+                case CheckoutError.encodeeFailed:
+                    errorMessage = "Encoding failed"
+                case CheckoutError.failedToLoadData:
+                    errorMessage = "Failed to load data"
+                default:
+                    errorMessage = "Something is fishy 🐟. But we don't exactly know what."
+                }
+
+                showingError = true
+            }
+        }
+    }
+
+    func placeOrder() async throws {
         guard let encoded = try? JSONEncoder().encode(order) else {
             print("Failed to encode order")
-            return
+            throw CheckoutError.encodeeFailed
         }
 
         let url = URL(string: "https://reqres.in/api/cupcakes")!
@@ -63,7 +96,7 @@ struct CheckoutView: View {
             confirmationMessage = "Your order for \(receivedOrder.quantity)x \(Order.types[receivedOrder.type].lowercased()) cupcakes is on its way!"
             showingConfirmation = true
         } catch {
-            print("Checkout failed: \(error.localizedDescription)")
+            throw CheckoutError.failedToLoadData
         }
     }
 }
