@@ -8,6 +8,34 @@
 import SwiftUI
 import Observation
 
+struct Address: Codable {
+//    enum CodingKeys: String, CodingKey {
+//        case _name = "name"
+//        case _city = "city"
+//        case _streetAddress = "streetAddress"
+//        case _zip = "zip"
+//    }
+
+    var name = ""
+    var streetAddress = ""
+    var city = ""
+    var zip = ""
+
+
+    var isValid: Bool {
+//        let isNameEmpty = name.components(separatedBy: .whitespaces).joined().isEmpty
+//        let isStreetAdressEmpty = streetAddress.components(separatedBy: .whitespaces).joined().isEmpty
+//        let isCityEmpty = city.components(separatedBy: .whitespaces).joined().isEmpty
+//        let isZipEmpty = zip.components(separatedBy: .whitespaces).joined().isEmpty
+//
+//        if isNameEmpty || isStreetAdressEmpty || isCityEmpty || isZipEmpty {
+//            return false
+//        }
+
+        return true
+    }
+}
+
 @Observable
 class Order: Codable {
     enum CodingKeys: String, CodingKey {
@@ -16,10 +44,7 @@ class Order: Codable {
         case _specialRequestEnabled = "specialRequestEnabled"
         case _extraFrosting = "extraFrosting"
         case _addSprinkles = "addSprinkles"
-        case _name = "name"
-        case _city = "city"
-        case _streetAddress = "streetAddress"
-        case _zip = "zip"
+        case _address = "address"
     }
 
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
@@ -30,10 +55,21 @@ class Order: Codable {
     var extraFrosting = false
     var addSprinkles = false
 
-    var name = ""
-    var streetAddress = ""
-    var city = ""
-    var zip = ""
+    var address: Address {
+        set {
+            if let encoded = try? JSONEncoder().encode(newValue) {
+                UserDefaults.standard.set(encoded, forKey: "address")
+            }
+        }
+        get {
+            if let data = UserDefaults.standard.data(forKey: "address"),
+               let decoded = try? JSONDecoder().decode(Address.self, from: data) {
+                return decoded
+            } else {
+                return Address()
+            }
+        }
+    }
 
     var specialRequestEnabled = false {
         didSet {
@@ -42,19 +78,6 @@ class Order: Codable {
                 addSprinkles = false
             }
         }
-    }
-
-    var hasValidAddress: Bool {
-        let isNameEmpty = name.components(separatedBy: .whitespaces).joined().isEmpty
-        let isStreetAdressEmpty = streetAddress.components(separatedBy: .whitespaces).joined().isEmpty
-        let isCityEmpty = city.components(separatedBy: .whitespaces).joined().isEmpty
-        let isZipEmpty = zip.components(separatedBy: .whitespaces).joined().isEmpty
-        
-        if isNameEmpty || isStreetAdressEmpty || isCityEmpty || isZipEmpty {
-            return false
-        }
-
-        return true
     }
 
     var cost: Double {
