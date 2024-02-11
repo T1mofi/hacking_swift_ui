@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct BookWormApp: App {
     var body: some Scene {
         WindowGroup {
-            BindingTestView()
+            ContentView()
         }
+        .modelContainer(for: Book.self)
+//        .modelContainer(for: Student.self)
     }
 }
