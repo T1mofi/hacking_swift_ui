@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddressView: View {
+    @Environment(\.scenePhase) private var scenePhase
+
     @Bindable var order: Order
     @State var address: Address = Address()
 
@@ -37,6 +39,11 @@ struct AddressView: View {
         }
         .onDisappear(perform: saveAddress)
         .onAppear(perform: fetchAddress)
+        .onChange(of: scenePhase) { _, newScenePhase in
+            if newScenePhase == .background {
+                saveAddress()
+            }
+        }
     }
 
     func saveAddress() {
