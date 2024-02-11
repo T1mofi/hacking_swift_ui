@@ -8,29 +8,21 @@
 import SwiftUI
 import Observation
 
-struct Address: Codable {
-//    enum CodingKeys: String, CodingKey {
-//        case _name = "name"
-//        case _city = "city"
-//        case _streetAddress = "streetAddress"
-//        case _zip = "zip"
-//    }
-
+class Address: Codable {
     var name = ""
     var streetAddress = ""
     var city = ""
     var zip = ""
 
-
     var isValid: Bool {
-//        let isNameEmpty = name.components(separatedBy: .whitespaces).joined().isEmpty
-//        let isStreetAdressEmpty = streetAddress.components(separatedBy: .whitespaces).joined().isEmpty
-//        let isCityEmpty = city.components(separatedBy: .whitespaces).joined().isEmpty
-//        let isZipEmpty = zip.components(separatedBy: .whitespaces).joined().isEmpty
-//
-//        if isNameEmpty || isStreetAdressEmpty || isCityEmpty || isZipEmpty {
-//            return false
-//        }
+        let isNameEmpty = name.components(separatedBy: .whitespaces).joined().isEmpty
+        let isStreetAdressEmpty = streetAddress.components(separatedBy: .whitespaces).joined().isEmpty
+        let isCityEmpty = city.components(separatedBy: .whitespaces).joined().isEmpty
+        let isZipEmpty = zip.components(separatedBy: .whitespaces).joined().isEmpty
+
+        if isNameEmpty || isStreetAdressEmpty || isCityEmpty || isZipEmpty {
+            return false
+        }
 
         return true
     }
@@ -56,21 +48,6 @@ class Order: Codable {
     var addSprinkles = false
 
     var address: Address = Address()
-//    {
-//        set {
-//            if let encoded = try? JSONEncoder().encode(newValue) {
-//                UserDefaults.standard.set(encoded, forKey: "address")
-//            }
-//        }
-//        get {
-//            if let data = UserDefaults.standard.data(forKey: "address"),
-//               let decoded = try? JSONDecoder().decode(Address.self, from: data) {
-//                return decoded
-//            } else {
-//                return Address()
-//            }
-//        }
-//    }
 
     var specialRequestEnabled = false {
         didSet {

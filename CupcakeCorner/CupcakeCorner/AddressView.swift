@@ -11,32 +11,25 @@ struct AddressView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     @Bindable var order: Order
-    @State var address: Address = Address()
 
     @State private var shouldNavigate = false
 
     var body: some View {
         Form {
             Section {
-                TextField("Name", text: $address.name)
-                TextField("Street Address", text: $address.streetAddress)
-                TextField("City", text: $address.city)
-                TextField("Zip", text: $address.zip)
+                TextField("Name", text: $order.address.name)
+                TextField("Street Address", text: $order.address.streetAddress)
+                TextField("City", text: $order.address.city)
+                TextField("Zip", text: $order.address.zip)
             }
 
-            Section {
-                Button("Button") {
-                    order.address = address
-                    shouldNavigate = true
-                }
+            NavigationLink("Check out") {
+                CheckoutView(order: order)
             }
-            .disabled(!address.isValid)
+            .disabled(!order.address.isValid)
         }
         .navigationTitle("Delivery details")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(isPresented: $shouldNavigate) {
-            CheckoutView(order: order)
-        }
         .onDisappear(perform: saveAddress)
         .onAppear(perform: fetchAddress)
         .onChange(of: scenePhase) { _, newScenePhase in
@@ -47,7 +40,7 @@ struct AddressView: View {
     }
 
     func saveAddress() {
-        if let encoded = try? JSONEncoder().encode(address) {
+        if let encoded = try? JSONEncoder().encode(order.address) {
             UserDefaults.standard.set(encoded, forKey: "address")
         }
     }
@@ -55,7 +48,7 @@ struct AddressView: View {
     func fetchAddress() {
         if let data = UserDefaults.standard.data(forKey: "address"),
            let decoded = try? JSONDecoder().decode(Address.self, from: data) {
-            address = decoded
+            order.address = decoded
         }
     }
 }
