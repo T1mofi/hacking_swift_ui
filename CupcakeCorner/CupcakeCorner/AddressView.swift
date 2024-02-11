@@ -9,14 +9,7 @@ import SwiftUI
 
 struct AddressView: View {
     @Bindable var order: Order
-    @State var address: Address = {
-        if let data = UserDefaults.standard.data(forKey: "address"),
-           let decoded = try? JSONDecoder().decode(Address.self, from: data) {
-            return decoded
-        } else {
-            return Address()
-        }
-    }()
+    @State var address: Address = Address()
 
     @State private var shouldNavigate = false
 
@@ -31,21 +24,32 @@ struct AddressView: View {
 
             Section {
                 Button("Button") {
-                    if let encoded = try? JSONEncoder().encode(address) {
-                        UserDefaults.standard.set(encoded, forKey: "address")
-                    }
                     order.address = address
                     shouldNavigate = true
                 }
             }
             .disabled(!address.isValid)
-
-            NavigationLink("Check out", isActive: $shouldNavigate) {
-                CheckoutView(order: order)
-            }
         }
         .navigationTitle("Delivery details")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $shouldNavigate) {
+            CheckoutView(order: order)
+        }
+        .onDisappear(perform: saveAddress)
+        .onAppear(perform: fetchAddress)
+    }
+
+    func saveAddress() {
+        if let encoded = try? JSONEncoder().encode(address) {
+            UserDefaults.standard.set(encoded, forKey: "address")
+        }
+    }
+
+    func fetchAddress() {
+        if let data = UserDefaults.standard.data(forKey: "address"),
+           let decoded = try? JSONDecoder().decode(Address.self, from: data) {
+            address = decoded
+        }
     }
 }
 
