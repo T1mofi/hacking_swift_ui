@@ -18,6 +18,7 @@
 		22B2EC592B792EF10016C479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2EC582B792EF10016C479 /* ContentView.swift */; };
 		22B2EC5B2B79328F0016C479 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2EC5A2B79328F0016C479 /* RatingView.swift */; };
 		22B2EC5D2B7934D50016C479 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2EC5C2B7934D50016C479 /* EmojiRatingView.swift */; };
+		22B2EC5F2B7A0D000016C479 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2EC5E2B7A0D000016C479 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		22B2EC582B792EF10016C479 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		22B2EC5A2B79328F0016C479 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		22B2EC5C2B7934D50016C479 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
+		22B2EC5E2B7A0D000016C479 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				22B2EC3F2B77A38C0016C479 /* BookWormApp.swift */,
 				22B2EC542B78BBE90016C479 /* Book.swift */,
 				22B2EC582B792EF10016C479 /* ContentView.swift */,
+				22B2EC5E2B7A0D000016C479 /* DetailView.swift */,
 				22B2EC5C2B7934D50016C479 /* EmojiRatingView.swift */,
 				22B2EC5A2B79328F0016C479 /* RatingView.swift */,
 				22B2EC562B78BD4C0016C479 /* AddBookView.swift */,
@@ -169,6 +172,7 @@
 				22B2EC422B77A38C0016C479 /* BindingTestView.swift in Sources */,
 				22B2EC5D2B7934D50016C479 /* EmojiRatingView.swift in Sources */,
 				22B2EC572B78BD4C0016C479 /* AddBookView.swift in Sources */,
+				22B2EC5F2B7A0D000016C479 /* DetailView.swift in Sources */,
 				22B2EC592B792EF10016C479 /* ContentView.swift in Sources */,
 				22B2EC5B2B79328F0016C479 /* RatingView.swift in Sources */,
 				22B2EC502B77A79C0016C479 /* MultilineTextView.swift in Sources */,
