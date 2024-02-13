@@ -50,7 +50,6 @@ struct AddBookView: View {
                         dismiss()
                     }
                     .disabled(shouldDisableSaving)
-
                 }
             }
             .navigationTitle("Add Book")
