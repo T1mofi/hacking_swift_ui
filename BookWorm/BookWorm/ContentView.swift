@@ -35,9 +35,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .onDelete(perform: { indexSet in
-                    deleteBooks(at: indexSet)
-                })
+                .onDelete(perform: deleteBooks)
             }
             .navigationTitle("Bookworm")
             .toolbar {
