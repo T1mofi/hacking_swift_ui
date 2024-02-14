@@ -41,7 +41,7 @@ struct DetailView: View {
             RatingView(rating: $book.rating)
                 .font(.largeTitle)
 
-            Text("Created at \(book.dateAdded.description)")
+            Text("Created at \(book.dateAdded.formatted(.dateTime).description)")
                 .padding()
         }
         .navigationTitle(book.title)
