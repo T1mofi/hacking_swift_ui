@@ -15,19 +15,37 @@ struct ContentView: View {
         user.city == "London"
     }, sort: \User.name) var users: [User]
     @State private var path = [User]()
+    @State private var showUpcomingOnly = false
+    @State private var sortOrder = [
+        SortDescriptor(\User.name),
+        SortDescriptor(\User.joinDate)
+    ]
 
     var body: some View {
         NavigationStack(path: $path) {
-            List(users) { user in
-                NavigationLink(value: user) {
-                    Text(user.name)
-                }
-            }
+            UsersView(minimumJoinDate: showUpcomingOnly ? .now : .distantPast, sort: sortOrder)
             .navigationTitle("Users")
             .navigationDestination(for: User.self) { user in
                 EditUserView(user: user)
             }
             .toolbar {
+                Button(showUpcomingOnly ? "Show Everyone" : "Show Upcoming") {
+                    showUpcomingOnly.toggle()
+                }
+                Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                    Picker("Sort", selection: $sortOrder) {
+                        Text("Sort by Name")
+                            .tag([
+                                SortDescriptor(\User.name),
+                                SortDescriptor(\User.joinDate)
+                            ])
+                        Text("Sort by Join Date")
+                            .tag([
+                                SortDescriptor(\User.joinDate),
+                                SortDescriptor(\User.name)
+                            ])
+                    }
+                }
                 Button("Add user", systemImage: "plus") {
                     let user = User(name: "", city: "", joinDate: .now)
                     modelContext.insert(user)
