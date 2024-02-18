@@ -6,59 +6,17 @@
 //
 
 import SwiftUI
-import Observation
-
-enum ExpenseType: Codable {
-    case personal
-    case business
-
-    var description: String {
-        switch self {
-        case .personal:
-            "Personal"
-        case .business:
-            "Business"
-        }
-    }
-}
-
-struct ExpenseItem: Identifiable, Codable, Equatable {
-    var id = UUID()
-    let name: String
-    let type: ExpenseType
-    let amount: Int
-}
-
-@Observable
-class Expenses {
-    var items = [ExpenseItem]() {
-        didSet {
-            if let encoded = try? JSONEncoder().encode(items) {
-                UserDefaults.standard.set(encoded, forKey: "Items")
-            }
-        }
-    }
-
-    init() {
-        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
-            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
-                items = decodedItems
-                return
-            }
-        }
-
-        items = []
-    }
-}
+import SwiftData
 
 struct ContentView: View {
-    @State private var expenses = Expenses()
+    @Query private var expenses: [Expense]
+    @Environment(\.modelContext) var modelContext
 
     var body: some View {
         NavigationStack {
             List {
                 Section("Personal") {
-                    ForEach(expenses.items.filter({ item in
+                    ForEach(expenses.filter({ item in
                         item.type == .personal
                     })) { item in
                         HStack {
@@ -76,7 +34,7 @@ struct ContentView: View {
                     .onDelete(perform: removePersonalItems)
                 }
                 Section("Business") {
-                    ForEach(expenses.items.filter({ item in
+                    ForEach(expenses.filter({ item in
                         item.type == .business
                     })) { item in
                         HStack {
@@ -97,7 +55,7 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             .toolbar {
                 NavigationLink("Add Expense") {
-                    AddView(expenses: expenses)
+                    AddView()
                 }
                 EditButton()
             }
@@ -113,11 +71,9 @@ struct ContentView: View {
     }
 
     func removeItems(at offsets: IndexSet, expenseType: ExpenseType) {
-        for index in offsets {
-            let item = expenses.items.filter({ item in item.type == expenseType })[index]
-            if let sectionIndex = expenses.items.firstIndex(of: item) {
-                expenses.items.remove(at: sectionIndex)
-            }
+        for offset in offsets {
+            let item = expenses.filter({ item in item.type == expenseType })[offset]
+            modelContext.delete(item)
         }
     }
 
