@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-enum ExpenseType: Codable {
+enum ExpenseType: Int, Codable {
     case personal
     case business
 
@@ -25,12 +25,16 @@ enum ExpenseType: Codable {
 @Model
 class Expense {
     let name: String
-    let type: ExpenseType
+    let rawType: Int
     let amount: Int
+
+    var type: ExpenseType {
+        ExpenseType(rawValue: rawType) ?? .personal
+    }
 
     init(name: String, type: ExpenseType, amount: Int) {
         self.name = name
-        self.type = type
+        self.rawType = type.rawValue
         self.amount = amount
     }
 }

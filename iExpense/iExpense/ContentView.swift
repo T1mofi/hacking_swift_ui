@@ -9,7 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Query private var expenses: [Expense]
+    static let personalType = ExpenseType.personal.rawValue
+    @Query(filter: #Predicate<Expense>{ expense in
+        expense.rawType == personalType
+    }) var expenses: [Expense]
     @Environment(\.modelContext) var modelContext
 
     var body: some View {
