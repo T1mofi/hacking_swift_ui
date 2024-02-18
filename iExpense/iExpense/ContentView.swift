@@ -10,18 +10,22 @@ import SwiftData
 
 struct ContentView: View {
     static let personalType = ExpenseType.personal.rawValue
+    static let businessType = ExpenseType.business.rawValue
+
     @Query(filter: #Predicate<Expense>{ expense in
         expense.rawType == personalType
-    }) var expenses: [Expense]
+    }) var personalExpenses: [Expense]
+    @Query(filter: #Predicate<Expense>{ expense in
+        expense.rawType == businessType
+    }) var businessExpenses: [Expense]
+
     @Environment(\.modelContext) var modelContext
 
     var body: some View {
         NavigationStack {
             List {
                 Section("Personal") {
-                    ForEach(expenses.filter({ item in
-                        item.type == .personal
-                    })) { item in
+                    ForEach(personalExpenses) { item in
                         HStack {
                             VStack(alignment: .leading) {
                                 Text(item.name)
@@ -37,9 +41,7 @@ struct ContentView: View {
                     .onDelete(perform: removePersonalItems)
                 }
                 Section("Business") {
-                    ForEach(expenses.filter({ item in
-                        item.type == .business
-                    })) { item in
+                    ForEach(businessExpenses) { item in
                         HStack {
                             VStack(alignment: .leading) {
                                 Text(item.name)
@@ -66,18 +68,11 @@ struct ContentView: View {
     }
 
     func removePersonalItems(at offsets: IndexSet) {
-        removeItems(at: offsets, expenseType: .personal)
+        offsets.forEach { modelContext.delete(personalExpenses[$0])}
     }
 
     func removeBusinessItems(at offsets: IndexSet) {
-        removeItems(at: offsets, expenseType: .business)
-    }
-
-    func removeItems(at offsets: IndexSet, expenseType: ExpenseType) {
-        for offset in offsets {
-            let item = expenses.filter({ item in item.type == expenseType })[offset]
-            modelContext.delete(item)
-        }
+        offsets.forEach { modelContext.delete(businessExpenses[$0])}
     }
 
     func colorForAmount(_ amount: Int) -> Color {

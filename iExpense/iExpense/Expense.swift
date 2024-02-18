@@ -29,7 +29,7 @@ class Expense {
     let amount: Int
 
     var type: ExpenseType {
-        ExpenseType(rawValue: rawType) ?? .personal
+        return ExpenseType(rawValue: rawType)!
     }
 
     init(name: String, type: ExpenseType, amount: Int) {
