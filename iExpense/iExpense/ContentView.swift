@@ -90,5 +90,12 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Expense.self, configurations: config)
+        return ContentView()
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create container: \(error.localizedDescription)")
+    }
 }
