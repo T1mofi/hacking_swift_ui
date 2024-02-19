@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  UsersView.swift
 //  Mates
 //
 //  Created by Tima Sikorski on 19/02/2024.
@@ -7,25 +7,25 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct UsersView: View {
     @State var users: [User] = []
 
     var body: some View {
         NavigationStack {
             List(users) { user in
                 HStack {
-                    VStack(alignment: .leading) {
-                        Text(user.name)
-                        Text(user.company)
-                    }
-                    Text(String(user.age))
+                    NavigationLink(user.name, destination: {
+                        UserDetailsView(user: user)
+                    })
                 }
             }
             .listStyle(.plain)
         }
         .navigationTitle("Users")
         .task {
-            await fetchUsers()
+            if users.isEmpty {
+                await fetchUsers()
+            }
         }
     }
 
@@ -41,5 +41,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    UsersView()
 }

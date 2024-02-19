@@ -11,7 +11,7 @@ import SwiftUI
 struct MatesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UsersView()
         }
     }
 }
