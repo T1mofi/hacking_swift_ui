@@ -11,6 +11,8 @@
 		221F9D292B83CA7B0060192C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F9D282B83CA7B0060192C /* ContentView.swift */; };
 		221F9D2B2B83CA7C0060192C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221F9D2A2B83CA7C0060192C /* Assets.xcassets */; };
 		221F9D2E2B83CA7C0060192C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221F9D2D2B83CA7C0060192C /* Preview Assets.xcassets */; };
+		221F9D352B83CAC90060192C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F9D342B83CAC90060192C /* User.swift */; };
+		221F9D372B83CB370060192C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F9D362B83CB370060192C /* Friend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		221F9D282B83CA7B0060192C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		221F9D2A2B83CA7C0060192C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		221F9D2D2B83CA7C0060192C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		221F9D342B83CAC90060192C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		221F9D362B83CB370060192C /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				221F9D262B83CA7B0060192C /* MatesApp.swift */,
 				221F9D282B83CA7B0060192C /* ContentView.swift */,
+				221F9D342B83CAC90060192C /* User.swift */,
+				221F9D362B83CB370060192C /* Friend.swift */,
 				221F9D2A2B83CA7C0060192C /* Assets.xcassets */,
 				221F9D2C2B83CA7C0060192C /* Preview Content */,
 			);
@@ -139,6 +145,8 @@
 			files = (
 				221F9D292B83CA7B0060192C /* ContentView.swift in Sources */,
 				221F9D272B83CA7B0060192C /* MatesApp.swift in Sources */,
+				221F9D352B83CAC90060192C /* User.swift in Sources */,
+				221F9D372B83CB370060192C /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
