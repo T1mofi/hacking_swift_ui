@@ -24,6 +24,13 @@ struct UserDetailsView: View {
                 HStack{
                     ForEach(user.friends) { friend in
                         Text(friend.name)
+                            .padding()
+                            .background(.blue)
+                            .clipShape(.capsule)
+                            .overlay(
+                                Capsule()
+                                    .strokeBorder(.black, lineWidth: 1)
+                            )
                     }
                 }
                 .padding(.horizontal)
