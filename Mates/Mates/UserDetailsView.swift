@@ -44,7 +44,7 @@ struct UserDetailsView: View {
 #Preview {
     UserDetailsView(user: User(id: "1",
                                name: "Tima",
-                               age: 24, company: "Scandit",
+                               age: 24, company: "Scandit", dateRegistered: .now,
                                friends: [
                                 Friend(id: "2", name: "Konrad"),
                                 Friend(id: "3", name: "Liza"),
