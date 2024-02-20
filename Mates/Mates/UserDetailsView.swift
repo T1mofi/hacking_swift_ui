@@ -41,18 +41,18 @@ struct UserDetailsView: View {
     }
 }
 
-#Preview {
-    UserDetailsView(user: User(id: "1",
-                               name: "Tima",
-                               age: 24, company: "Scandit", dateRegistered: .now,
-                               friends: [
-                                Friend(id: "2", name: "Konrad"),
-                                Friend(id: "3", name: "Liza"),
-                                Friend(id: "4", name: "Nastia"),
-                                Friend(id: "5", name: "Andrzej"),
-                                Friend(id: "6", name: "Luca"),
-                                Friend(id: "7", name: "Atte"),
-                                Friend(id: "8", name: "Marco"),
-                                Friend(id: "9", name: "Martin"),
-                               ]))
-}
+//#Preview {
+//    UserDetailsView(user: User(id: "1",
+//                               name: "Tima",
+//                               age: 24, company: "Scandit", dateRegistered: .now,
+//                               friends: [
+//                                Friend(id: "2", name: "Konrad"),
+//                                Friend(id: "3", name: "Liza"),
+//                                Friend(id: "4", name: "Nastia"),
+//                                Friend(id: "5", name: "Andrzej"),
+//                                Friend(id: "6", name: "Luca"),
+//                                Friend(id: "7", name: "Atte"),
+//                                Friend(id: "8", name: "Marco"),
+//                                Friend(id: "9", name: "Martin"),
+//                               ]))
+//}

@@ -6,15 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-struct User: Codable, Identifiable {
-    var id: String
-    var name: String
-    var age: Int
-    var company: String
-    var dateRegistered: Date
-    var friends: [Friend]
-
+@Model
+class User: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -23,6 +18,13 @@ struct User: Codable, Identifiable {
         case dateRegistered = "registered"
         case friends
     }
+
+    var id: String
+    var name: String
+    var age: Int
+    var company: String
+    var dateRegistered: Date
+    var friends: [Friend]
 
     init(id: String, name: String, age: Int, company: String, dateRegistered: Date, friends: [Friend]) {
         self.id = id
@@ -33,7 +35,7 @@ struct User: Codable, Identifiable {
         self.friends = friends
     }
 
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.name = try container.decode(String.self, forKey: .name)
