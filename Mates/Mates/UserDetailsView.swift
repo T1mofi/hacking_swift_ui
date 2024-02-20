@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct UserDetailsView: View {
     var user: User
@@ -41,18 +42,19 @@ struct UserDetailsView: View {
     }
 }
 
-//#Preview {
-//    UserDetailsView(user: User(id: "1",
-//                               name: "Tima",
-//                               age: 24, company: "Scandit", dateRegistered: .now,
-//                               friends: [
-//                                Friend(id: "2", name: "Konrad"),
-//                                Friend(id: "3", name: "Liza"),
-//                                Friend(id: "4", name: "Nastia"),
-//                                Friend(id: "5", name: "Andrzej"),
-//                                Friend(id: "6", name: "Luca"),
-//                                Friend(id: "7", name: "Atte"),
-//                                Friend(id: "8", name: "Marco"),
-//                                Friend(id: "9", name: "Martin"),
-//                               ]))
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: User.self, configurations: config)
+
+        let user = User(id: "1",
+                        name: "Tima",
+                        age: 24, company: "Scandit", dateRegistered: .now,
+                        friends: [])
+        return UserDetailsView(user: user)
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create container \(error.localizedDescription)")
+    }
+
+}
