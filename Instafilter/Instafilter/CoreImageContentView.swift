@@ -13,13 +13,25 @@ struct CoreImageContentView: View {
     @State private var image: Image?
 
     var body: some View {
-        VStack {
-            image?
-                .resizable()
-                .scaledToFit()
+        if (image == nil) {
+            ContentUnavailableView {
+                Label("No images", systemImage: "photo")
+            } description: {
+                Text("You don't have any images loaded yet.")
+            } actions: {
+                Button("Load Images") {
+                    loadImage()
+                }
+                .buttonStyle(.borderedProminent)
+            }
+        } else {
+            VStack {
+                image?
+                    .resizable()
+                    .scaledToFit()
+            }
+            .ignoresSafeArea()
         }
-        .onAppear(perform: loadImage)
-        .ignoresSafeArea()
     }
 
     func loadImage() {
