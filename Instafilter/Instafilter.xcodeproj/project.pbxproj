@@ -13,6 +13,7 @@
 		2215C1EE2B87A2D50014E690 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2215C1ED2B87A2D50014E690 /* Preview Assets.xcassets */; };
 		2215C3842B90D28D0014E690 /* CoreImageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215C3832B90D28D0014E690 /* CoreImageContentView.swift */; };
 		2215C3992B926C430014E690 /* PhotoPickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215C3982B926C430014E690 /* PhotoPickerContentView.swift */; };
+		2215C39B2B926F1E0014E690 /* ShareLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215C39A2B926F1E0014E690 /* ShareLinkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		2215C1ED2B87A2D50014E690 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2215C3832B90D28D0014E690 /* CoreImageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImageContentView.swift; sourceTree = "<group>"; };
 		2215C3982B926C430014E690 /* PhotoPickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerContentView.swift; sourceTree = "<group>"; };
+		2215C39A2B926F1E0014E690 /* ShareLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLinkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				2215C1E82B87A2D40014E690 /* ContentView.swift */,
 				2215C3832B90D28D0014E690 /* CoreImageContentView.swift */,
 				2215C3982B926C430014E690 /* PhotoPickerContentView.swift */,
+				2215C39A2B926F1E0014E690 /* ShareLinkView.swift */,
 				2215C1EA2B87A2D50014E690 /* Assets.xcassets */,
 				2215C1EC2B87A2D50014E690 /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 				2215C1E92B87A2D40014E690 /* ContentView.swift in Sources */,
 				2215C3992B926C430014E690 /* PhotoPickerContentView.swift in Sources */,
 				2215C1E72B87A2D40014E690 /* InstafilterApp.swift in Sources */,
+				2215C39B2B926F1E0014E690 /* ShareLinkView.swift in Sources */,
 				2215C3842B90D28D0014E690 /* CoreImageContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
