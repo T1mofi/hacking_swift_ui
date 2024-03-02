@@ -14,6 +14,7 @@
 		2215C3842B90D28D0014E690 /* CoreImageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215C3832B90D28D0014E690 /* CoreImageContentView.swift */; };
 		2215C3992B926C430014E690 /* PhotoPickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215C3982B926C430014E690 /* PhotoPickerContentView.swift */; };
 		2215C39B2B926F1E0014E690 /* ShareLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215C39A2B926F1E0014E690 /* ShareLinkView.swift */; };
+		2215C39D2B932FEE0014E690 /* OnChangeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215C39C2B932FEE0014E690 /* OnChangeContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		2215C3832B90D28D0014E690 /* CoreImageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImageContentView.swift; sourceTree = "<group>"; };
 		2215C3982B926C430014E690 /* PhotoPickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerContentView.swift; sourceTree = "<group>"; };
 		2215C39A2B926F1E0014E690 /* ShareLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLinkView.swift; sourceTree = "<group>"; };
+		2215C39C2B932FEE0014E690 /* OnChangeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnChangeContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				2215C1E62B87A2D40014E690 /* InstafilterApp.swift */,
 				2215C1E82B87A2D40014E690 /* ContentView.swift */,
+				2215C39C2B932FEE0014E690 /* OnChangeContentView.swift */,
 				2215C3832B90D28D0014E690 /* CoreImageContentView.swift */,
 				2215C3982B926C430014E690 /* PhotoPickerContentView.swift */,
 				2215C39A2B926F1E0014E690 /* ShareLinkView.swift */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2215C1E92B87A2D40014E690 /* ContentView.swift in Sources */,
+				2215C39D2B932FEE0014E690 /* OnChangeContentView.swift in Sources */,
 				2215C3992B926C430014E690 /* PhotoPickerContentView.swift in Sources */,
 				2215C1E72B87A2D40014E690 /* InstafilterApp.swift in Sources */,
 				2215C39B2B926F1E0014E690 /* ShareLinkView.swift in Sources */,

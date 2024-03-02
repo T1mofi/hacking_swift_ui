@@ -8,39 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var blurAmount = 0.0
-
-    @State private var showingConfirmation = false
-    @State private var backgroundColor = Color.white
+    @State private var processedImage: Image?
+    @State private var filterIntensity = 0.5
 
     var body: some View {
-        VStack {
-            Text("Hello, World!")
-                .blur(radius: blurAmount)
+        NavigationStack {
+            VStack {
+                Spacer()
 
-            Slider(value: $blurAmount, in: 0...20)
-                .onChange(of: blurAmount) { oldValue, newValue in
-                    print("new value is \(newValue)")
+                if let processedImage {
+                    processedImage
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    ContentUnavailableView("No Picture", systemImage: "photo.badge.plus", description: Text("Tap to import a photo"))
                 }
 
-            Button("Random Blur") {
-                blurAmount = Double.random(in: 0...20)
-            }
+                Spacer()
 
-            Button("Hello, World!") {
-                showingConfirmation = true
+                HStack {
+                    Text("Intensity")
+                    Slider(value: $filterIntensity)
+                }
+                .padding(.vertical)
+
+                HStack {
+                    Button("Change Filter", action: changeFilter)
+
+                    Spacer()
+
+                    // share the picture
+                }
             }
-            .frame(width: 300, height: 300)
-            .background(backgroundColor)
+            .padding([.horizontal, .bottom])
+            .navigationTitle("Instafilter")
         }
-        .confirmationDialog("Change background", isPresented: $showingConfirmation) {
-            Button("Red") { backgroundColor = .red }
-            Button("Green") { backgroundColor = .green }
-            Button("Blue") { backgroundColor = .blue }
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text("Select a new color")
-        }
+    }
+
+    func changeFilter() {
     }
 }
 
