@@ -61,10 +61,7 @@
 			children = (
 				2215C1E62B87A2D40014E690 /* InstafilterApp.swift */,
 				2215C1E82B87A2D40014E690 /* ContentView.swift */,
-				2215C39C2B932FEE0014E690 /* OnChangeContentView.swift */,
-				2215C3832B90D28D0014E690 /* CoreImageContentView.swift */,
-				2215C3982B926C430014E690 /* PhotoPickerContentView.swift */,
-				2215C39A2B926F1E0014E690 /* ShareLinkView.swift */,
+				2215C39E2B9330AD0014E690 /* Playgroud Views */,
 				2215C1EA2B87A2D50014E690 /* Assets.xcassets */,
 				2215C1EC2B87A2D50014E690 /* Preview Content */,
 			);
@@ -77,6 +74,17 @@
 				2215C1ED2B87A2D50014E690 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2215C39E2B9330AD0014E690 /* Playgroud Views */ = {
+			isa = PBXGroup;
+			children = (
+				2215C39C2B932FEE0014E690 /* OnChangeContentView.swift */,
+				2215C3832B90D28D0014E690 /* CoreImageContentView.swift */,
+				2215C3982B926C430014E690 /* PhotoPickerContentView.swift */,
+				2215C39A2B926F1E0014E690 /* ShareLinkView.swift */,
+			);
+			path = "Playgroud Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
