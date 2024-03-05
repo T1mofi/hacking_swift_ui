@@ -11,7 +11,7 @@ import SwiftUI
 struct Bucket_ListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PrivacyView()
         }
     }
 }
