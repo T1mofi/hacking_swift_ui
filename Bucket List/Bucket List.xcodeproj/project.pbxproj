@@ -12,6 +12,7 @@
 		2215C3D02B933BDF0014E690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2215C3CF2B933BDF0014E690 /* Assets.xcassets */; };
 		2215C3D32B933BDF0014E690 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2215C3D22B933BDF0014E690 /* Preview Assets.xcassets */; };
 		22251A9C2B96520E0019FB86 /* EnumStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22251A9B2B96520E0019FB86 /* EnumStateView.swift */; };
+		22251A9E2B96F5F10019FB86 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22251A9D2B96F5F10019FB86 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		2215C3CF2B933BDF0014E690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2215C3D22B933BDF0014E690 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22251A9B2B96520E0019FB86 /* EnumStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumStateView.swift; sourceTree = "<group>"; };
+		22251A9D2B96F5F10019FB86 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				2215C3CB2B933BDE0014E690 /* Bucket_ListApp.swift */,
 				2215C3CD2B933BDE0014E690 /* ContentView.swift */,
 				22251A9B2B96520E0019FB86 /* EnumStateView.swift */,
+				22251A9D2B96F5F10019FB86 /* MapView.swift */,
 				2215C3CF2B933BDF0014E690 /* Assets.xcassets */,
 				2215C3D12B933BDF0014E690 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22251A9C2B96520E0019FB86 /* EnumStateView.swift in Sources */,
+				22251A9E2B96F5F10019FB86 /* MapView.swift in Sources */,
 				2215C3CE2B933BDE0014E690 /* ContentView.swift in Sources */,
 				2215C3CC2B933BDE0014E690 /* Bucket_ListApp.swift in Sources */,
 			);
