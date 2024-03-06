@@ -15,6 +15,7 @@
 		22251A9E2B96F5F10019FB86 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22251A9D2B96F5F10019FB86 /* MapView.swift */; };
 		22251AA02B96FDC30019FB86 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22251A9F2B96FDC30019FB86 /* PrivacyView.swift */; };
 		22251AB82B98D7200019FB86 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22251AB72B98D7200019FB86 /* MainView.swift */; };
+		22251ABA2B98DB1E0019FB86 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22251AB92B98DB1E0019FB86 /* EditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		22251A9D2B96F5F10019FB86 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		22251A9F2B96FDC30019FB86 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		22251AB72B98D7200019FB86 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		22251AB92B98DB1E0019FB86 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				2215C3CB2B933BDE0014E690 /* Bucket_ListApp.swift */,
 				22251AB72B98D7200019FB86 /* MainView.swift */,
+				22251AB92B98DB1E0019FB86 /* EditView.swift */,
 				22251AB62B98D6FD0019FB86 /* Playgrounds */,
 				2215C3CF2B933BDF0014E690 /* Assets.xcassets */,
 				2215C3D12B933BDF0014E690 /* Preview Content */,
@@ -161,6 +164,7 @@
 				22251AB82B98D7200019FB86 /* MainView.swift in Sources */,
 				22251A9E2B96F5F10019FB86 /* MapView.swift in Sources */,
 				2215C3CE2B933BDE0014E690 /* ContentView.swift in Sources */,
+				22251ABA2B98DB1E0019FB86 /* EditView.swift in Sources */,
 				2215C3CC2B933BDE0014E690 /* Bucket_ListApp.swift in Sources */,
 				22251AA02B96FDC30019FB86 /* PrivacyView.swift in Sources */,
 			);
