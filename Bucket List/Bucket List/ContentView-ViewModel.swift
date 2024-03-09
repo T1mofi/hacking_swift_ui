@@ -42,19 +42,18 @@ extension MainView {
             let context = LAContext()
             var error: NSError?
 
-            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
                 let reason = "Please authenticate yourself to unlock your places."
 
-                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, authenticationError in
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+
                     }
                 }
             } else {
-                // no biometrics
+                // no auth
             }
         }
 
