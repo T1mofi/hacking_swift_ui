@@ -38,6 +38,7 @@ struct MainView: View {
                         }
                     }
                 }
+                .mapStyle(viewModel.isHybridModeEnabled ? .hybrid : .standard)
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
                         viewModel.addLocation(coordinate: coordinate)
@@ -55,6 +56,19 @@ struct MainView: View {
                     .background(.blue)
                     .foregroundStyle(.white)
                     .clipShape(.capsule)
+            }
+            VStack {
+                VStack(alignment: .trailing){
+                    Toggle("Map mode", isOn: $viewModel.isHybridModeEnabled)
+                    Text(viewModel.isHybridModeEnabled ? "hybrid" : "standard")
+                        .font(.caption)
+                }
+                .padding()
+                .background(.thinMaterial)
+                .clipShape(.rect(cornerRadius: 8))
+                .padding()
+
+                Spacer()
             }
         }
     }

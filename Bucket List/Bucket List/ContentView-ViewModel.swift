@@ -17,6 +17,7 @@ extension MainView {
         var selectedPlace: Location?
 
         var isUnlocked = false
+        var isHybridModeEnabled = false
 
         let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
 
