@@ -71,6 +71,7 @@ struct MainView: View {
                 Spacer()
             }
         }
+        .alert("Authentification failed", isPresented: $viewModel.showingAuthentificationErrorAlert, actions: {})
     }
 }
 

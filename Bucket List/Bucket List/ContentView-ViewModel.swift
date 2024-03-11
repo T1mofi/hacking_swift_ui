@@ -18,6 +18,7 @@ extension MainView {
 
         var isUnlocked = false
         var isHybridModeEnabled = false
+        var showingAuthentificationErrorAlert = false
 
         let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
 
@@ -50,7 +51,7 @@ extension MainView {
                     if success {
                         self.isUnlocked = true
                     } else {
-
+                        self.showingAuthentificationErrorAlert = true
                     }
                 }
             } else {
