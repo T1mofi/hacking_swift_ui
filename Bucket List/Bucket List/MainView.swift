@@ -13,8 +13,8 @@ struct MainView: View {
 
     let startPosition = MapCameraPosition.region(
         MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 56, longitude: -3),
-            span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+            center: CLLocationCoordinate2D(latitude: 52.25058644896541, longitude: 21.014747064600865),
+            span: MKCoordinateSpan(latitudeDelta: 0.15, longitudeDelta: 0.15)
         )
     )
 
@@ -25,12 +25,9 @@ struct MainView: View {
                     if viewModel.isUnlocked {
                         ForEach(viewModel.locations) { location in
                             Annotation(location.name, coordinate: location.coordinate) {
-                                Image(systemName: "star.circle")
-                                    .resizable()
+                                Image(systemName: "pin.fill")
                                     .foregroundStyle(.red)
-                                    .frame(width: 44, height: 44)
-                                    .background(.white)
-                                    .clipShape(.circle)
+                                    .font(.title)
                                     .onLongPressGesture {
                                         viewModel.selectedPlace = location
                                     }
@@ -51,7 +48,7 @@ struct MainView: View {
                 }
             }
             if (!viewModel.isUnlocked) {
-                Button("Unlock Places", action: viewModel.authenticate)
+                Button("Unlock my Places", action: viewModel.authenticate)
                     .padding()
                     .background(.blue)
                     .foregroundStyle(.white)
@@ -59,9 +56,7 @@ struct MainView: View {
             }
             VStack {
                 VStack(alignment: .trailing){
-                    Toggle("Map mode", isOn: $viewModel.isHybridModeEnabled)
-                    Text(viewModel.isHybridModeEnabled ? "hybrid" : "standard")
-                        .font(.caption)
+                    Toggle("Hybrid mode", isOn: $viewModel.isHybridModeEnabled)
                 }
                 .padding()
                 .background(.thinMaterial)
