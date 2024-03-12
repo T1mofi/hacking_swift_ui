@@ -19,6 +19,7 @@
 		22422CD32B9BA9BD001BF2BA /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22422CD22B9BA9BD001BF2BA /* ContentView-ViewModel.swift */; };
 		225CB2F82B9996A700818538 /* WikipediaResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CB2F72B9996A700818538 /* WikipediaResult.swift */; };
 		22A3532C2B9C81DB0003EF92 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A3532B2B9C81DB0003EF92 /* Location.swift */; };
+		22A3537A2BA0C4990003EF92 /* EditView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A353792BA0C4990003EF92 /* EditView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		22422CD22B9BA9BD001BF2BA /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		225CB2F72B9996A700818538 /* WikipediaResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaResult.swift; sourceTree = "<group>"; };
 		22A3532B2B9C81DB0003EF92 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		22A353792BA0C4990003EF92 /* EditView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				22A3532B2B9C81DB0003EF92 /* Location.swift */,
 				22422CD22B9BA9BD001BF2BA /* ContentView-ViewModel.swift */,
 				22251AB92B98DB1E0019FB86 /* EditView.swift */,
+				22A353792BA0C4990003EF92 /* EditView-ViewModel.swift */,
 				225CB2F72B9996A700818538 /* WikipediaResult.swift */,
 				22251AB62B98D6FD0019FB86 /* Playgrounds */,
 				2215C3CF2B933BDF0014E690 /* Assets.xcassets */,
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22251A9C2B96520E0019FB86 /* EnumStateView.swift in Sources */,
+				22A3537A2BA0C4990003EF92 /* EditView-ViewModel.swift in Sources */,
 				22251AB82B98D7200019FB86 /* MainView.swift in Sources */,
 				22A3532C2B9C81DB0003EF92 /* Location.swift in Sources */,
 				22251A9E2B96F5F10019FB86 /* MapView.swift in Sources */,
