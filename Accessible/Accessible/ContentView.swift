@@ -23,7 +23,6 @@ struct ContentView: View {
             .scaledToFit()
             .onTapGesture {
                 selectedPicture = Int.random(in: 0...3)
-                
             }
     }
 }
