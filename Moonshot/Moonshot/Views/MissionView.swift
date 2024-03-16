@@ -21,6 +21,7 @@ struct MissionView: View {
                         width * 0.6
                     }
                     .padding(.top)
+                    .accessibilityHidden(true)
 
                 VStack(alignment: .leading) {
                     Separator()
