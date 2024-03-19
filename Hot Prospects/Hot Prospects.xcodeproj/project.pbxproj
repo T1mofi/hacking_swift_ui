@@ -11,6 +11,7 @@
 		22F8F1572BAA091C001A6472 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F1562BAA091C001A6472 /* ContentView.swift */; };
 		22F8F1592BAA091D001A6472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F8F1582BAA091D001A6472 /* Assets.xcassets */; };
 		22F8F15C2BAA091D001A6472 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F8F15B2BAA091D001A6472 /* Preview Assets.xcassets */; };
+		22F8F1632BAA0ADC001A6472 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F1622BAA0ADC001A6472 /* TabsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		22F8F1562BAA091C001A6472 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		22F8F1582BAA091D001A6472 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22F8F15B2BAA091D001A6472 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		22F8F1622BAA0ADC001A6472 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				22F8F1542BAA091C001A6472 /* Hot_ProspectsApp.swift */,
 				22F8F1562BAA091C001A6472 /* ContentView.swift */,
+				22F8F1622BAA0ADC001A6472 /* TabsView.swift */,
 				22F8F1582BAA091D001A6472 /* Assets.xcassets */,
 				22F8F15A2BAA091D001A6472 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F8F1632BAA0ADC001A6472 /* TabsView.swift in Sources */,
 				22F8F1572BAA091C001A6472 /* ContentView.swift in Sources */,
 				22F8F1552BAA091C001A6472 /* Hot_ProspectsApp.swift in Sources */,
 			);
