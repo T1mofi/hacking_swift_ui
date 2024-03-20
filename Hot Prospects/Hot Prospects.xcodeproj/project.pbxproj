@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221846B52BAB57F80035620E /* LocalNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221846B42BAB57F80035620E /* LocalNotificationView.swift */; };
 		22F8F1552BAA091C001A6472 /* Hot_ProspectsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F1542BAA091C001A6472 /* Hot_ProspectsApp.swift */; };
 		22F8F1572BAA091C001A6472 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F1562BAA091C001A6472 /* ContentView.swift */; };
 		22F8F1592BAA091D001A6472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F8F1582BAA091D001A6472 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		221846B42BAB57F80035620E /* LocalNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationView.swift; sourceTree = "<group>"; };
 		22F8F1512BAA091C001A6472 /* Hot Prospects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hot Prospects.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F8F1542BAA091C001A6472 /* Hot_ProspectsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hot_ProspectsApp.swift; sourceTree = "<group>"; };
 		22F8F1562BAA091C001A6472 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				22F8F19F2BAB5199001A6472 /* ImageInterpolationView.swift */,
 				22F8F1A12BAB52D8001A6472 /* ContextMenuView.swift */,
 				22F8F1A32BAB5419001A6472 /* SwipeActionsView.swift */,
+				221846B42BAB57F80035620E /* LocalNotificationView.swift */,
 				22F8F1582BAA091D001A6472 /* Assets.xcassets */,
 				22F8F15A2BAA091D001A6472 /* Preview Content */,
 			);
@@ -155,6 +158,7 @@
 				22F8F1632BAA0ADC001A6472 /* TabsView.swift in Sources */,
 				22F8F1572BAA091C001A6472 /* ContentView.swift in Sources */,
 				22F8F1A42BAB5419001A6472 /* SwipeActionsView.swift in Sources */,
+				221846B52BAB57F80035620E /* LocalNotificationView.swift in Sources */,
 				22F8F1A02BAB5199001A6472 /* ImageInterpolationView.swift in Sources */,
 				22F8F1A22BAB52D8001A6472 /* ContextMenuView.swift in Sources */,
 				22F8F1552BAA091C001A6472 /* Hot_ProspectsApp.swift in Sources */,
