@@ -14,6 +14,7 @@
 		22F8F1632BAA0ADC001A6472 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F1622BAA0ADC001A6472 /* TabsView.swift */; };
 		22F8F19E2BAB4E9D001A6472 /* ResultTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F19D2BAB4E9D001A6472 /* ResultTypeView.swift */; };
 		22F8F1A02BAB5199001A6472 /* ImageInterpolationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F19F2BAB5199001A6472 /* ImageInterpolationView.swift */; };
+		22F8F1A22BAB52D8001A6472 /* ContextMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F1A12BAB52D8001A6472 /* ContextMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		22F8F1622BAA0ADC001A6472 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		22F8F19D2BAB4E9D001A6472 /* ResultTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTypeView.swift; sourceTree = "<group>"; };
 		22F8F19F2BAB5199001A6472 /* ImageInterpolationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInterpolationView.swift; sourceTree = "<group>"; };
+		22F8F1A12BAB52D8001A6472 /* ContextMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				22F8F1622BAA0ADC001A6472 /* TabsView.swift */,
 				22F8F19D2BAB4E9D001A6472 /* ResultTypeView.swift */,
 				22F8F19F2BAB5199001A6472 /* ImageInterpolationView.swift */,
+				22F8F1A12BAB52D8001A6472 /* ContextMenuView.swift */,
 				22F8F1582BAA091D001A6472 /* Assets.xcassets */,
 				22F8F15A2BAA091D001A6472 /* Preview Content */,
 			);
@@ -149,6 +152,7 @@
 				22F8F1632BAA0ADC001A6472 /* TabsView.swift in Sources */,
 				22F8F1572BAA091C001A6472 /* ContentView.swift in Sources */,
 				22F8F1A02BAB5199001A6472 /* ImageInterpolationView.swift in Sources */,
+				22F8F1A22BAB52D8001A6472 /* ContextMenuView.swift in Sources */,
 				22F8F1552BAA091C001A6472 /* Hot_ProspectsApp.swift in Sources */,
 				22F8F19E2BAB4E9D001A6472 /* ResultTypeView.swift in Sources */,
 			);
