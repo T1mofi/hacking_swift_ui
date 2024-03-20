@@ -15,6 +15,7 @@
 		22F8F19E2BAB4E9D001A6472 /* ResultTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F19D2BAB4E9D001A6472 /* ResultTypeView.swift */; };
 		22F8F1A02BAB5199001A6472 /* ImageInterpolationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F19F2BAB5199001A6472 /* ImageInterpolationView.swift */; };
 		22F8F1A22BAB52D8001A6472 /* ContextMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F1A12BAB52D8001A6472 /* ContextMenuView.swift */; };
+		22F8F1A42BAB5419001A6472 /* SwipeActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8F1A32BAB5419001A6472 /* SwipeActionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		22F8F19D2BAB4E9D001A6472 /* ResultTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTypeView.swift; sourceTree = "<group>"; };
 		22F8F19F2BAB5199001A6472 /* ImageInterpolationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInterpolationView.swift; sourceTree = "<group>"; };
 		22F8F1A12BAB52D8001A6472 /* ContextMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuView.swift; sourceTree = "<group>"; };
+		22F8F1A32BAB5419001A6472 /* SwipeActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				22F8F19D2BAB4E9D001A6472 /* ResultTypeView.swift */,
 				22F8F19F2BAB5199001A6472 /* ImageInterpolationView.swift */,
 				22F8F1A12BAB52D8001A6472 /* ContextMenuView.swift */,
+				22F8F1A32BAB5419001A6472 /* SwipeActionsView.swift */,
 				22F8F1582BAA091D001A6472 /* Assets.xcassets */,
 				22F8F15A2BAA091D001A6472 /* Preview Content */,
 			);
@@ -151,6 +154,7 @@
 			files = (
 				22F8F1632BAA0ADC001A6472 /* TabsView.swift in Sources */,
 				22F8F1572BAA091C001A6472 /* ContentView.swift in Sources */,
+				22F8F1A42BAB5419001A6472 /* SwipeActionsView.swift in Sources */,
 				22F8F1A02BAB5199001A6472 /* ImageInterpolationView.swift in Sources */,
 				22F8F1A22BAB52D8001A6472 /* ContextMenuView.swift in Sources */,
 				22F8F1552BAA091C001A6472 /* Hot_ProspectsApp.swift in Sources */,
@@ -296,6 +300,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,6 +330,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
