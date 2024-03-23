@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Hot_ProspectsApp: App {
     var body: some Scene {
         WindowGroup {
-            LocalNotificationView()
+            ContentView()
         }
+        .modelContainer(for: Prospect.self)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 enum FilterType {
     case none, contacted, uncontacted
@@ -13,6 +14,9 @@ enum FilterType {
 
 struct ProspectsView: View {
     let filter: FilterType
+
+    @Query(sort: \Prospect.name) var prospects: [Prospect]
+    @Environment(\.modelContext) var modelContext
 
     var title: String {
         switch filter {
@@ -27,12 +31,19 @@ struct ProspectsView: View {
 
     var body: some View {
         NavigationStack {
-            Text("Hello, World!")
+            Text("People: \(prospects.count)")
                 .navigationTitle(title)
+                .toolbar {
+                    Button("Scan", systemImage: "qrcode.viewfinder") {
+                        let prospect = Prospect(name: "Paul Hudson", emailAddress: "paul@hackingwithswift.com", isContacted: false)
+                        modelContext.insert(prospect)
+                    }
+                }
         }
     }
 }
 
 #Preview {
     ProspectsView(filter: .none)
+        .modelContainer(for: Prospect.self)
 }
