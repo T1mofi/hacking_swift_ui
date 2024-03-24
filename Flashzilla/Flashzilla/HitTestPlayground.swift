@@ -14,7 +14,7 @@ struct HitTestPlayground: View {
             Spacer().frame(height: 100)
             Text("World")
         }
-        contentShape(.rect)
+        .contentShape(.rect)
         .onTapGesture {
             print("VStack tapped!")
         }
