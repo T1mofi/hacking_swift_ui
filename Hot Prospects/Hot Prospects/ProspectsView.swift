@@ -49,11 +49,31 @@ struct ProspectsView: View {
     var body: some View {
         NavigationStack {
             List(prospects, selection: $selectedProspects) { prospect in
-                VStack(alignment: .leading) {
-                    Text(prospect.name)
-                        .font(.headline)
-                    Text(prospect.emailAddress)
-                        .foregroundStyle(.secondary)
+                HStack{
+                    VStack(alignment: .leading) {
+                        Text(prospect.name)
+                            .font(.headline)
+                        Text(prospect.emailAddress)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Spacer()
+
+                    if filter == .none {
+                        if prospect.isContacted {
+                            Image(systemName: "person.crop.circle.fill.badge.checkmark")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 36, height: 36)
+                                .foregroundColor(.green)
+                        } else {
+                            Image(systemName: "person.crop.circle.badge.xmark")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 36, height: 36)
+                                .foregroundColor(.blue)
+                        }
+                    }
                 }
                 .swipeActions {
                     if prospect.isContacted {
@@ -120,7 +140,11 @@ struct ProspectsView: View {
             modelContext.delete(prospect)
         }
     }
+}
 
+// MARK: - Notifications
+
+extension ProspectsView {
     func addNotification(for prospect: Prospect) {
         let center = UNUserNotificationCenter.current()
 
