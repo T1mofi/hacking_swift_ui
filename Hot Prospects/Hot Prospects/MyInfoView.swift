@@ -25,6 +25,7 @@ struct MyInfoView: View {
                 TextField("Email address", text: $email)
                     .textContentType(.emailAddress)
                     .font(.title)
+                    .autocapitalization(.none)
                 Image(uiImage: generateQRCode(from: "\(name)\n\(email)"))
                     .interpolation(.none)
                     .resizable()
