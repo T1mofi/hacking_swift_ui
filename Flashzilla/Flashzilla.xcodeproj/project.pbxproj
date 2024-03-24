@@ -16,6 +16,7 @@
 		2285B8562BB09AC600E39A8C /* HitTestPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2285B8552BB09AC600E39A8C /* HitTestPlayground.swift */; };
 		2285B8582BB09C8B00E39A8C /* PublishersPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2285B8572BB09C8B00E39A8C /* PublishersPlayground.swift */; };
 		2285B85A2BB09F0100E39A8C /* ScenePhasePlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2285B8592BB09F0100E39A8C /* ScenePhasePlayground.swift */; };
+		2285B85C2BB0A01800E39A8C /* AccessibilityPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2285B85B2BB0A01800E39A8C /* AccessibilityPlayground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		2285B8552BB09AC600E39A8C /* HitTestPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestPlayground.swift; sourceTree = "<group>"; };
 		2285B8572BB09C8B00E39A8C /* PublishersPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishersPlayground.swift; sourceTree = "<group>"; };
 		2285B8592BB09F0100E39A8C /* ScenePhasePlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhasePlayground.swift; sourceTree = "<group>"; };
+		2285B85B2BB0A01800E39A8C /* AccessibilityPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityPlayground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				2285B8552BB09AC600E39A8C /* HitTestPlayground.swift */,
 				2285B8572BB09C8B00E39A8C /* PublishersPlayground.swift */,
 				2285B8592BB09F0100E39A8C /* ScenePhasePlayground.swift */,
+				2285B85B2BB0A01800E39A8C /* AccessibilityPlayground.swift */,
 				2285B82D2BB0948100E39A8C /* Assets.xcassets */,
 				2285B82F2BB0948100E39A8C /* Preview Content */,
 			);
@@ -157,6 +160,7 @@
 				2285B82A2BB0948000E39A8C /* FlashzillaApp.swift in Sources */,
 				2285B85A2BB09F0100E39A8C /* ScenePhasePlayground.swift in Sources */,
 				2285B8562BB09AC600E39A8C /* HitTestPlayground.swift in Sources */,
+				2285B85C2BB0A01800E39A8C /* AccessibilityPlayground.swift in Sources */,
 				2285B8542BB099BC00E39A8C /* GestureSequencePlayground.swift in Sources */,
 				2285B8582BB09C8B00E39A8C /* PublishersPlayground.swift in Sources */,
 			);
