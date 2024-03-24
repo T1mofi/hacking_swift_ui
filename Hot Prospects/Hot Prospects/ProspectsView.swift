@@ -19,6 +19,10 @@ struct ProspectsView: View {
 
     @Query(sort: \Prospect.name) var prospects: [Prospect]
     @Environment(\.modelContext) var modelContext
+    @State private var sortOrder = [
+        SortDescriptor(\Prospect.name),
+        SortDescriptor(\Prospect.emailAddress)
+    ]
 
     @State private var isShowingScanner = false
     @State private var selectedProspects = Set<Prospect>()
@@ -42,7 +46,7 @@ struct ProspectsView: View {
 
             _prospects = Query(filter: #Predicate {
                 $0.isContacted == showContactedOnly
-            }, sort: [SortDescriptor(\Prospect.name)])
+            }, sort: [SortDescriptor(\Prospect.emailAddress)])
         }
     }
 
@@ -108,6 +112,22 @@ struct ProspectsView: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Scan", systemImage: "qrcode.viewfinder") {
                             isShowingScanner = true
+                        }
+                    }
+                    ToolbarItem {
+                        Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                            Picker("Sort", selection: $sortOrder) {
+                                Text("Sort by Name")
+                                    .tag([
+                                        SortDescriptor(\Prospect.name),
+                                        SortDescriptor(\Prospect.emailAddress)
+                                    ])
+                                Text("Sort by Email")
+                                    .tag([
+                                        SortDescriptor(\Prospect.emailAddress),
+                                        SortDescriptor(\Prospect.name)
+                                    ])
+                            }
                         }
                     }
                     ToolbarItem(placement: .topBarLeading) {
