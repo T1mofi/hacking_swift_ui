@@ -21,11 +21,11 @@ struct MyInfoView: View {
             Form {
                 TextField("Name", text: $name)
                     .textContentType(.name)
-                    .font(.title)
+                    .font(.title2)
 
                 TextField("Email address", text: $email)
                     .textContentType(.emailAddress)
-                    .font(.title)
+                    .font(.title2)
                     .autocapitalization(.none)
                 Image(uiImage: qrCode)
                     .interpolation(.none)

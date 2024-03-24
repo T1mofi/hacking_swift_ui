@@ -49,53 +49,58 @@ struct ProspectsView: View {
     var body: some View {
         NavigationStack {
             List(prospects, selection: $selectedProspects) { prospect in
-                HStack{
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundStyle(.secondary)
+                NavigationLink(destination: {
+                    ProspectEditingView(prospect: prospect)
+                }, label: {
+                    HStack{
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Spacer()
+
+                        if filter == .none {
+                            if prospect.isContacted {
+                                Image(systemName: "person.crop.circle.fill.badge.checkmark")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 36, height: 36)
+                                    .foregroundColor(.green)
+                            } else {
+                                Image(systemName: "person.crop.circle.badge.xmark")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 36, height: 36)
+                                    .foregroundColor(.blue)
+                            }
+                        }
                     }
-
-                    Spacer()
-
-                    if filter == .none {
+                    .swipeActions {
                         if prospect.isContacted {
-                            Image(systemName: "person.crop.circle.fill.badge.checkmark")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 36, height: 36)
-                                .foregroundColor(.green)
+                            Button("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark") {
+                                prospect.isContacted.toggle()
+                            }
+                            .tint(.blue)
                         } else {
-                            Image(systemName: "person.crop.circle.badge.xmark")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 36, height: 36)
-                                .foregroundColor(.blue)
+                            Button("Mark Contacted", systemImage: "person.crop.circle.fill.badge.checkmark") {
+                                prospect.isContacted.toggle()
+                            }
+                            .tint(.green)
+                        }
+                        Button("Remind Me", systemImage: "bell") {
+                            addNotification(for: prospect)
+                        }
+                        .tint(.orange)
+                        Button("Delete", systemImage: "trash", role: .destructive) {
+                            modelContext.delete(prospect)
                         }
                     }
-                }
-                .swipeActions {
-                    if prospect.isContacted {
-                        Button("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark") {
-                            prospect.isContacted.toggle()
-                        }
-                        .tint(.blue)
-                    } else {
-                        Button("Mark Contacted", systemImage: "person.crop.circle.fill.badge.checkmark") {
-                            prospect.isContacted.toggle()
-                        }
-                        .tint(.green)
-                    }
-                    Button("Remind Me", systemImage: "bell") {
-                        addNotification(for: prospect)
-                    }
-                    .tint(.orange)
-                    Button("Delete", systemImage: "trash", role: .destructive) {
-                        modelContext.delete(prospect)
-                    }
-                }
-                .tag(prospect)
+                    .tag(prospect)
+
+                })
             }
             Text("People: \(prospects.count)")
                 .navigationTitle(title)

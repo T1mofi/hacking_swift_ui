@@ -10,6 +10,7 @@
 		221846B52BAB57F80035620E /* LocalNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221846B42BAB57F80035620E /* LocalNotificationView.swift */; };
 		221846B82BAB5B1A0035620E /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 221846B72BAB5B1A0035620E /* SamplePackage */; };
 		221846BA2BAB5BFC0035620E /* PackagePlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221846B92BAB5BFC0035620E /* PackagePlaygroundView.swift */; };
+		2285B81C2BB080BD00E39A8C /* ProspectEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2285B81B2BB080BC00E39A8C /* ProspectEditingView.swift */; };
 		228C603A2BAEF0D00090FA02 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C60392BAEF0D00090FA02 /* Prospect.swift */; };
 		228C603D2BB04B600090FA02 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 228C603C2BB04B600090FA02 /* CodeScanner */; };
 		22E299F22BACD16600803473 /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E299F12BACD16600803473 /* ProspectsView.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		221846B42BAB57F80035620E /* LocalNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationView.swift; sourceTree = "<group>"; };
 		221846B92BAB5BFC0035620E /* PackagePlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagePlaygroundView.swift; sourceTree = "<group>"; };
+		2285B81B2BB080BC00E39A8C /* ProspectEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectEditingView.swift; sourceTree = "<group>"; };
 		228C60392BAEF0D00090FA02 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
 		22E299F12BACD16600803473 /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
 		22E299F32BACD17000803473 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				22F8F1542BAA091C001A6472 /* Hot_ProspectsApp.swift */,
 				22F8F1562BAA091C001A6472 /* ContentView.swift */,
 				22E299F12BACD16600803473 /* ProspectsView.swift */,
+				2285B81B2BB080BC00E39A8C /* ProspectEditingView.swift */,
 				22E299F32BACD17000803473 /* MyInfoView.swift */,
 				228C60382BAEF0C10090FA02 /* Models */,
 				221846BB2BAB5E760035620E /* PlaygroundViews */,
@@ -198,6 +201,7 @@
 				22F8F1632BAA0ADC001A6472 /* TabsView.swift in Sources */,
 				228C603A2BAEF0D00090FA02 /* Prospect.swift in Sources */,
 				22F8F1572BAA091C001A6472 /* ContentView.swift in Sources */,
+				2285B81C2BB080BD00E39A8C /* ProspectEditingView.swift in Sources */,
 				22E299F22BACD16600803473 /* ProspectsView.swift in Sources */,
 				221846BA2BAB5BFC0035620E /* PackagePlaygroundView.swift in Sources */,
 				22F8F1A42BAB5419001A6472 /* SwipeActionsView.swift in Sources */,
