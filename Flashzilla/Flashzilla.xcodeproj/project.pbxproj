@@ -13,6 +13,7 @@
 		2285B8312BB0948100E39A8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2285B8302BB0948100E39A8C /* Preview Assets.xcassets */; };
 		2285B8522BB094F300E39A8C /* GesturesPaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2285B8512BB094F300E39A8C /* GesturesPaygroundView.swift */; };
 		2285B8542BB099BC00E39A8C /* GestureSequencePlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2285B8532BB099BC00E39A8C /* GestureSequencePlayground.swift */; };
+		2285B8562BB09AC600E39A8C /* HitTestPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2285B8552BB09AC600E39A8C /* HitTestPlayground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		2285B8302BB0948100E39A8C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2285B8512BB094F300E39A8C /* GesturesPaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturesPaygroundView.swift; sourceTree = "<group>"; };
 		2285B8532BB099BC00E39A8C /* GestureSequencePlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureSequencePlayground.swift; sourceTree = "<group>"; };
+		2285B8552BB09AC600E39A8C /* HitTestPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestPlayground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				2285B82B2BB0948000E39A8C /* ContentView.swift */,
 				2285B8512BB094F300E39A8C /* GesturesPaygroundView.swift */,
 				2285B8532BB099BC00E39A8C /* GestureSequencePlayground.swift */,
+				2285B8552BB09AC600E39A8C /* HitTestPlayground.swift */,
 				2285B82D2BB0948100E39A8C /* Assets.xcassets */,
 				2285B82F2BB0948100E39A8C /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 				2285B8522BB094F300E39A8C /* GesturesPaygroundView.swift in Sources */,
 				2285B82C2BB0948000E39A8C /* ContentView.swift in Sources */,
 				2285B82A2BB0948000E39A8C /* FlashzillaApp.swift in Sources */,
+				2285B8562BB09AC600E39A8C /* HitTestPlayground.swift in Sources */,
 				2285B8542BB099BC00E39A8C /* GestureSequencePlayground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
