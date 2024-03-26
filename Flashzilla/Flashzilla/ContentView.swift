@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var cards = Array<Card>(repeating: .example, count: 10)
+    @State private var cards = Array<Card>(repeating: .example, count: 5)
     @Environment(\.accessibilityDifferentiateWithoutColor) var accessibilityDifferentiateWithoutColor
 
     @State private var timeRemaining = 100
@@ -41,6 +41,16 @@ struct ContentView: View {
                         .stacked(at: index, in: cards.count)
                     }
                 }
+                .allowsHitTesting(timeRemaining > 0)
+
+                if cards.isEmpty {
+                    Button("Start Again", action: resetCards)
+                        .padding()
+                        .background(.white)
+                        .foregroundStyle(.black)
+                        .clipShape(.capsule)
+                        .padding(.vertical)
+                }
             }
             if accessibilityDifferentiateWithoutColor {
                 VStack {
@@ -70,9 +80,11 @@ struct ContentView: View {
                 timeRemaining -= 1
             }
         }
-        .onChange(of: scenePhase) {
-            if scenePhase == .active {
-                isActive = true
+        .onChange(of: scenePhase) { oldPhase, newPhase in
+            if newPhase == .active {
+                if cards.isEmpty == false {
+                    isActive = true
+                }
             } else {
                 isActive = false
             }
@@ -81,6 +93,15 @@ struct ContentView: View {
 
     func removeCard(at index: Int) {
         cards.remove(at: index)
+        if cards.isEmpty {
+            isActive = false
+        }
+    }
+
+    func resetCards() {
+        cards = Array<Card>(repeating: .example, count: 5)
+        timeRemaining = 20
+        isActive = true
     }
 }
 
