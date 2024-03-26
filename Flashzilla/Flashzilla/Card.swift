@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Card: Codable {
+struct Card: Codable, Identifiable, Equatable {
+    var id: UUID = UUID()
     var prompt: String
     var answer: String
 
