@@ -31,8 +31,9 @@ struct CardView: View {
                 .background(
                     accessibilityDifferentiateWithoutColor
                     ? nil
+                    // TODO: - Impelement custom modifier
                     : RoundedRectangle(cornerRadius: 25)
-                        .fill(offset.width > 0 ? .green : .red)
+                        .fill(offset.width > -10 ? .green : offset.width < 10 ? .red : .white)
                 )
                 .shadow(radius: 10)
 
