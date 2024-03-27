@@ -21,7 +21,7 @@ struct CustomAlignmentGuide: View {
     var body: some View {
         ZStack {
             LinearGradient(colors: [.cyan, .green], startPoint: .top, endPoint: .bottom)
-            HStack {
+            HStack(alignment: .midAccountAndName) {
                 VStack {
                     Text("@t1mofi")
                         .alignmentGuide(.midAccountAndName) { d in d[VerticalAlignment.center] }
