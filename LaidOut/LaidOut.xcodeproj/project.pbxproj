@@ -14,6 +14,7 @@
 		22A618E32BB48B2700E37DF5 /* CustomAlignmentGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A618E22BB48B2700E37DF5 /* CustomAlignmentGuide.swift */; };
 		22A619442BB5BBFC00E37DF5 /* OffsetVsPositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A619432BB5BBFC00E37DF5 /* OffsetVsPositionView.swift */; };
 		22A619602BB5C20A00E37DF5 /* GeometryReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6195F2BB5C20A00E37DF5 /* GeometryReaderView.swift */; };
+		22A619762BB5DDC600E37DF5 /* CoordinateSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A619752BB5DDC600E37DF5 /* CoordinateSystemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		22A618E22BB48B2700E37DF5 /* CustomAlignmentGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlignmentGuide.swift; sourceTree = "<group>"; };
 		22A619432BB5BBFC00E37DF5 /* OffsetVsPositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetVsPositionView.swift; sourceTree = "<group>"; };
 		22A6195F2BB5C20A00E37DF5 /* GeometryReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderView.swift; sourceTree = "<group>"; };
+		22A619752BB5DDC600E37DF5 /* CoordinateSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateSystemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				22A618E22BB48B2700E37DF5 /* CustomAlignmentGuide.swift */,
 				22A619432BB5BBFC00E37DF5 /* OffsetVsPositionView.swift */,
 				22A6195F2BB5C20A00E37DF5 /* GeometryReaderView.swift */,
+				22A619752BB5DDC600E37DF5 /* CoordinateSystemView.swift */,
 				22A618C52BB36D3400E37DF5 /* Assets.xcassets */,
 				22A618C72BB36D3400E37DF5 /* Preview Content */,
 			);
@@ -149,6 +152,7 @@
 				22A618C42BB36D3300E37DF5 /* ContentView.swift in Sources */,
 				22A619442BB5BBFC00E37DF5 /* OffsetVsPositionView.swift in Sources */,
 				22A618E32BB48B2700E37DF5 /* CustomAlignmentGuide.swift in Sources */,
+				22A619762BB5DDC600E37DF5 /* CoordinateSystemView.swift in Sources */,
 				22A619602BB5C20A00E37DF5 /* GeometryReaderView.swift in Sources */,
 				22A618C22BB36D3300E37DF5 /* LaidOutApp.swift in Sources */,
 			);
@@ -292,6 +296,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,6 +326,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

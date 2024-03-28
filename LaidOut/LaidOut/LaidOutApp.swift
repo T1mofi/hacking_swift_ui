@@ -11,7 +11,7 @@ import SwiftUI
 struct LaidOutApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoordinateSystemView()
         }
     }
 }
