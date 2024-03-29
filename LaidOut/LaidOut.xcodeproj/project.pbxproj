@@ -16,6 +16,7 @@
 		22A619602BB5C20A00E37DF5 /* GeometryReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6195F2BB5C20A00E37DF5 /* GeometryReaderView.swift */; };
 		22A619762BB5DDC600E37DF5 /* CoordinateSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A619752BB5DDC600E37DF5 /* CoordinateSystemView.swift */; };
 		22A619C42BB72CDF00E37DF5 /* ScrollViewPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A619C32BB72CDF00E37DF5 /* ScrollViewPlayground.swift */; };
+		22A619C62BB7325300E37DF5 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A619C52BB7325300E37DF5 /* VisualEffectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		22A6195F2BB5C20A00E37DF5 /* GeometryReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderView.swift; sourceTree = "<group>"; };
 		22A619752BB5DDC600E37DF5 /* CoordinateSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateSystemView.swift; sourceTree = "<group>"; };
 		22A619C32BB72CDF00E37DF5 /* ScrollViewPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewPlayground.swift; sourceTree = "<group>"; };
+		22A619C52BB7325300E37DF5 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				22A6195F2BB5C20A00E37DF5 /* GeometryReaderView.swift */,
 				22A619752BB5DDC600E37DF5 /* CoordinateSystemView.swift */,
 				22A619C32BB72CDF00E37DF5 /* ScrollViewPlayground.swift */,
+				22A619C52BB7325300E37DF5 /* VisualEffectView.swift */,
 				22A618C52BB36D3400E37DF5 /* Assets.xcassets */,
 				22A618C72BB36D3400E37DF5 /* Preview Content */,
 			);
@@ -157,6 +160,7 @@
 				22A619442BB5BBFC00E37DF5 /* OffsetVsPositionView.swift in Sources */,
 				22A618E32BB48B2700E37DF5 /* CustomAlignmentGuide.swift in Sources */,
 				22A619762BB5DDC600E37DF5 /* CoordinateSystemView.swift in Sources */,
+				22A619C62BB7325300E37DF5 /* VisualEffectView.swift in Sources */,
 				22A619602BB5C20A00E37DF5 /* GeometryReaderView.swift in Sources */,
 				22A618C22BB36D3300E37DF5 /* LaidOutApp.swift in Sources */,
 			);
