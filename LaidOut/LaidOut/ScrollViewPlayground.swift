@@ -21,11 +21,17 @@ struct ScrollViewPlayground: View {
                             .background(colors[index % 7])
                             .rotation3DEffect(.degrees(proxy.frame(in: .global).minY - fullView.size.height / 2) / 5, axis: (x: 0, y: 1, z: 0))
                             .opacity(proxy.frame(in: .global).minY / 200)
+                            .scaleEffect(getScale(scale: proxy.frame(in: .global).minY / fullView.size.height))
                     }
                     .frame(height: 40)
                 }
             }
         }
+    }
+
+    func getScale(scale: CGFloat) -> CGSize {
+        let adjustedScale = 0.3 + 0.7 * scale
+        return CGSize(width: adjustedScale, height: 1.0)
     }
 }
 
