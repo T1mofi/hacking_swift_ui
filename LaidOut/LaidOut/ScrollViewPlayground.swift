@@ -13,17 +13,20 @@ struct ScrollViewPlayground: View {
     var body: some View {
         GeometryReader { fullView in
             ScrollView(.vertical) {
-                ForEach(0..<50) { index in
+                ForEach(0..<100) { index in
                     GeometryReader { proxy in
                         Text("Row #\(index)")
-                            .font(.title)
+                            .font(.caption)
+                            .foregroundStyle(.foreground)
                             .frame(maxWidth: .infinity)
-                            .background(colors[index % 7])
+                            .padding()
+                            .background(Color(hue: min(proxy.frame(in: .global).minY / fullView.size.height, 1.0), saturation: 0.8, brightness: 1))
+                            .clipShape(.rect(cornerRadius: 10))
                             .rotation3DEffect(.degrees(proxy.frame(in: .global).minY - fullView.size.height / 2) / 5, axis: (x: 0, y: 1, z: 0))
                             .opacity(proxy.frame(in: .global).minY / 200)
                             .scaleEffect(getScale(scale: proxy.frame(in: .global).minY / fullView.size.height))
                     }
-                    .frame(height: 40)
+                    .frame(height: 20)
                 }
             }
         }
