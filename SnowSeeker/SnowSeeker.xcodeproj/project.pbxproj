@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224BA0642BC2B994007CA006 /* GroupsPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224BA0632BC2B994007CA006 /* GroupsPlaygroundView.swift */; };
+		224BA0662BC2BB69007CA006 /* ViewThatFitsPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224BA0652BC2BB69007CA006 /* ViewThatFitsPlayground.swift */; };
 		2290E25C2BC06E8B007C9219 /* SnowSeekerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290E25B2BC06E8B007C9219 /* SnowSeekerApp.swift */; };
 		2290E25E2BC06E8B007C9219 /* PlaygorundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290E25D2BC06E8B007C9219 /* PlaygorundView.swift */; };
 		2290E2602BC06E8D007C9219 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2290E25F2BC06E8D007C9219 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		224BA0632BC2B994007CA006 /* GroupsPlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsPlaygroundView.swift; sourceTree = "<group>"; };
+		224BA0652BC2BB69007CA006 /* ViewThatFitsPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewThatFitsPlayground.swift; sourceTree = "<group>"; };
 		2290E2582BC06E8B007C9219 /* SnowSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2290E25B2BC06E8B007C9219 /* SnowSeekerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowSeekerApp.swift; sourceTree = "<group>"; };
 		2290E25D2BC06E8B007C9219 /* PlaygorundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygorundView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				2290E25B2BC06E8B007C9219 /* SnowSeekerApp.swift */,
 				2290E25D2BC06E8B007C9219 /* PlaygorundView.swift */,
+				224BA0632BC2B994007CA006 /* GroupsPlaygroundView.swift */,
+				224BA0652BC2BB69007CA006 /* ViewThatFitsPlayground.swift */,
 				2290E25F2BC06E8D007C9219 /* Assets.xcassets */,
 				2290E2612BC06E8D007C9219 /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224BA0642BC2B994007CA006 /* GroupsPlaygroundView.swift in Sources */,
 				2290E25E2BC06E8B007C9219 /* PlaygorundView.swift in Sources */,
+				224BA0662BC2BB69007CA006 /* ViewThatFitsPlayground.swift in Sources */,
 				2290E25C2BC06E8B007C9219 /* SnowSeekerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
