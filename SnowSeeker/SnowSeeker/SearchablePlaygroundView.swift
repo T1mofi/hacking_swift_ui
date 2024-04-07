@@ -1,5 +1,5 @@
 //
-//  SerchablePlaygroundView.swift
+//  SearchablePlaygroundView.swift
 //  SnowSeeker
 //
 //  Created by Tima Sikorski on 07/04/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SerchablePlaygroundView: View {
+struct SearchablePlaygroundView: View {
     @State private var searchText = ""
     let allNames = ["Subh", "Vina", "Melvin", "Stefanie"]
 
@@ -31,5 +31,5 @@ struct SerchablePlaygroundView: View {
 }
 
 #Preview {
-    SerchablePlaygroundView()
+    SearchablePlaygroundView()
 }
