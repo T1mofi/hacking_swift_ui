@@ -20,5 +20,17 @@ struct Resort: Codable, Hashable, Identifiable {
     var runs: Int
     var facilities: [String]
 
+    var sizeString: String {
+        switch self.size {
+        case 1: "Small"
+        case 2: "Average"
+        default: "Large"
+        }
+    }
+
+    var priceString: String {
+        String(repeating: "$", count: self.price)
+    }
+
     static let example = (Bundle.main.decode("resorts.json") as [Resort])[0]
 }
