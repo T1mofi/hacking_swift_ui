@@ -89,10 +89,10 @@
 			children = (
 				2290E25B2BC06E8B007C9219 /* SnowSeekerApp.swift */,
 				224BA0A52BC46FA5007CA006 /* Resort.swift */,
-				224BA0AD2BC48A6F007CA006 /* WelcomeView.swift */,
 				224BA0AB2BC4896E007CA006 /* ContentView.swift */,
-				224BA0B12BC48CFE007CA006 /* SkiDetailsView.swift */,
+				224BA0AD2BC48A6F007CA006 /* WelcomeView.swift */,
 				224BA0AF2BC48BC6007CA006 /* ResortView.swift */,
+				224BA0B12BC48CFE007CA006 /* SkiDetailsView.swift */,
 				224BA0B32BC48D93007CA006 /* ResortDetailsView.swift */,
 				224BA0A92BC487DE007CA006 /* Bundle-Decodable.swift */,
 				224BA0A72BC48756007CA006 /* resorts.json */,
