@@ -57,12 +57,12 @@ struct ContentView: View {
             .navigationTitle("Resorts")
             .navigationDestination(for: Resort.self) { resort in
                 ResortView(resort: resort)
-                    .environment(favorites)
             }
             .searchable(text: $searchText, prompt: "Search for a resort")
         } detail: {
             WelcomeView()
         }
+        .environment(favorites)
     }
 }
 
