@@ -41,7 +41,8 @@ struct ResortView: View {
                     }
                 }
                 .padding(.vertical)
-                .background(.primary.opacity(0.1))
+                .background(.ultraThickMaterial)
+                .foregroundStyle(.primary)
 
                 Group {
                     Text(resort.description)
@@ -63,7 +64,7 @@ struct ResortView: View {
                     }
                 }
                 .padding(.horizontal)
-                
+
                 Button(favorites.contains(resort) ? "Remove from Favorites" : "Add to Favorites") {
                     if favorites.contains(resort) {
                         favorites.remove(resort)
