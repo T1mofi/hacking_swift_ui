@@ -72,6 +72,45 @@
 			path = Playgrounds;
 			sourceTree = "<group>";
 		};
+		2281ACFA2BC99E2E0074C587 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				224BA0AB2BC4896E007CA006 /* ContentView.swift */,
+				224BA0AD2BC48A6F007CA006 /* WelcomeView.swift */,
+				224BA0AF2BC48BC6007CA006 /* ResortView.swift */,
+				224BA0B12BC48CFE007CA006 /* SkiDetailsView.swift */,
+				224BA0B32BC48D93007CA006 /* ResortDetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2281ACFB2BC99E650074C587 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				224BA0A92BC487DE007CA006 /* Bundle-Decodable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2281ACFC2BC99E7D0074C587 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				224BA0A52BC46FA5007CA006 /* Resort.swift */,
+				2281AC722BC66FDD0074C587 /* Facility.swift */,
+				2281AC752BC679960074C587 /* Favorites.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2281ACFD2BC99EAC0074C587 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				224BA0A72BC48756007CA006 /* resorts.json */,
+				2290E25F2BC06E8D007C9219 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2290E24F2BC06E8B007C9219 = {
 			isa = PBXGroup;
 			children = (
@@ -92,18 +131,11 @@
 			isa = PBXGroup;
 			children = (
 				2290E25B2BC06E8B007C9219 /* SnowSeekerApp.swift */,
-				2281AC722BC66FDD0074C587 /* Facility.swift */,
-				224BA0A52BC46FA5007CA006 /* Resort.swift */,
-				2281AC752BC679960074C587 /* Favorites.swift */,
-				224BA0AB2BC4896E007CA006 /* ContentView.swift */,
-				224BA0AD2BC48A6F007CA006 /* WelcomeView.swift */,
-				224BA0AF2BC48BC6007CA006 /* ResortView.swift */,
-				224BA0B12BC48CFE007CA006 /* SkiDetailsView.swift */,
-				224BA0B32BC48D93007CA006 /* ResortDetailsView.swift */,
-				224BA0A92BC487DE007CA006 /* Bundle-Decodable.swift */,
-				224BA0A72BC48756007CA006 /* resorts.json */,
+				2281ACFC2BC99E7D0074C587 /* Models */,
+				2281ACFA2BC99E2E0074C587 /* Views */,
+				2281ACFB2BC99E650074C587 /* Extensions */,
+				2281ACFD2BC99EAC0074C587 /* Resources */,
 				224BA0A42BC46F8E007CA006 /* Playgrounds */,
-				2290E25F2BC06E8D007C9219 /* Assets.xcassets */,
 				2290E2612BC06E8D007C9219 /* Preview Content */,
 			);
 			path = SnowSeeker;
