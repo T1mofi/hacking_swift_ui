@@ -7,23 +7,48 @@
 
 import SwiftUI
 
+private enum SortMethod: String, CaseIterable, Identifiable {
+    case `default`
+    case name
+    case country
+
+    var id: String {
+        self.rawValue
+    }
+}
+
 struct ContentView: View {
     let resorts: [Resort] = Bundle.main.decode("resorts.json")
     @State private var searchText = ""
     @State private var favorites = Favorites()
+    @State private var sortOredr: SortMethod = .default
 
     var filteredResorts: [Resort] {
         if searchText.isEmpty {
-            resorts
+            sortedResorts
         } else {
-            resorts.filter { $0.name.localizedStandardContains(searchText) }
+            sortedResorts.filter { $0.name.localizedStandardContains(searchText) }
+        }
+    }
+
+    var sortedResorts: [Resort] {
+        switch sortOredr {
+        case .default:
+            return resorts
+        case .name:
+            return resorts.sorted { lhs, rhs in
+                lhs.name < rhs.name
+            }
+        case .country:
+            return resorts.sorted { lhs, rhs in
+                lhs.country < rhs.country
+            }
         }
     }
 
     var body: some View {
         NavigationSplitView {
             List(filteredResorts) { resort in
-                Text(resort.name)
                 NavigationLink(value: resort) {
                     HStack {
                         Image(resort.country)
@@ -57,6 +82,16 @@ struct ContentView: View {
             .navigationTitle("Resorts")
             .navigationDestination(for: Resort.self) { resort in
                 ResortView(resort: resort)
+            }
+            .toolbar {
+                Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                    Picker("Sort", selection: $sortOredr) {
+                        ForEach(SortMethod.allCases) { sortMethod in
+                            Text(sortMethod.rawValue)
+                                .tag(sortMethod)
+                        }
+                    }
+                }
             }
             .searchable(text: $searchText, prompt: "Search for a resort")
         } detail: {
